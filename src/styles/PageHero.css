@@ -1,0 +1,88 @@
+/* ===== Page Hero Banner ===== */
+.page-hero {
+  background: linear-gradient(135deg, #0f1c3f 0%, #1e3a8a 55%, #1d4ed8 100%);
+  padding: 100px 0 70px;
+  position: relative;
+  overflow: hidden;
+}
+.page-hero-bg { position: absolute; inset: 0; pointer-events: none; }
+.page-hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+}
+.page-hero-orb-1 {
+  width: 420px; height: 420px;
+  background: rgba(99,102,241,0.25);
+  top: -120px; left: -80px;
+}
+.page-hero-orb-2 {
+  width: 300px; height: 300px;
+  background: rgba(249,115,22,0.18);
+  bottom: -80px; right: -60px;
+}
+.page-hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.page-hero-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+.page-hero-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 16px;
+}
+.page-hero-breadcrumb a {
+  color: rgba(255,255,255,0.55);
+  transition: color 0.2s ease;
+}
+.page-hero-breadcrumb a:hover { color: #fff; }
+.page-hero-breadcrumb span { color: rgba(255,255,255,0.4); }
+
+.page-hero-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fdba74;
+  background: rgba(249,115,22,0.15);
+  border: 1px solid rgba(249,115,22,0.35);
+  padding: 5px 16px;
+  border-radius: 50px;
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.page-hero-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 18px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.page-hero-subtitle {
+  font-size: 16px;
+  color: rgba(255,255,255,0.7);
+  max-width: 580px;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+
+@media (max-width: 640px) {
+  .page-hero { padding: 80px 0 50px; }
+  .page-hero-title { font-size: 2rem; }
+}

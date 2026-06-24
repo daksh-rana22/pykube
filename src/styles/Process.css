@@ -1,0 +1,102 @@
+/* ===== Process ===== */
+.process {
+  padding: 90px 0;
+  background: linear-gradient(135deg, #0f1f5c 0%, #1e3a8a 50%, #1d4ed8 100%);
+  position: relative;
+  overflow: hidden;
+}
+.process-bg-orb {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: rgba(249, 115, 22, 0.07);
+  filter: blur(80px);
+  top: -100px;
+  right: -100px;
+  pointer-events: none;
+}
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+  position: relative;
+  z-index: 1;
+}
+.process-step {
+  text-align: center;
+  padding: 28px 14px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.process-step:hover {
+  transform: translateY(-6px);
+}
+.step-header {
+  position: relative;
+  margin-bottom: 16px;
+  display: inline-block;
+}
+.step-icon-ring {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.10);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 28px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+.process-step:hover .step-icon-ring {
+  background: var(--sc);
+  border-color: var(--sc);
+  transform: scale(1.12);
+}
+.step-num {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--sc);
+  color: white;
+  font-size: 9px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.step-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.step-desc {
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.58);
+  line-height: 1.55;
+}
+.step-arrow {
+  position: absolute;
+  right: -8px;
+  top: 36px;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.25);
+}
+@media (max-width: 1024px) {
+  .process-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

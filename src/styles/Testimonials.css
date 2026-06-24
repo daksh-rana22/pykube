@@ -1,0 +1,156 @@
+/* ===== Testimonials ===== */
+.testimonials-section {
+  padding: 90px 0;
+  background: #f8fafc;
+}
+.testimonials-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.7fr;
+  gap: 56px;
+  align-items: start;
+}
+.achievements-panel {
+  background: linear-gradient(145deg, #1e3a8a, #2563eb);
+  border-radius: 24px;
+  padding: 40px 34px;
+  color: white;
+}
+.achievements-title {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+.achievements-title span {
+  color: #fde68a;
+}
+.achievements-sub {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 28px;
+}
+.achievements-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.achievement-card {
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+.achievement-card:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: scale(1.04);
+}
+.ach-icon {
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+.ach-num {
+  font-size: 1.7rem;
+  font-weight: 900;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+}
+.ach-label {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.4;
+}
+.testimonial-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.testimonial-card {
+  background: white;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 22px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.testimonial-card:hover,
+.tcard-active {
+  border-color: #2563eb;
+  box-shadow: 0 4px 24px rgba(37, 99, 235, 0.12);
+  transform: translateX(5px);
+}
+.tcard-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.tcard-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 800;
+  color: white;
+  flex-shrink: 0;
+}
+.tcard-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+}
+.tcard-role {
+  font-size: 12px;
+  color: #64748b;
+}
+.tcard-company {
+  font-size: 11px;
+  color: #2563eb;
+  font-weight: 600;
+  margin-top: 2px;
+}
+.tcard-stars {
+  margin-left: auto;
+  color: #f59e0b;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+.tcard-text {
+  font-size: 13px;
+  color: #475569;
+  line-height: 1.65;
+  font-style: italic;
+}
+.tcard-dots {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  justify-content: center;
+}
+.tdot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.tdot-active {
+  background: #2563eb;
+  width: 22px;
+  border-radius: 4px;
+}
+@media (max-width: 900px) {
+  .testimonials-layout {
+    grid-template-columns: 1fr;
+  }
+}
