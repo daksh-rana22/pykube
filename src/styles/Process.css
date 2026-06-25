@@ -1,7 +1,7 @@
 /* ===== Process ===== */
 .process {
   padding: 90px 0;
-  background: linear-gradient(135deg, #0f1f5c 0%, #1e3a8a 50%, #1d4ed8 100%);
+  background: var(--grad-process);
   position: relative;
   overflow: hidden;
 }
@@ -52,8 +52,8 @@
   backdrop-filter: blur(8px);
 }
 .process-step:hover .step-icon-ring {
-  background: var(--sc);
-  border-color: var(--sc);
+  background: var(--orange-500);
+  border-color: var(--orange-500);
   transform: scale(1.12);
 }
 .step-num {
@@ -63,7 +63,7 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: var(--sc);
+  background: var(--orange-500);
   color: white;
   font-size: 9px;
   font-weight: 800;

@@ -1,7 +1,7 @@
 /* ===== Programs ===== */
 .programs {
   padding: 90px 0;
-  background: #fff;
+  background: var(--bg-page);
 }
 .programs-grid {
   display: grid;
@@ -9,10 +9,10 @@
   gap: 26px;
 }
 .program-card {
-  background: #fff;
-  border: 1.5px solid #e2e8f0;
+  background: var(--bg-subtle);
+  border: 1.5px solid var(--border-light);
   border-radius: 18px;
-  padding: 28px 24px;
+  padding: 0;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -21,8 +21,31 @@
 }
 .program-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 56px rgba(15, 31, 92, 0.12);
+  box-shadow: var(--shadow-xl);
   border-color: var(--pc);
+}
+.program-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border-top-left-radius: 16.5px;
+  border-top-right-radius: 16.5px;
+}
+.program-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.program-card:hover .program-card-image {
+  transform: scale(1.06);
+}
+.program-card-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 .program-top {
   display: flex;
@@ -58,13 +81,13 @@
 .program-title {
   font-size: 1.05rem;
   font-weight: 700;
-  color: #0f172a;
+  color: var(--text-primary);
   margin-bottom: 8px;
   line-height: 1.35;
 }
 .program-desc {
   font-size: 13px;
-  color: #475569;
+  color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 14px;
 }
@@ -87,8 +110,8 @@
 
 /* Expandable Curriculum */
 .program-curriculum {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
+  background: var(--bg-page);
+  border: 1px solid var(--border-light);
   border-radius: 12px;
   padding: 16px;
   margin-bottom: 16px;
@@ -101,7 +124,7 @@
 .curriculum-title {
   font-size: 12px;
   font-weight: 700;
-  color: #0f172a;
+  color: var(--text-primary);
   letter-spacing: 0.5px;
   margin-bottom: 12px;
   text-transform: uppercase;
@@ -109,7 +132,7 @@
 .curriculum-phase {
   margin-bottom: 10px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid var(--border-light);
 }
 .curriculum-phase:last-child {
   border-bottom: none;
@@ -124,9 +147,18 @@
 }
 .phase-topics {
   font-size: 11.5px;
-  color: #475569;
+  color: var(--text-secondary);
   line-height: 1.55;
   margin: 0;
+}
+
+/* Dark Theme Overrides for Dynamic Colors */
+.dark-theme .skill-tag,
+.dark-theme .program-duration {
+  background: rgba(255, 255, 255, 0.04);
+}
+.dark-theme .program-icon-wrap {
+  background: rgba(255, 255, 255, 0.05);
 }
 
 /* Actions */

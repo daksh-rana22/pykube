@@ -19,10 +19,10 @@ export default function HomePage() {
       <Programs />
       <About />
       <Process />
-      <FAQ />
       <Testimonials />
       <Companies />
       <Blog />
+      <FAQ />
       <CTA />
     </main>
   );

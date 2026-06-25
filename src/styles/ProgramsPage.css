@@ -1,0 +1,68 @@
+/* ===== Programs Page Styles ===== */
+
+.prog-highlights-bar {
+  background: var(--gray-950);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 24px 0;
+  position: relative;
+  z-index: 5;
+}
+
+.prog-highlights-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.prog-highlight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--r-md);
+  transition: all 0.3s var(--ease);
+}
+
+.prog-highlight:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.prog-hl-icon {
+  font-size: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prog-hl-label {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 0.2px;
+}
+
+@media (max-width: 991px) {
+  .prog-highlights-inner {
+    justify-content: center;
+    gap: 16px;
+  }
+  .prog-highlight {
+    flex: 1 1 calc(50% - 16px);
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .prog-highlights-bar {
+    padding: 16px 0;
+  }
+  .prog-highlight {
+    flex: 1 1 100%;
+  }
+}

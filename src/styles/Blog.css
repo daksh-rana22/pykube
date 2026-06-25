@@ -1,7 +1,7 @@
 /* ===== Blog ===== */
 .blog-section {
   padding: 90px 0;
-  background: #fff;
+  background: var(--bg-page);
 }
 .blog-grid {
   display: grid;
@@ -11,13 +11,13 @@
 .blog-card {
   border-radius: 18px;
   overflow: hidden;
-  border: 1px solid #e2e8f0;
-  background: #fff;
+  border: 1px solid var(--border-light);
+  background: var(--bg-subtle);
   transition: all 0.3s ease;
 }
 .blog-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 56px rgba(15, 31, 92, 0.12);
+  box-shadow: var(--shadow-xl);
   border-color: transparent;
 }
 .blog-hero {
@@ -35,14 +35,14 @@
   position: absolute;
   top: 14px;
   left: 14px;
-  background: white;
-  color: var(--bc);
+  background: var(--bg-page);
+  color: var(--text-secondary);
   font-size: 10px;
   font-weight: 800;
   padding: 4px 10px;
   border-radius: 6px;
   letter-spacing: 0.5px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
 }
 .blog-body {
   padding: 22px 20px;
@@ -60,13 +60,13 @@
 .blog-title {
   font-size: 1rem;
   font-weight: 700;
-  color: #0f172a;
+  color: var(--text-primary);
   line-height: 1.4;
   margin-bottom: 10px;
 }
 .blog-desc {
   font-size: 13px;
-  color: #64748b;
+  color: var(--text-muted);
   line-height: 1.6;
   margin-bottom: 18px;
 }
