@@ -16,7 +16,18 @@ const navLinks = [
       { label: 'Data Scientist', href: '/courses/data-scientist', icon: '🤖', sub: 'ML, PySpark, Statistics', color: '#ef4444', bg: '#fef2f2' }
     ]
   },
-  { label: 'Placement Support', href: '/#process' },
+  { 
+    label: 'Services', 
+    href: '/services',
+    dropdown: [
+      { label: 'Interview Preparation', icon: '🤝', sub: 'Practice interviews & get the right hire guidance', href: '/services#interview-preparation' },
+      { label: 'Sales & Marketing', icon: '📈', sub: 'Lead generation, revenue & business growth', href: '/services#sales-marketing' },
+      { label: 'Job Assistance', icon: '💼', sub: '100% job assistance & professional career guidance', href: '/services#job-assistance' },
+      { label: 'Software Development', icon: '💻', sub: 'Custom software to meet your business goals', href: '/services#software-development' },
+      { label: 'UX/UI Design', icon: '🎨', sub: 'Design thinking & UI/UX strategies that convert', href: '/services#ux-ui-design' },
+      { label: 'Web Development', icon: '🌐', sub: 'Web-based & mobile web development solutions', href: '/services#web-development' },
+    ]
+  },
   { label: 'Success Stories', href: '/#testimonials' },
   { label: 'About Us', href: '/#about' },
   { 
@@ -78,7 +89,7 @@ export default function Navbar() {
                 )}
               </a>
               {link.dropdown && activeDropdown === link.label && (
-                <div className={`dropdown-menu ${link.label === 'Programs' ? 'mega-dropdown' : 'standard-dropdown'}`}>
+                <div className={`dropdown-menu ${link.label === 'Programs' ? 'mega-dropdown' : link.label === 'Services' ? 'services-dropdown' : 'standard-dropdown'}`}>
                   {link.label === 'Programs' ? (
                     <div className="mega-dropdown-inner">
                       <div className="mega-dropdown-left">
@@ -102,6 +113,21 @@ export default function Navbar() {
                           <p>Schedule a 1-on-1 career mapping call with our US tech advisors.</p>
                           <a href="/#contact" className="promo-cta-btn">Book Free Call</a>
                         </div>
+                      </div>
+                    </div>
+                  ) : link.label === 'Services' ? (
+                    <div className="services-dropdown-inner">
+                      <div className="services-dropdown-title">What We Offer</div>
+                      <div className="services-dropdown-grid">
+                        {link.dropdown.map(item => (
+                          <a key={item.label} href={item.href} className="service-dropdown-item">
+                            <span className="service-item-icon">{item.icon}</span>
+                            <div className="service-item-text">
+                              <span className="service-item-title">{item.label}</span>
+                              <span className="service-item-desc">{item.sub}</span>
+                            </div>
+                          </a>
+                        ))}
                       </div>
                     </div>
                   ) : (

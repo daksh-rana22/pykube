@@ -261,6 +261,75 @@
   background: var(--blue-500);
   transform: scale(1.2);
 }
+
+/* ── Services Dropdown ── */
+.dropdown-menu.services-dropdown {
+  min-width: 460px;
+  padding: 8px;
+}
+.services-dropdown-inner {
+  padding: 4px;
+}
+.services-dropdown-title {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-faint);
+  padding: 6px 12px 10px;
+  border-bottom: 1px solid var(--border-light);
+  margin-bottom: 8px;
+}
+.services-dropdown-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+}
+.service-dropdown-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.service-dropdown-item:hover {
+  background: var(--bg-subtle);
+}
+.service-item-icon {
+  font-size: 18px;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-subtle);
+  border-radius: 8px;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+.service-dropdown-item:hover .service-item-icon {
+  background: var(--blue-50);
+}
+.service-item-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.service-item-title {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.service-item-desc {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+.service-dropdown-item:hover .service-item-title {
+  color: var(--blue-500);
+}
 .navbar-cta {
   font-size: 13px;
   padding: 10px 22px;

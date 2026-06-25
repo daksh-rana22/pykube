@@ -131,7 +131,7 @@ export default function ProgramDetailsPage() {
 
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
-  const [expandedSections, setExpandedSections] = useState({ '01': true });
+  const [expandedSections, setExpandedSections] = useState({});
 
   const toggleSection = (num) => {
     setExpandedSections(prev => ({ ...prev, [num]: !prev[num] }));
@@ -140,7 +140,7 @@ export default function ProgramDetailsPage() {
   useEffect(() => {
     setSubmitted(false);
     setForm({ name: '', email: '', phone: '', message: '' });
-    setExpandedSections({ '01': true });
+    setExpandedSections({});
     window.scrollTo(0, 0);
   }, [id]);
 

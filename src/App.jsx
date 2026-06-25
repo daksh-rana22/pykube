@@ -5,11 +5,13 @@ import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import ProgramsPage from './pages/ProgramsPage';
 import ProgramDetailsPage from './pages/ProgramDetailsPage';
+import ServicesPage from './pages/ServicesPage';
 import ScrollToAnchor from './components/ScrollToAnchor';
 
 function App() {
   return (
     <Router>
+      {/* Handles smooth scrolling to hash anchors across routes */}
       <ScrollToAnchor />
       <Navbar />
       <Routes>
@@ -17,6 +19,7 @@ function App() {
         <Route path="/courses" element={<ProgramsPage />} />
         <Route path="/programs" element={<ProgramsPage />} />
         <Route path="/courses/:id" element={<ProgramDetailsPage />} />
+        <Route path="/services" element={<ServicesPage />} />
       </Routes>
       <Footer />
     </Router>
