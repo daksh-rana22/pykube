@@ -20,16 +20,16 @@ const navLinks = [
     label: 'Services', 
     href: '/services',
     dropdown: [
-      { label: 'Interview Preparation', icon: '🤝', sub: 'Practice interviews & get the right hire guidance', href: '/services#interview-preparation' },
-      { label: 'Sales & Marketing', icon: '📈', sub: 'Lead generation, revenue & business growth', href: '/services#sales-marketing' },
-      { label: 'Job Assistance', icon: '💼', sub: '100% job assistance & professional career guidance', href: '/services#job-assistance' },
-      { label: 'Software Development', icon: '💻', sub: 'Custom software to meet your business goals', href: '/services#software-development' },
-      { label: 'UX/UI Design', icon: '🎨', sub: 'Design thinking & UI/UX strategies that convert', href: '/services#ux-ui-design' },
-      { label: 'Web Development', icon: '🌐', sub: 'Web-based & mobile web development solutions', href: '/services#web-development' },
+      { label: 'Interview Preparation', icon: '🤝', sub: 'Practice interviews & get the right hire guidance', href: '/services/interview-preparation' },
+      { label: 'Sales & Marketing', icon: '📈', sub: 'Lead generation, revenue & business growth', href: '/services/sales-marketing' },
+      { label: 'Job Assistance', icon: '💼', sub: '100% job assistance & professional career guidance', href: '/services/job-assistance' },
+      { label: 'Software Development', icon: '💻', sub: 'Custom software to meet your business goals', href: '/services/software-development' },
+      { label: 'UX/UI Design', icon: '🎨', sub: 'Design thinking & UI/UX strategies that convert', href: '/services/ux-ui-design' },
+      { label: 'Web Development', icon: '🌐', sub: 'Web-based & mobile web development solutions', href: '/services/web-development' },
     ]
   },
   { label: 'Success Stories', href: '/#testimonials' },
-  { label: 'About Us', href: '/#about' },
+  { label: 'About Us', href: '/about-us' },
   { 
     label: 'Resources', 
     href: '/#blog', 

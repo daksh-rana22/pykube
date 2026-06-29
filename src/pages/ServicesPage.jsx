@@ -5,12 +5,12 @@ import CTA from '../components/CTA';
 import '../styles/ServicesPage.css';
 
 const highlights = [
-  { icon: '🎯', label: '6 Core Services' },
-  { icon: '🤝', label: 'US Industry Experts' },
-  { icon: '💼', label: '100% Job Assistance' },
-  { icon: '🚀', label: 'End-to-End Support' },
-  { icon: '🎨', label: 'Design & Development' },
-  { icon: '📈', label: 'Growth & Marketing' },
+  { icon: '👨‍🏫', label: '10+ Expert Trainers' },
+  { icon: '💻', label: 'Live Online Classes' },
+  { icon: '📁', label: 'Real-Time Projects' },
+  { icon: '🎤', label: 'Mock Interviews' },
+  { icon: '🚀', label: '100% Placement Support' },
+  { icon: '🎯', label: '6 Job-Ready Courses' },
 ];
 
 export default function ServicesPage() {
@@ -42,10 +42,10 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ── Highlights Bar ── */}
+      {/* ── Highlights Bar (Horizontal Ticker) ── */}
       <section className="serv-highlights-bar">
-        <div className="container serv-highlights-inner">
-          {highlights.map((h, i) => (
+        <div className="serv-highlights-track">
+          {[...highlights, ...highlights, ...highlights].map((h, i) => (
             <div className="serv-highlight" key={i}>
               <span className="serv-hl-icon">{h.icon}</span>
               <span className="serv-hl-label">{h.label}</span>
@@ -114,9 +114,9 @@ export default function ServicesPage() {
                 </div>
 
                 {/* CTA */}
-                <a href="/#contact" className="service-card-cta" style={{ background: service.color }}>
-                  Get Started →
-                </a>
+                <Link to={`/services/${service.id}`} className="service-card-cta" style={{ background: service.color }}>
+                  View Details & Get Started →
+                </Link>
               </div>
             ))}
           </div>

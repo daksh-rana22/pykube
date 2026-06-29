@@ -13,6 +13,7 @@ const highlights = [
 ];
 
 export default function ProgramsPage() {
+  const marqueeHighlights = [...highlights, ...highlights, ...highlights];
   return (
     <main>
       <PageHero
@@ -23,13 +24,15 @@ export default function ProgramsPage() {
       />
       {/* Highlights bar */}
       <section className="prog-highlights-bar">
-        <div className="container prog-highlights-inner">
-          {highlights.map((h, i) => (
-            <div className="prog-highlight" key={i}>
-              <span className="prog-hl-icon">{h.icon}</span>
-              <span className="prog-hl-label">{h.label}</span>
-            </div>
-          ))}
+        <div className="prog-marquee-container">
+          <div className="prog-marquee-track">
+            {marqueeHighlights.map((h, i) => (
+              <div className="prog-highlight" key={`h-${i}`}>
+                <span className="prog-hl-icon">{h.icon}</span>
+                <span className="prog-hl-label">{h.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
       <Programs />

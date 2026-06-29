@@ -9,11 +9,6 @@ export default function PageHero({ tag, title, subtitle, breadcrumb }) {
         <div className="page-hero-grid" />
       </div>
       <div className="container page-hero-inner">
-        <div className="page-hero-breadcrumb">
-          <a href="/">Home</a>
-          <span>›</span>
-          <span>{breadcrumb}</span>
-        </div>
         {tag && <span className="page-hero-tag">{tag}</span>}
         <h1 className="page-hero-title">{title}</h1>
         {subtitle && <p className="page-hero-subtitle">{subtitle}</p>}

@@ -72,6 +72,7 @@ const companiesList = [
 ];
 
 export default function Companies() {
+  const marqueeItems = [...companiesList, ...companiesList, ...companiesList];
   return (
     <section className="companies-section">
       <div className="container">
@@ -83,9 +84,12 @@ export default function Companies() {
           </p>
         </div>
         
-        <div className="companies-grid">
-          {companiesList.map((company, index) => (
-            <div className="company-card" key={index}>
+      </div>
+      
+      <div className="companies-marquee-container">
+        <div className="companies-marquee-track">
+          {marqueeItems.map((company, index) => (
+            <div className="company-card" key={`c-${index}`}>
               <div className="company-logo-wrapper">
                 {company.logo}
               </div>

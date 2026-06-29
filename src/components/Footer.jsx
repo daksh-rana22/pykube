@@ -7,7 +7,7 @@ const quickLinks = [
   { label: 'Programs', href: '#programs' },
   { label: 'Our Process', href: '#process' },
   { label: 'Success Stories', href: '#testimonials' },
-  { label: 'About Us', href: '#about-us' },
+  { label: 'About Us', href: '/about-us' },
   { label: 'FAQ', href: '#faq' },
   { label: 'Contact Us', href: '#contact' },
 ];
@@ -22,7 +22,7 @@ const programLinks = [
 const support = [
   { label: 'Career Consultation', href: '#contact' },
   { label: 'FAQ', href: '#faq' },
-  { label: 'Interview Preparation', href: '#process' },
+  { label: 'Interview Preparation', href: '/services/interview-preparation' },
   { label: 'Resume Building', href: '#process' },
   { label: 'Privacy Policy', href: '#' },
   { label: 'Terms & Conditions', href: '#' },

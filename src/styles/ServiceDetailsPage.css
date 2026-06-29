@@ -1,0 +1,419 @@
+/* =============================================
+   Service Details Page Styles
+   ============================================= */
+
+.service-details-page {
+  background: var(--bg-page);
+  min-height: 100vh;
+}
+
+/* ── Page Hero ── */
+.service-details-hero {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 160px 0 80px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.service-details-hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.service-details-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.service-details-breadcrumb a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: var(--t-fast);
+}
+
+.service-details-breadcrumb a:hover {
+  color: var(--white);
+}
+
+.service-details-breadcrumb span {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.service-details-hero-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.2;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+/* ── Content Section ── */
+.service-details-content-section {
+  padding: 80px 0;
+  background: var(--bg-page);
+}
+
+/* ── Custom Interview Prep Layout ── */
+.interview-prep-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.interview-prep-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.interview-prep-heading {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+/* Custom accent line matching the screenshot */
+.accent-line-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.accent-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
+}
+
+.accent-line {
+  height: 2.5px;
+  width: 120px;
+  background: linear-gradient(90deg, #10b981, rgba(16, 185, 129, 0));
+  border-radius: var(--r-full);
+}
+
+/* Interview Prep Cards List */
+.interview-prep-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.interview-prep-card {
+  background: var(--bg-page);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  box-shadow: 0 4px 12px rgba(15, 31, 92, 0.03);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.interview-prep-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(15, 31, 92, 0.08);
+  border-color: var(--border-medium);
+}
+
+.interview-prep-check {
+  width: 32px;
+  height: 32px;
+  background: rgba(236, 72, 153, 0.08);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.interview-prep-text {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Illustration Side */
+.interview-prep-right {
+  position: sticky;
+  top: 100px;
+}
+
+.interview-illustration-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.interview-image {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  filter: drop-shadow(0 10px 25px rgba(15, 31, 92, 0.05));
+  transition: all 0.3s ease;
+}
+
+.interview-image:hover {
+  transform: translateY(-2px) scale(1.01);
+  filter: drop-shadow(0 15px 30px rgba(15, 31, 92, 0.08));
+}
+
+/* ── Generic Service Layout ── */
+.generic-service-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.generic-service-left {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.generic-service-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.generic-service-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  font-size: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.generic-service-meta h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.generic-service-meta .tagline {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.generic-service-desc {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin: 0;
+}
+
+.generic-service-section h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+}
+
+.generic-highlights-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.generic-highlight-card {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.generic-highlight-card .check-icon {
+  font-weight: 900;
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-top: -2px;
+}
+
+.generic-highlight-card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Generic Right Column */
+.generic-service-right {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  position: sticky;
+  top: 100px;
+}
+
+.service-tech-card {
+  background: var(--bg-page);
+  border: 1.5px solid var(--border-light);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.service-tech-card h3 {
+  font-size: 13.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 18px 24px;
+  margin: 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.tech-badges-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 24px;
+}
+
+.tech-badge {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: var(--r-full);
+  border: 1px solid;
+}
+
+.consultation-box {
+  background: var(--bg-subtle);
+  border: 1.5px solid var(--border-light);
+  border-radius: 18px;
+  padding: 32px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.consultation-box h4 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.consultation-box p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.consultation-box .btn-primary {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 12px 28px;
+  border-radius: var(--r-md);
+  transition: var(--t-fast);
+}
+
+.consultation-box .btn-primary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ── Dark Theme Overrides ── */
+.dark-theme .interview-prep-card {
+  background: var(--bg-subtle);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.dark-theme .interview-prep-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.dark-theme .service-tech-card {
+  background: var(--bg-subtle);
+}
+
+/* ── Responsive Styling ── */
+@media (max-width: 1024px) {
+  .interview-prep-layout,
+  .generic-service-layout {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  
+  .interview-prep-right,
+  .generic-service-right {
+    position: static;
+  }
+
+  .interview-illustration-container {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-details-hero {
+    padding: 130px 0 60px;
+  }
+
+  .service-details-hero-title {
+    font-size: 2.3rem;
+  }
+
+  .interview-prep-heading {
+    font-size: 1.8rem;
+  }
+
+  .generic-service-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .interview-prep-card {
+    padding: 18px;
+    gap: 12px;
+  }
+
+  .interview-prep-check {
+    width: 28px;
+    height: 28px;
+  }
+
+  .interview-prep-text {
+    font-size: 13.5px;
+  }
+}
