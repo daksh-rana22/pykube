@@ -160,7 +160,13 @@ export default function ProgramDetailsPage() {
   const roadmap = roadmapMap[program.id] || javaRoadmap;
   const hero = heroConfig[program.id] || heroConfig['java-full-stack'];
 
-  const handleChange = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }));
+  const handleChange = e => {
+    let { name, value } = e.target;
+    if (name === 'phone') {
+      value = value.replace(/\D/g, '');
+    }
+    setForm(f => ({ ...f, [name]: value }));
+  };
   const handleSubmit = e => {
     e.preventDefault();
     setSubmitted(true);
@@ -411,7 +417,18 @@ export default function ProgramDetailsPage() {
                     </div>
                     <div className="sidebar-field">
                       <label>Phone Number *</label>
-                      <input type="tel" name="phone" placeholder="+1 (555) 000-0000" value={form.phone} onChange={handleChange} required />
+                      <input
+                        type="tel"
+                        name="phone"
+                        placeholder="5550000000"
+                        value={form.phone}
+                        onChange={handleChange}
+                        pattern="[0-9]{10}"
+                        inputMode="numeric"
+                        maxLength={10}
+                        title="Please enter a 10-digit phone number"
+                        required
+                      />
                     </div>
                     <div className="sidebar-field">
                       <label>Message (Optional)</label>

@@ -8,6 +8,7 @@ import ProgramDetailsPage from './pages/ProgramDetailsPage';
 import ServicesPage from './pages/ServicesPage';
 import ServiceDetailsPage from './pages/ServiceDetailsPage';
 import AboutUsPage from './pages/AboutUsPage';
+import ContactUsPage from './pages/ContactUsPage';
 import ScrollToAnchor from './components/ScrollToAnchor';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/services/:id" element={<ServiceDetailsPage />} />
         <Route path="/about-us" element={<AboutUsPage />} />
+        <Route path="/contact" element={<ContactUsPage />} />
       </Routes>
       <Footer />
     </Router>

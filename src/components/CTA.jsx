@@ -1,16 +1,17 @@
 import { useState } from 'react';
 import '../styles/CTA.css';
 
-const programs = [
-  'Full Stack Java Developer', 'Python Developer', 'QA Automation Engineer',
-  'Data Analyst', 'Data Engineer', 'Data Scientist', 'Not sure yet'
-];
-
 export default function CTA() {
-  const [form, setForm] = useState({ name: '', email: '', phone: '', program: '', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }));
+  const handleChange = e => {
+    let { name, value } = e.target;
+    if (name === 'phone') {
+      value = value.replace(/\D/g, '');
+    }
+    setForm(f => ({ ...f, [name]: value }));
+  };
   const handleSubmit = e => {
     e.preventDefault();
     setSubmitted(true);
@@ -91,18 +92,20 @@ export default function CTA() {
                       <input type="email" name="email" placeholder="john@email.com" value={form.email} onChange={handleChange} required />
                     </div>
                   </div>
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label>Phone Number *</label>
-                      <input type="tel" name="phone" placeholder="+1 (555) 000-0000" value={form.phone} onChange={handleChange} required />
-                    </div>
-                    <div className="form-group">
-                      <label>Program of Interest</label>
-                      <select name="program" value={form.program} onChange={handleChange}>
-                        <option value="">Select a program</option>
-                        {programs.map(p => <option key={p} value={p}>{p}</option>)}
-                      </select>
-                    </div>
+                  <div className="form-group">
+                    <label>Phone Number *</label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      placeholder="5550000000"
+                      value={form.phone}
+                      onChange={handleChange}
+                      pattern="[0-9]{10}"
+                      inputMode="numeric"
+                      maxLength={10}
+                      title="Please enter a 10-digit phone number"
+                      required
+                    />
                   </div>
                   <div className="form-group form-full">
                     <label>Message (Optional)</label>

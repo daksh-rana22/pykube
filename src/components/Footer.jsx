@@ -9,7 +9,7 @@ const quickLinks = [
   { label: 'Success Stories', href: '#testimonials' },
   { label: 'About Us', href: '/about-us' },
   { label: 'FAQ', href: '#faq' },
-  { label: 'Contact Us', href: '#contact' },
+  { label: 'Contact Us', href: '/contact' },
 ];
 const programLinks = [
   { label: 'Full Stack Java Developer', href: '#programs' },
@@ -20,7 +20,7 @@ const programLinks = [
   { label: 'Data Scientist', href: '#programs' },
 ];
 const support = [
-  { label: 'Career Consultation', href: '#contact' },
+  { label: 'Career Consultation', href: '/contact' },
   { label: 'FAQ', href: '#faq' },
   { label: 'Interview Preparation', href: '/services/interview-preparation' },
   { label: 'Resume Building', href: '#process' },

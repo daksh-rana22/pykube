@@ -68,15 +68,15 @@
 
 .company-card {
   flex-shrink: 0;
-  min-width: 230px;
+  min-width: 260px;
   background: var(--bg-page); /* Pure white card badges */
   border: 1px solid var(--border-light); /* Soft blue border */
   border-radius: var(--r-md, 12px);
-  padding: 18px 24px;
+  padding: 22px 32px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 16px;
   box-shadow: var(--shadow-sm); /* Extremely subtle blue shadow */
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: default;
@@ -93,11 +93,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  min-width: 44px;
+  height: 44px;
   transition: all 0.3s ease;
   filter: none; /* No grayscale filter, brand colors visible */
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
 .company-card:hover .company-logo-wrapper {
@@ -108,7 +108,7 @@
 
 .company-name {
   font-family: 'Poppins', sans-serif;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 700;
   color: var(--text-secondary, #334155);
   letter-spacing: -0.2px;
