@@ -199,15 +199,15 @@ const RoadmapSectionVisual = ({ title, accentColor }) => {
         <div className="backend-header">📊 Matplotlib / Power BI Dashboard</div>
         <div className="topic-visual-container" style={{ gap: '10px' }}>
           {/* Chart Header */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '10px', color: '#94a3b8' }}>
-            <span style={{ fontWeight: 'bold', color: '#e2e8f0' }}>Quarterly Active Users (MAU)</span>
+          <div className="visual-text-muted" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '10px' }}>
+            <span className="visual-text-highlight" style={{ fontWeight: 'bold' }}>Quarterly Active Users (MAU)</span>
             <span>Target: 20k</span>
           </div>
 
           {/* Chart Graphic */}
-          <div style={{ display: 'flex', height: '110px', position: 'relative', background: '#020617', borderRadius: '6px', padding: '10px 10px 5px 5px', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
+          <div className="visual-console-box" style={{ display: 'flex', height: '110px', position: 'relative', padding: '10px 10px 5px 5px' }}>
             {/* Y Axis Labels */}
-            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', fontSize: '8px', color: '#64748b', textAlign: 'right', width: '25px', paddingRight: '6px', height: '90px' }}>
+            <div className="visual-label-muted" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', fontSize: '8px', textAlign: 'right', width: '25px', paddingRight: '6px', height: '90px' }}>
               <span>30k</span>
               <span>20k</span>
               <span>10k</span>
@@ -215,7 +215,7 @@ const RoadmapSectionVisual = ({ title, accentColor }) => {
             </div>
 
             {/* Grid & Bars Container */}
-            <div style={{ flex: 1, position: 'relative', height: '90px', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-around', borderLeft: '1px solid #334155', borderBottom: '1px solid #334155' }}>
+            <div style={{ flex: 1, position: 'relative', height: '90px', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-around', borderLeft: '1px solid var(--border-light)', borderBottom: '1px solid var(--border-light)' }}>
               {/* Horizontal Gridlines */}
               <div style={{ position: 'absolute', top: '0', left: 0, right: 0, height: '1px', background: 'rgba(255,255,255,0.03)' }} />
               <div style={{ position: 'absolute', top: '33%', left: 0, right: 0, height: '1px', background: 'rgba(255,255,255,0.03)' }} />
@@ -225,26 +225,26 @@ const RoadmapSectionVisual = ({ title, accentColor }) => {
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '25px', height: '60%', zIndex: 2 }}>
                 <span style={{ fontSize: '8px', color: '#38bdf8', marginBottom: '2px', fontWeight: 'bold' }}>18k</span>
                 <div style={{ width: '100%', flex: 1, background: 'linear-gradient(to top, #2563eb, #38bdf8)', borderRadius: '3px 3px 0 0' }} />
-                <span style={{ fontSize: '8px', color: '#64748b', marginTop: '4px' }}>Q1</span>
+                <span className="visual-label-muted" style={{ fontSize: '8px', marginTop: '4px' }}>Q1</span>
               </div>
 
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '25px', height: '85%', zIndex: 2 }}>
                 <span style={{ fontSize: '8px', color: '#a855f7', marginBottom: '2px', fontWeight: 'bold' }}>25k</span>
                 <div style={{ width: '100%', flex: 1, background: 'linear-gradient(to top, #7c3aed, #a855f7)', borderRadius: '3px 3px 0 0' }} />
-                <span style={{ fontSize: '8px', color: '#64748b', marginTop: '4px' }}>Q2</span>
+                <span className="visual-label-muted" style={{ fontSize: '8px', marginTop: '4px' }}>Q2</span>
               </div>
 
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '25px', height: '40%', zIndex: 2 }}>
                 <span style={{ fontSize: '8px', color: '#34d399', marginBottom: '2px', fontWeight: 'bold' }}>12k</span>
                 <div style={{ width: '100%', flex: 1, background: 'linear-gradient(to top, #059669, #34d399)', borderRadius: '3px 3px 0 0' }} />
-                <span style={{ fontSize: '8px', color: '#64748b', marginTop: '4px' }}>Q3</span>
+                <span className="visual-label-muted" style={{ fontSize: '8px', marginTop: '4px' }}>Q3</span>
               </div>
             </div>
           </div>
 
           {/* Matplotlib Code */}
-          <div style={{ background: '#020617', padding: '6px 8px', borderRadius: '4px', fontFamily: 'monospace', fontSize: '8.5px', color: '#38bdf8', border: '1px solid rgba(255,255,255,0.03)' }}>
-            <div style={{ color: '#64748b', marginBottom: '2px' }}># Matplotlib Snippet</div>
+          <div className="visual-console-box" style={{ padding: '6px 8px', fontFamily: 'monospace', fontSize: '8.5px', color: '#38bdf8' }}>
+            <div className="visual-label-muted" style={{ marginBottom: '2px' }}># Matplotlib Snippet</div>
             <div style={{ color: '#ce9178' }}>plt.bar(['Q1', 'Q2', 'Q3'], [18, 25, 12])</div>
             <div style={{ color: '#ce9178' }}>plt.ylabel('Users (in thousands)')</div>
           </div>
@@ -260,17 +260,17 @@ const RoadmapSectionVisual = ({ title, accentColor }) => {
         <div className="sys-header" style={{ marginBottom: '12px' }}>⚡ Apache PySpark Cluster</div>
         <div className="topic-visual-container" style={{ gap: '10px' }}>
           {/* Cluster Status Top Bar */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '9px', color: '#94a3b8', background: 'rgba(255, 255, 255, 0.02)', padding: '6px 10px', borderRadius: '4px', border: '1px solid rgba(255, 255, 255, 0.04)' }}>
+          <div className="visual-inner-bar" style={{ display: 'flex', justifyContent: 'space-between', fontSize: '9px', padding: '6px 10px' }}>
             <span>Master: <strong>spark://7077</strong></span>
             <span>Cores: <strong>8</strong> | RAM: <strong>16GB</strong></span>
           </div>
 
           {/* Node Grid Layout */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 6px', background: '#020617', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.03)' }}>
+          <div className="visual-console-box" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 6px' }}>
             {/* Driver Node */}
             <div style={{ textAlign: 'center', flex: '1' }}>
               <div className="sys-box client" style={{ minWidth: 'auto', padding: '8px 4px', margin: '0 auto', display: 'inline-block', width: '75px', fontSize: '10px' }}>Driver</div>
-              <div style={{ fontSize: '8px', color: '#64748b', marginTop: '4px' }}>SparkSession</div>
+              <div className="visual-label-muted" style={{ fontSize: '8px', marginTop: '4px' }}>SparkSession</div>
             </div>
 
             <div style={{ color: '#475569', fontSize: '12px', fontWeight: 'bold' }}>➔</div>
@@ -280,26 +280,26 @@ const RoadmapSectionVisual = ({ title, accentColor }) => {
               <div style={{ display: 'flex', gap: '8px' }}>
                 <div style={{ textAlign: 'center' }}>
                   <div className="sys-box node" style={{ minWidth: 'auto', padding: '6px 4px', width: '70px', fontSize: '9px' }}>Worker 1</div>
-                  <div style={{ fontSize: '7px', color: '#64748b', marginTop: '2px' }}>4 Cores / 8GB</div>
+                  <div className="visual-label-muted" style={{ fontSize: '7px', marginTop: '2px' }}>4 Cores / 8GB</div>
                 </div>
                 <div style={{ textAlign: 'center' }}>
                   <div className="sys-box node" style={{ minWidth: 'auto', padding: '6px 4px', width: '70px', fontSize: '9px' }}>Worker 2</div>
-                  <div style={{ fontSize: '7px', color: '#64748b', marginTop: '2px' }}>4 Cores / 8GB</div>
+                  <div className="visual-label-muted" style={{ fontSize: '7px', marginTop: '2px' }}>4 Cores / 8GB</div>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Execution details */}
-          <div style={{ background: '#020617', padding: '8px 10px', borderRadius: '4px', border: '1px solid rgba(255, 255, 255, 0.03)' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '9px', color: '#cbd5e1', marginBottom: '4px' }}>
+          <div className="visual-console-box" style={{ padding: '8px 10px' }}>
+            <div className="visual-text-muted" style={{ display: 'flex', justifyContent: 'space-between', fontSize: '9px', marginBottom: '4px' }}>
               <span>Job: <strong>df.groupBy().count()</strong></span>
               <span style={{ color: '#10b981' }}>SUCCESS</span>
             </div>
             <div style={{ width: '100%', height: '4px', background: '#334155', borderRadius: '2px', overflow: 'hidden' }}>
               <div style={{ width: '100%', height: '100%', background: '#10b981' }} />
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '8px', color: '#64748b', marginTop: '4px' }}>
+            <div className="visual-label-muted" style={{ display: 'flex', justifyContent: 'space-between', fontSize: '8px', marginTop: '4px' }}>
               <span>Stages: 2/2 Complete</span>
               <span>Tasks: 32/32 Done</span>
             </div>
@@ -317,11 +317,11 @@ const RoadmapSectionVisual = ({ title, accentColor }) => {
         <div className="topic-visual-container" style={{ gap: '10px' }}>
 
           {/* Pipeline flow diagram */}
-          <div className="pipeline-flow" style={{ marginBottom: '4px', background: '#020617', padding: '12px 6px', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.03)' }}>
+          <div className="pipeline-flow" style={{ marginBottom: '4px', padding: '12px 6px' }}>
             <div className="pipeline-node done" style={{ width: '52px', height: '52px', fontSize: '15px' }}>
               <span className="node-icon">📥</span>
               <span className="node-label" style={{ fontSize: '8px' }}>Extract</span>
-              <span style={{ fontSize: '6px', color: '#64748b', fontWeight: 'normal', marginTop: '1px' }}>S3 / RDBMS</span>
+              <span className="visual-label-muted" style={{ fontSize: '6px', fontWeight: 'normal', marginTop: '1px' }}>S3 / RDBMS</span>
             </div>
 
             <div className="pipeline-connector active" />
@@ -329,7 +329,7 @@ const RoadmapSectionVisual = ({ title, accentColor }) => {
             <div className="pipeline-node done" style={{ width: '52px', height: '52px', fontSize: '15px' }}>
               <span className="node-icon">⚙️</span>
               <span className="node-label" style={{ fontSize: '8px' }}>Transform</span>
-              <span style={{ fontSize: '6px', color: '#64748b', fontWeight: 'normal', marginTop: '1px' }}>PySpark / SQL</span>
+              <span className="visual-label-muted" style={{ fontSize: '6px', fontWeight: 'normal', marginTop: '1px' }}>PySpark / SQL</span>
             </div>
 
             <div className="pipeline-connector active" />
@@ -337,12 +337,12 @@ const RoadmapSectionVisual = ({ title, accentColor }) => {
             <div className="pipeline-node active" style={{ width: '52px', height: '52px', fontSize: '15px' }}>
               <span className="node-icon">📤</span>
               <span className="node-label" style={{ fontSize: '8px' }}>Load</span>
-              <span style={{ fontSize: '6px', color: '#64748b', fontWeight: 'normal', marginTop: '1px' }}>Data Warehouse</span>
+              <span className="visual-label-muted" style={{ fontSize: '6px', fontWeight: 'normal', marginTop: '1px' }}>Data Warehouse</span>
             </div>
           </div>
 
           {/* Real-time Ingestion Metrics */}
-          <div style={{ background: '#020617', padding: '8px 10px', borderRadius: '4px', border: '1px solid rgba(255, 255, 255, 0.03)', fontSize: '9.5px', color: '#cbd5e1' }}>
+          <div className="visual-console-box visual-text-muted" style={{ padding: '8px 10px', fontSize: '9.5px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
               <span style={{ fontWeight: 'bold' }}>Pipeline Stream Metrics</span>
               <span style={{ color: '#10b981', display: 'flex', alignItems: 'center', gap: '4px' }}>
@@ -350,18 +350,18 @@ const RoadmapSectionVisual = ({ title, accentColor }) => {
               </span>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', fontSize: '8.5px', color: '#94a3b8' }}>
-              <div style={{ background: 'rgba(255,255,255,0.02)', padding: '4px 6px', borderRadius: '3px' }}>
-                Throughput: <strong style={{ color: '#e2e8f0' }}>14,500 rec/s</strong>
+            <div className="visual-label-muted" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', fontSize: '8.5px' }}>
+              <div className="visual-metric-card" style={{ padding: '4px 6px' }}>
+                Throughput: <strong className="visual-text-highlight">14,500 rec/s</strong>
               </div>
-              <div style={{ background: 'rgba(255,255,255,0.02)', padding: '4px 6px', borderRadius: '3px' }}>
-                Avg Latency: <strong style={{ color: '#e2e8f0' }}>850ms</strong>
+              <div className="visual-metric-card" style={{ padding: '4px 6px' }}>
+                Avg Latency: <strong className="visual-text-highlight">850ms</strong>
               </div>
-              <div style={{ background: 'rgba(255,255,255,0.02)', padding: '4px 6px', borderRadius: '3px' }}>
-                Source: <strong style={{ color: '#e2e8f0' }}>Kafka Topic</strong>
+              <div className="visual-metric-card" style={{ padding: '4px 6px' }}>
+                Source: <strong className="visual-text-highlight">Kafka Topic</strong>
               </div>
-              <div style={{ background: 'rgba(255,255,255,0.02)', padding: '4px 6px', borderRadius: '3px' }}>
-                Target: <strong style={{ color: '#e2e8f0' }}>Snowflake DB</strong>
+              <div className="visual-metric-card" style={{ padding: '4px 6px' }}>
+                Target: <strong className="visual-text-highlight">Snowflake DB</strong>
               </div>
             </div>
           </div>
@@ -376,12 +376,12 @@ const RoadmapSectionVisual = ({ title, accentColor }) => {
       <div className="native-visual database-visual" style={themeStyle}>
         <div className="db-header">📋 Manual Test Cases</div>
         <div className="db-tables" style={{ flexDirection: 'column', gap: '8px', alignItems: 'stretch' }}>
-          <div className="stack-var" style={{ background: '#1e293b', justifyContent: 'space-between', padding: '6px 12px' }}>
-            <span style={{ color: '#e2e8f0' }}>TC_01: User Login Auth</span>
+          <div className="stack-var" style={{ justifyContent: 'space-between', padding: '6px 12px' }}>
+            <span className="visual-text-highlight">TC_01: User Login Auth</span>
             <span className="status-badge" style={{ background: 'rgba(16, 185, 129, 0.15)', color: '#10b981', padding: '2px 6px', borderRadius: '4px', fontSize: '9px', fontWeight: 'bold' }}>PASSED</span>
           </div>
-          <div className="stack-var" style={{ background: '#1e293b', justifyContent: 'space-between', padding: '6px 12px' }}>
-            <span style={{ color: '#e2e8f0' }}>TC_02: Payment Gateway Timeout</span>
+          <div className="stack-var" style={{ justifyContent: 'space-between', padding: '6px 12px' }}>
+            <span className="visual-text-highlight">TC_02: Payment Gateway Timeout</span>
             <span className="status-badge" style={{ background: 'rgba(239, 68, 68, 0.15)', color: '#ef4444', padding: '2px 6px', borderRadius: '4px', fontSize: '9px', fontWeight: 'bold' }}>FAILED</span>
           </div>
         </div>
@@ -415,7 +415,7 @@ const RoadmapSectionVisual = ({ title, accentColor }) => {
             <div className="test-line pass" style={{ color: '#94a3b8' }}>Epoch 2/3 - loss: 0.2154 - acc: 0.912</div>
             <div className="test-line running" style={{ color: '#a855f7' }}>⚡ Epoch 3/3 - loss: 0.0984 - acc: 0.965</div>
           </div>
-          <div style={{ background: '#020617', padding: '6px 8px', borderRadius: '4px', fontSize: '9px', color: '#cbd5e1', border: '1px solid rgba(255,255,255,0.03)' }}>
+          <div className="visual-console-box visual-text-muted" style={{ padding: '6px 8px', fontSize: '9px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
               <span>Model: <strong>ResNet-50 Classifier</strong></span>
               <span style={{ color: '#a855f7' }}>Training 96%</span>
@@ -457,7 +457,7 @@ const RoadmapSectionVisual = ({ title, accentColor }) => {
           <div className="browser-address">localhost:8000/shop/</div>
         </div>
         <div className="browser-content" style={{ minHeight: '120px', display: 'flex', gap: '10px', padding: '12px' }}>
-          <div className="preview-card" style={{ flex: 1, padding: '10px', maxWidth: 'none', background: '#1e293b' }}>
+          <div className="preview-card" style={{ flex: 1, padding: '10px', maxWidth: 'none' }}>
             <div className="preview-avatar" style={{ width: '32px', height: '32px', background: 'linear-gradient(135deg, #10b981, #3b82f6)' }} />
             <div className="preview-line-short" style={{ width: '80px', background: '#e2e8f0', height: '6px', borderRadius: '3px', marginBottom: '8px' }} />
             <div className="preview-line-long" style={{ width: '120px', background: '#64748b', height: '6px', borderRadius: '3px', marginBottom: '16px' }} />

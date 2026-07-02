@@ -2,28 +2,29 @@ import '../styles/Footer.css';
 import logo from '../assets/logo.png';
 
 const quickLinks = [
-  { label: 'Home', href: '#home' },
-  { label: 'What We Do', href: '#about' },
-  { label: 'Programs', href: '#programs' },
-  { label: 'Our Process', href: '#process' },
-  { label: 'Success Stories', href: '#testimonials' },
+  { label: 'Home', href: '/#home' },
+  { label: 'What We Do', href: '/#about' },
+  { label: 'Programs', href: '/courses' },
+  { label: 'Our Process', href: '/#process' },
   { label: 'About Us', href: '/about-us' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'FAQ', href: '/#faq' },
   { label: 'Contact Us', href: '/contact' },
 ];
+
 const programLinks = [
-  { label: 'Full Stack Java Developer', href: '#programs' },
-  { label: 'Python Developer', href: '#programs' },
-  { label: 'QA Automation Engineer', href: '#programs' },
-  { label: 'Data Analyst', href: '#programs' },
-  { label: 'Data Engineer', href: '#programs' },
-  { label: 'Data Scientist', href: '#programs' },
+  { label: 'Full Stack Java Developer', href: '/courses/java-full-stack' },
+  { label: 'Python Developer', href: '/courses/python-developer' },
+  { label: 'QA Automation Engineer', href: '/courses/qa-automation' },
+  { label: 'Data Analyst', href: '/courses/data-analyst' },
+  { label: 'Data Engineer', href: '/courses/data-engineer' },
+  { label: 'Data Scientist', href: '/courses/data-scientist' },
 ];
+
 const support = [
   { label: 'Career Consultation', href: '/contact' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'FAQ', href: '/#faq' },
   { label: 'Interview Preparation', href: '/services/interview-preparation' },
-  { label: 'Resume Building', href: '#process' },
+  { label: 'Resume Building', href: '/#process' },
   { label: 'Privacy Policy', href: '#' },
   { label: 'Terms & Conditions', href: '#' },
 ];
@@ -34,7 +35,7 @@ const socials = [
     href: 'https://www.linkedin.com/company/pykube',
     icon: (
       <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0h.003z"/>
       </svg>
     ),
   },
@@ -79,16 +80,41 @@ export default function Footer() {
             <p className="footer-about">
               PyKube Technologies is a US-based IT training &amp; placement company. We help candidates build successful careers in the USA through job-oriented bootcamps, real-time projects, and dedicated placement support.
             </p>
+            <div className="footer-contact-info">
+              <div className="fc-item">
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                <span>2000 Valley View Lane, Irving TX 75062, USA</span>
+              </div>
+              <div className="fc-item">
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+                <a href="tel:+18782176214">+1 (878) 217-6214</a>
+              </div>
+              <div className="fc-item">
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                <a href="mailto:info@pykube.com">info@pykube.com</a>
+              </div>
+              <div className="fc-item">
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+                <span>Mon–Sat: 9 AM – 7 PM EST</span>
+              </div>
+            </div>
             <div className="footer-socials">
               {socials.map(s => (
                 <a key={s.name} href={s.href} className="social-btn" aria-label={s.name} target="_blank" rel="noopener noreferrer">
                   {s.icon}
                 </a>
               ))}
-            </div>
-            <div className="footer-contact-quick">
-              <a href="tel:+18782176214" className="footer-quick-link">📞 878 217 6214</a>
-              <a href="mailto:info@pykube.com" className="footer-quick-link">✉️ info@pykube.com</a>
             </div>
           </div>
 
@@ -111,11 +137,6 @@ export default function Footer() {
             <ul className="footer-links-list">
               {support.map(l => <li key={l.label}><a href={l.href} className="footer-link">→ {l.label}</a></li>)}
             </ul>
-            <div className="footer-address">
-              <h4 className="footer-col-title" style={{ marginTop: 24 }}>Office</h4>
-              <p className="footer-addr-text">📍 2000 Valley View Lane,<br />Irving TX 75062, USA</p>
-              <p className="footer-addr-text">🕐 Mon–Sat: 9 AM – 7 PM EST</p>
-            </div>
           </div>
         </div>
       </div>

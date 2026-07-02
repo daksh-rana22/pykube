@@ -8,9 +8,9 @@ const navLinks = [
     label: 'Programs',
     href: '/courses',
     dropdown: [
-      { label: 'Java Full Stack', href: '/courses/java-full-stack', icon: '☕', sub: 'Spring Boot, Angular, AWS', color: '#e76f00', bg: '#fff7ed' },
-      { label: 'Python Developer', href: '/courses/python-developer', icon: '🐍', sub: 'Django, Rest API, SQL', color: '#3776ab', bg: '#eff6ff' },
-      { label: 'QA Automation', href: '/courses/qa-automation', icon: '🔍', sub: 'Selenium, Java, TestNG', color: '#8b5cf6', bg: '#f5f3ff' },
+      { label: 'Java Full Stack', href: '/courses/java-full-stack', icon: '/images/illustrations/java_icon.jpg', sub: 'Spring Boot, Angular, AWS', color: '#e76f00', bg: '#fff7ed' },
+      { label: 'Python Developer', href: '/courses/python-developer', icon: '/images/illustrations/python_icon.png', sub: 'Django, Rest API, SQL', color: '#3776ab', bg: '#eff6ff' },
+      { label: 'QA Automation', href: '/courses/qa-automation', icon: '/images/illustrations/qa_icon.jpg', sub: 'Selenium, Java, TestNG', color: '#8b5cf6', bg: '#f5f3ff' },
       { label: 'Data Analyst', href: '/courses/data-analyst', icon: '📊', sub: 'Pandas, Stats, Power BI', color: '#10b981', bg: '#ecfdf5' },
       { label: 'Data Engineer', href: '/courses/data-engineer', icon: '🔧', sub: 'PySpark, SQL, Ingestion', color: '#f97316', bg: '#fff7ed' },
       { label: 'Data Scientist', href: '/courses/data-scientist', icon: '🤖', sub: 'ML, PySpark, Statistics', color: '#ef4444', bg: '#fef2f2' }
@@ -28,7 +28,6 @@ const navLinks = [
       { label: 'Web Development', icon: '🌐', sub: 'Web-based & mobile web development solutions', href: '/services/web-development' },
     ]
   },
-  { label: 'Success Stories', href: '/#testimonials' },
   { label: 'About Us', href: '/about-us' },
   { label: 'Contact Us', href: '/contact' },
 ];
@@ -128,7 +127,13 @@ export default function Navbar() {
                           <div className="mega-dropdown-grid">
                             {link.dropdown.map(item => (
                               <a key={item.label} href={item.href} className="mega-dropdown-item">
-                                <span className="mega-item-icon" style={{ backgroundColor: item.bg, color: item.color }}>{item.icon}</span>
+                                {item.icon.startsWith('/') ? (
+                                  <span className="mega-item-icon" style={{ backgroundColor: '#ffffff', padding: '4px' }}>
+                                    <img src={item.icon} alt={item.label} className="mega-item-icon-img" />
+                                  </span>
+                                ) : (
+                                  <span className="mega-item-icon" style={{ backgroundColor: item.bg, color: item.color }}>{item.icon}</span>
+                                )}
                                 <div className="mega-item-text">
                                   <span className="mega-item-title">{item.label}</span>
                                   <span className="mega-item-desc">{item.sub}</span>

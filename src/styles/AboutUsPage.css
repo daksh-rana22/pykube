@@ -394,7 +394,7 @@
 .mission-point-icon-wrap {
   width: 42px;
   height: 42px;
-  border-radius: 12px;
+  border-radius: var(--r-md);
   background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(16, 185, 129, 0.08));
   border: 1px solid rgba(37, 99, 235, 0.12);
   display: flex;
@@ -437,7 +437,7 @@
 
 .mission-office-card {
   position: relative;
-  border-radius: 18px 18px 0 0;
+  border-radius: var(--r-lg) var(--r-lg) 0 0;
   overflow: hidden;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
 }
@@ -478,7 +478,7 @@
   display: flex;
   background: #fff;
   border: 1px solid #e2e8f0;
-  border-radius: 0 0 18px 18px;
+  border-radius: 0 0 var(--r-lg) var(--r-lg);
   overflow: hidden;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
@@ -549,7 +549,7 @@
   position: relative;
   background: var(--bg-subtle, #f8fafc);
   border: 1px solid var(--border-light, #e2e8f0);
-  border-radius: 18px;
+  border-radius: var(--r-lg);
   padding: 28px 24px 32px;
   transition: all 0.3s ease;
   overflow: hidden;
@@ -589,7 +589,7 @@
 .value-icon-box {
   width: 52px;
   height: 52px;
-  border-radius: 14px;
+  border-radius: var(--r-md);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -639,7 +639,7 @@
   position: relative;
   background: var(--bg-primary, #fff);
   border: 1px solid var(--border-light, #e2e8f0);
-  border-radius: 20px;
+  border-radius: var(--r-lg);
   padding: 36px 20px 28px;
   text-align: center;
   transition: all 0.3s ease;

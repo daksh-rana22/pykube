@@ -20,7 +20,7 @@
 .program-card {
   background: var(--bg-subtle);
   border: 1.5px solid var(--border-light);
-  border-radius: 14px;
+  border-radius: var(--r-lg);
   padding: 0;
   transition: all 0.3s ease;
   position: relative;
@@ -42,8 +42,8 @@
   width: 100%;
   height: clamp(120px, 14vw, 170px);
   overflow: hidden;
-  border-top-left-radius: 12.5px;
-  border-top-right-radius: 12.5px;
+  border-top-left-radius: calc(var(--r-lg) - 1.5px);
+  border-top-right-radius: calc(var(--r-lg) - 1.5px);
 }
 .program-card-image {
   width: 100%;
@@ -157,7 +157,7 @@
   color: #fff;
   background: var(--pc);
   padding: clamp(8px, 1vw, 10px) clamp(16px, 2vw, 24px);
-  border-radius: 50px;
+  border-radius: var(--r-btn, var(--r-sm));
   transition: all 0.3s ease;
   width: 100%;
 }

@@ -1,6 +1,6 @@
 import javaImg from '../assets/java_course.png';
-import pythonImg from '../assets/python_course.png';
-import qaImg from '../assets/qa_course.png';
+import pythonImg from '../assets/python_course.jpg';
+import qaImg from '../assets/qa_course.jpg';
 import analystImg from '../assets/data_analyst_course.png';
 import engineerImg from '../assets/data_engineer_course.png';
 import scientistImg from '../assets/data_scientist_course.png';
@@ -8,7 +8,7 @@ import scientistImg from '../assets/data_scientist_course.png';
 export const programs = [
   {
     id: 'java-full-stack',
-    image: javaImg,
+    image: '/images/illustrations/java.png',
     icon: '☕',
     title: 'Full Stack Java Developer',
     duration: '4-6 Months',
@@ -36,7 +36,7 @@ export const programs = [
   },
   {
     id: 'python-developer',
-    image: pythonImg,
+    image: '/images/illustrations/python.png',
     icon: '🐍',
     title: 'Python Developer',
     duration: '3-5 Months',
@@ -64,7 +64,7 @@ export const programs = [
   },
   {
     id: 'qa-automation',
-    image: qaImg,
+    image: '/images/illustrations/qa.png',
     icon: '🔍',
     title: 'QA Automation Engineer',
     duration: '3-5 Months',

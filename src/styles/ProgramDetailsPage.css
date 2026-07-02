@@ -2226,11 +2226,11 @@
   width: 100%;
   max-width: 640px;
   aspect-ratio: 4 / 3;
-  border-radius: 16px;
+  border-radius: var(--r-lg);
   overflow: hidden;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.22);
   border: 1.5px solid var(--border-light);
-  background: #0b1329;
+  background: #020617;
   opacity: 0;
   transform: scale(0.96) translateY(8px);
   animation: oppositeImageFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -2373,8 +2373,8 @@
 .native-visual {
   width: 100%;
   height: 100%;
-  background: #0f172a;
-  border-radius: 16px;
+  background: #020617;
+  border-radius: var(--r-lg);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -2385,7 +2385,7 @@
 
 /* Browser mock header */
 .browser-header {
-  background: #1e293b;
+  background: #0b0f17;
   padding: 10px 16px;
   display: flex;
   align-items: center;
@@ -2413,9 +2413,9 @@
 
 .browser-address {
   margin-left: 12px;
-  background: #0f172a;
+  background: #020617;
   padding: 3px 20px;
-  border-radius: 4px;
+  border-radius: var(--r-sm);
   font-size: 11px;
   color: #94a3b8;
   font-family: monospace;
@@ -2432,7 +2432,7 @@
 
 /* Code Editor mockup */
 .visual-code-editor {
-  background: #0b0f17;
+  background: #000000;
   padding: 16px;
   font-family: 'Courier New', Courier, monospace;
   font-size: 12px;
@@ -2459,7 +2459,7 @@
 
 /* Preview Pane mockup */
 .visual-preview-pane {
-  background: #0f172a;
+  background: #070a13;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2467,9 +2467,9 @@
 }
 
 .preview-card {
-  background: #1e293b;
+  background: #0b0f17;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
+  border-radius: var(--r-md);
   padding: 16px;
   width: 100%;
   max-width: 180px;
@@ -2517,7 +2517,7 @@
 
 /* Database schema visualizer */
 .database-visual {
-  background: #0c101d;
+  background: #020617;
   padding: 20px;
 }
 
@@ -2540,9 +2540,9 @@
 }
 
 .db-table {
-  background: #1e293b;
+  background: #0b0f17;
   border: 1.5px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
+  border-radius: var(--r-md);
   overflow: hidden;
   flex-grow: 1;
   max-width: 170px;
@@ -2585,7 +2585,7 @@
 }
 
 .db-console {
-  background: #070a13;
+  background: #000000;
   border-radius: 8px;
   padding: 12px;
   font-family: monospace;
@@ -2603,7 +2603,7 @@
 
 /* Testing runner visual */
 .testing-visual {
-  background: #0b0f17;
+  background: #020617;
   padding: 20px;
 }
 
@@ -2618,7 +2618,7 @@
 }
 
 .testing-console {
-  background: #020617;
+  background: #000000;
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 8px;
   padding: 14px;
@@ -2673,7 +2673,7 @@
 
 /* DevOps Pipeline visual */
 .devops-visual {
-  background: #0b0f17;
+  background: #020617;
   padding: 20px;
 }
 
@@ -2692,10 +2692,13 @@
   align-items: center;
   justify-content: space-around;
   margin-bottom: 28px;
+  background: #020617;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 6px;
 }
 
 .pipeline-node {
-  background: #1e293b;
+  background: #0b0f17;
   border: 2px solid rgba(255, 255, 255, 0.08);
   width: 70px;
   height: 70px;
@@ -2793,7 +2796,7 @@
 }
 
 .pipeline-status {
-  background: #020617;
+  background: #000000;
   border-radius: 6px;
   padding: 8px 12px;
   font-family: monospace;
@@ -2806,7 +2809,7 @@
 
 /* Security visual */
 .security-visual {
-  background: #0a0e1a;
+  background: #020617;
   padding: 24px;
   display: flex;
   align-items: center;
@@ -2868,7 +2871,7 @@
 
 /* System Design visual */
 .system-design-visual {
-  background: #0b0f17;
+  background: #020617;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -2893,9 +2896,9 @@
 }
 
 .sys-box {
-  background: #1e293b;
+  background: #0b0f17;
   border: 1.5px solid rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
+  border-radius: var(--r-sm);
   padding: 8px 16px;
   font-size: 12px;
   font-weight: 700;
@@ -3100,10 +3103,314 @@
 }
 
 .git-console {
-  background: #020617;
-  border-radius: 6px;
+  background: #000000;
+  border-radius: var(--r-sm);
   padding: 10px;
   font-family: monospace;
   font-size: 11px;
   color: #4ade80;
+}
+
+/* ==========================================================
+   Light-theme Overrides for Roadmap Section Visual Elements
+   ========================================================== */
+html:not(.dark-theme) .native-visual {
+  background: var(--gray-100);
+  color: var(--gray-800);
+  border: 1px solid var(--border-light);
+}
+
+html:not(.dark-theme) .browser-header {
+  background: var(--gray-200);
+  border-bottom: 1px solid var(--border-light);
+}
+
+html:not(.dark-theme) .browser-address {
+  background: #ffffff;
+  color: var(--gray-600);
+  border: 1px solid var(--border-light);
+}
+
+html:not(.dark-theme) .visual-code-editor {
+  background: var(--gray-50);
+  color: #0969da;
+  border-right: 1px solid var(--border-light);
+}
+
+html:not(.dark-theme) .visual-code-editor .keyword {
+  color: #cf222e;
+}
+
+html:not(.dark-theme) .visual-code-editor .string {
+  color: #0a3069;
+}
+
+html:not(.dark-theme) .visual-code-editor .function {
+  color: #8250df;
+}
+
+html:not(.dark-theme) .visual-code-editor .tag {
+  color: #116329;
+}
+
+html:not(.dark-theme) .visual-preview-pane {
+  background: var(--gray-100);
+}
+
+html:not(.dark-theme) .preview-card {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+}
+
+html:not(.dark-theme) .preview-line-short {
+  background: var(--gray-200);
+}
+
+html:not(.dark-theme) .preview-line-long {
+  background: var(--gray-300);
+}
+
+html:not(.dark-theme) .database-visual {
+  background: var(--gray-100);
+  border: 1px solid var(--border-light);
+}
+
+html:not(.dark-theme) .db-header {
+  color: var(--gray-800);
+}
+
+html:not(.dark-theme) .db-table {
+  background: #ffffff;
+  border-color: var(--border-light);
+}
+
+html:not(.dark-theme) .table-row {
+  border-bottom-color: var(--border-light);
+}
+
+html:not(.dark-theme) .table-row .type {
+  color: var(--gray-500);
+}
+
+html:not(.dark-theme) .db-relation-arrow {
+  color: var(--gray-400);
+}
+
+html:not(.dark-theme) .db-console {
+  background: var(--gray-200);
+  color: var(--gray-800);
+}
+
+html:not(.dark-theme) .testing-visual {
+  background: var(--gray-100);
+  border: 1px solid var(--border-light);
+}
+
+html:not(.dark-theme) .testing-header {
+  color: var(--gray-800);
+}
+
+html:not(.dark-theme) .testing-console {
+  background: var(--gray-200);
+  border-color: var(--border-light);
+  color: var(--gray-800);
+}
+
+html:not(.dark-theme) .testing-console .test-line.pass {
+  color: #16a34a;
+}
+
+html:not(.dark-theme) .devops-visual {
+  background: var(--gray-100);
+  border: 1px solid var(--border-light);
+}
+
+html:not(.dark-theme) .devops-header {
+  color: var(--gray-800);
+}
+
+html:not(.dark-theme) .pipeline-node {
+  background: #ffffff;
+  border-color: var(--border-light);
+}
+
+html:not(.dark-theme) .pipeline-node .node-label {
+  color: var(--gray-600);
+}
+
+html:not(.dark-theme) .pipeline-connector {
+  background: var(--gray-200);
+}
+
+html:not(.dark-theme) .pipeline-status {
+  background: var(--gray-200);
+  color: var(--gray-800);
+}
+
+html:not(.dark-theme) .security-visual {
+  background: var(--gray-100);
+  border: 1px solid var(--border-light);
+}
+
+html:not(.dark-theme) .check-item {
+  color: var(--gray-800);
+}
+
+html:not(.dark-theme) .system-design-visual {
+  background: var(--gray-100);
+  border: 1px solid var(--border-light);
+}
+
+html:not(.dark-theme) .sys-header {
+  color: var(--gray-800);
+}
+
+html:not(.dark-theme) .sys-box {
+  background: #ffffff;
+  border-color: var(--border-light);
+  color: var(--gray-800);
+}
+
+html:not(.dark-theme) .git-console {
+  background: var(--gray-200);
+  color: var(--gray-800);
+  border: 1px solid var(--border-light);
+}
+
+/* --- Manage text, header, and inline styles for light theme --- */
+html:not(.dark-theme) .backend-header,
+html:not(.dark-theme) .db-header,
+html:not(.dark-theme) .testing-header,
+html:not(.dark-theme) .devops-header,
+html:not(.dark-theme) .sys-header,
+html:not(.dark-theme) .git-header {
+  color: var(--gray-900) !important;
+}
+
+html:not(.dark-theme) .native-visual strong {
+  color: var(--gray-900) !important;
+}
+
+html:not(.dark-theme) .native-visual span:not(.method):not(.status-badge):not(.node-icon) {
+  color: var(--gray-700) !important;
+}
+
+html:not(.dark-theme) .api-route {
+  background: var(--gray-50);
+  border: 1px solid var(--border-light);
+}
+
+html:not(.dark-theme) .api-route .path {
+  color: var(--gray-800) !important;
+}
+
+html:not(.dark-theme) .api-route .status {
+  color: var(--gray-500) !important;
+}
+
+html:not(.dark-theme) .server-status {
+  color: var(--gray-600) !important;
+}
+
+html:not(.dark-theme) .testing-console .test-line.pass,
+html:not(.dark-theme) .console-line.query,
+html:not(.dark-theme) .db-console .query,
+html:not(.dark-theme) .db-console .result,
+html:not(.dark-theme) .git-console {
+  color: #16a34a !important; /* darker green for readability */
+}
+
+html:not(.dark-theme) .git-visual {
+  background: var(--gray-100);
+  border: 1px solid var(--border-light);
+}
+
+html:not(.dark-theme) .git-header {
+  color: var(--gray-800) !important;
+}
+
+html:not(.dark-theme) .timeline-opposite-image-wrap {
+  background: var(--gray-100);
+  border-color: var(--border-light);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.05);
+}
+
+/* --- New Semantic Classes for Roadmap Visual Elements --- */
+.visual-console-box {
+  background: #020617;
+  border: 1.5px solid rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.visual-inner-bar {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 4px;
+  color: #94a3b8;
+}
+
+.visual-metric-card {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.visual-label-muted {
+  color: #64748b;
+}
+
+.visual-text-muted {
+  color: #cbd5e1;
+}
+
+.visual-text-highlight {
+  color: #e2e8f0;
+}
+
+.stack-var {
+  background: #0b0f17;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+}
+
+/* Light theme overrides for semantic classes */
+html:not(.dark-theme) .visual-console-box {
+  background: var(--gray-200) !important;
+  border-color: var(--border-light) !important;
+}
+
+html:not(.dark-theme) .visual-inner-bar {
+  background: var(--gray-100) !important;
+  border-color: var(--border-light) !important;
+  color: var(--gray-600) !important;
+}
+
+html:not(.dark-theme) .visual-metric-card {
+  background: var(--gray-50) !important;
+  border-color: var(--border-light) !important;
+}
+
+html:not(.dark-theme) .visual-label-muted {
+  color: var(--gray-500) !important;
+}
+
+html:not(.dark-theme) .visual-text-muted {
+  color: var(--gray-600) !important;
+}
+
+html:not(.dark-theme) .visual-text-highlight {
+  color: var(--gray-800) !important;
+}
+
+html:not(.dark-theme) .stack-var {
+  background: #ffffff !important;
+  border: 1px solid var(--border-light) !important;
+}
+
+html:not(.dark-theme) .pipeline-flow {
+  background: var(--gray-200) !important;
+  border-color: var(--border-light) !important;
 }

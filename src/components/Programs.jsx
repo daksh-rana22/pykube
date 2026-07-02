@@ -21,7 +21,13 @@ export default function Programs() {
               )}
               <div className="program-card-content">
                 <div className="program-top">
-                  <div className="program-icon-wrap"><span>{p.icon}</span></div>
+                  <div className="program-icon-wrap">
+                    {p.icon.startsWith('/') ? (
+                      <img src={p.icon} alt={p.title} className="program-icon-img" />
+                    ) : (
+                      <span>{p.icon}</span>
+                    )}
+                  </div>
                   <span className="program-duration">{p.duration}</span>
                 </div>
                 <h3 className="program-title">{p.title}</h3>

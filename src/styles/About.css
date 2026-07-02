@@ -47,7 +47,7 @@
 .milestone-card {
   background: var(--bg-page);
   border: 1px solid var(--border-light);
-  border-radius: 14px;
+  border-radius: var(--r-lg);
   padding: 20px 16px;
   text-align: center;
   transition: all 0.3s ease;
@@ -90,7 +90,7 @@
 .why-card {
   background: var(--bg-page);
   border: 1px solid var(--border-light);
-  border-radius: 16px;
+  border-radius: var(--r-lg);
   padding: 28px 22px;
   transition: all 0.3s ease;
   position: relative;
