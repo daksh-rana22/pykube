@@ -76,48 +76,38 @@ export default function CTA() {
                 <button className="form-reset-btn" onClick={() => setSubmitted(false)}>Send Another Request</button>
               </div>
             ) : (
-              <>
-                <div className="form-header">
-                  <h3 className="form-title">Book Free Consultation</h3>
-                  <p className="form-subtitle">No commitment required · 100% free</p>
+              <form className="contact-form" onSubmit={handleSubmit}>
+                <div className="form-group">
+                  <label>FULL NAME *</label>
+                  <input type="text" name="name" placeholder="John Smith" value={form.name} onChange={handleChange} required />
                 </div>
-                <form className="contact-form" onSubmit={handleSubmit}>
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label>Full Name *</label>
-                      <input type="text" name="name" placeholder="John Smith" value={form.name} onChange={handleChange} required />
-                    </div>
-                    <div className="form-group">
-                      <label>Email Address *</label>
-                      <input type="email" name="email" placeholder="john@email.com" value={form.email} onChange={handleChange} required />
-                    </div>
-                  </div>
-                  <div className="form-group">
-                    <label>Phone Number *</label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      placeholder="5550000000"
-                      value={form.phone}
-                      onChange={handleChange}
-                      pattern="[0-9]{10}"
-                      inputMode="numeric"
-                      maxLength={10}
-                      title="Please enter a 10-digit phone number"
-                      required
-                    />
-                  </div>
-                  <div className="form-group form-full">
-                    <label>Message (Optional)</label>
-                    <textarea name="message" placeholder="Tell us about your background and career goals..." rows={4} value={form.message} onChange={handleChange} />
-                  </div>
-                  <button type="submit" className="form-submit-btn">
-                    📅 Book My Free Consultation
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-                  </button>
-                  <p className="form-note">✅ We typically respond within 2–4 business hours</p>
-                </form>
-              </>
+                <div className="form-group">
+                  <label>EMAIL ADDRESS *</label>
+                  <input type="email" name="email" placeholder="john@example.com" value={form.email} onChange={handleChange} required />
+                </div>
+                <div className="form-group">
+                  <label>PHONE NUMBER *</label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="5550000000"
+                    value={form.phone}
+                    onChange={handleChange}
+                    pattern="[0-9]{10}"
+                    inputMode="numeric"
+                    maxLength={10}
+                    title="Please enter a 10-digit phone number"
+                    required
+                  />
+                </div>
+                <div className="form-group form-full">
+                  <label>MESSAGE (OPTIONAL)</label>
+                  <textarea name="message" placeholder="Ask about schedules, pricing, job placement support..." rows={4} value={form.message} onChange={handleChange} />
+                </div>
+                <button type="submit" className="form-submit-btn">
+                  🗓️ Reserve My Free Session
+                </button>
+              </form>
             )}
           </div>
         </div>

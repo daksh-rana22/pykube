@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 380" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <!-- Clean soft white-blue gradient -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#f0f5ff"/>
+      <stop offset="50%"  stop-color="#eef3ff"/>
+      <stop offset="100%" stop-color="#e8efff"/>
+    </linearGradient>
+
+    <!-- Top-center fade so header text zone stays pristine -->
+    <linearGradient id="topFade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#f0f5ff" stop-opacity="1"/>
+      <stop offset="45%"  stop-color="#f0f5ff" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Subtle blue glow filter on nodes -->
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Node gradient fills -->
+    <radialGradient id="nodeBlue" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </radialGradient>
+    <radialGradient id="nodeOrange" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#fb923c"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </radialGradient>
+    <radialGradient id="nodeGreen" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </radialGradient>
+    <radialGradient id="nodePurple" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Base -->
+  <rect width="1440" height="380" fill="url(#bg)"/>
+
+  <!-- Very subtle dot world-map grid — only at 7% opacity, pushed to lower half -->
+  <g fill="#3b82f6" opacity="0.07">
+    <!-- Three rows in the lower 60% of the SVG only -->
+    <circle cx="80"  cy="230" r="2.2"/><circle cx="140" cy="225" r="2"/><circle cx="200" cy="220" r="2.2"/>
+    <circle cx="260" cy="228" r="2"/><circle cx="320" cy="232" r="2.2"/><circle cx="380" cy="225" r="2"/>
+    <circle cx="440" cy="218" r="2.2"/><circle cx="500" cy="222" r="2"/><circle cx="560" cy="228" r="2.2"/>
+    <circle cx="620" cy="232" r="2"/><circle cx="680" cy="220" r="2.2"/><circle cx="740" cy="215" r="2"/>
+    <circle cx="800" cy="218" r="2.2"/><circle cx="860" cy="225" r="2"/><circle cx="920" cy="230" r="2.2"/>
+    <circle cx="980" cy="222" r="2"/><circle cx="1040" cy="218" r="2.2"/><circle cx="1100" cy="225" r="2"/>
+    <circle cx="1160" cy="232" r="2.2"/><circle cx="1220" cy="228" r="2"/><circle cx="1280" cy="220" r="2.2"/>
+    <circle cx="1340" cy="225" r="2"/><circle cx="1400" cy="230" r="2.2"/>
+
+    <circle cx="80"  cy="268" r="2"/><circle cx="140" cy="272" r="2.2"/><circle cx="200" cy="268" r="2"/>
+    <circle cx="260" cy="265" r="2.2"/><circle cx="320" cy="268" r="2"/><circle cx="380" cy="272" r="2.2"/>
+    <circle cx="440" cy="268" r="2"/><circle cx="500" cy="265" r="2.2"/><circle cx="560" cy="268" r="2"/>
+    <circle cx="620" cy="272" r="2.2"/><circle cx="680" cy="268" r="2"/><circle cx="740" cy="265" r="2.2"/>
+    <circle cx="800" cy="268" r="2"/><circle cx="860" cy="272" r="2.2"/><circle cx="920" cy="268" r="2"/>
+    <circle cx="980" cy="265" r="2.2"/><circle cx="1040" cy="268" r="2"/><circle cx="1100" cy="272" r="2.2"/>
+    <circle cx="1160" cy="268" r="2"/><circle cx="1220" cy="265" r="2.2"/><circle cx="1280" cy="268" r="2"/>
+    <circle cx="1340" cy="272" r="2.2"/><circle cx="1400" cy="268" r="2"/>
+
+    <circle cx="80"  cy="308" r="2.2"/><circle cx="140" cy="312" r="2"/><circle cx="200" cy="308" r="2.2"/>
+    <circle cx="260" cy="305" r="2"/><circle cx="320" cy="308" r="2.2"/><circle cx="380" cy="312" r="2"/>
+    <circle cx="440" cy="308" r="2.2"/><circle cx="500" cy="305" r="2"/><circle cx="560" cy="308" r="2.2"/>
+    <circle cx="620" cy="312" r="2"/><circle cx="680" cy="308" r="2.2"/><circle cx="740" cy="305" r="2"/>
+    <circle cx="800" cy="308" r="2.2"/><circle cx="860" cy="312" r="2"/><circle cx="920" cy="308" r="2.2"/>
+    <circle cx="980" cy="305" r="2"/><circle cx="1040" cy="308" r="2.2"/><circle cx="1100" cy="312" r="2"/>
+    <circle cx="1160" cy="308" r="2.2"/><circle cx="1220" cy="305" r="2"/><circle cx="1280" cy="308" r="2.2"/>
+    <circle cx="1340" cy="312" r="2"/><circle cx="1400" cy="308" r="2.2"/>
+  </g>
+
+  <!-- Arc connection lines between city nodes — all in lower third -->
+  <g fill="none" stroke-dasharray="6 5">
+    <!-- SF → NY -->
+    <path d="M 200 310 Q 550 200 870 295" stroke="#2563eb" stroke-width="1.5" opacity="0.18"/>
+    <!-- NY → London -->
+    <path d="M 870 295 Q 1060 230 1260 300" stroke="#2563eb" stroke-width="1.3" opacity="0.14"/>
+    <!-- Chicago → Dallas -->
+    <path d="M 520 305 Q 640 250 750 320" stroke="#f97316" stroke-width="1.2" opacity="0.16"/>
+    <!-- Boston → NY -->
+    <path d="M 960 290 Q 920 270 870 295" stroke="#7c3aed" stroke-width="1.1" opacity="0.14"/>
+    <!-- Seattle → SF -->
+    <path d="M 110 315 Q 155 290 200 310" stroke="#059669" stroke-width="1.1" opacity="0.15"/>
+  </g>
+
+  <!-- City nodes — all below y=280 so they never touch heading text -->
+  <!-- Seattle -->
+  <g filter="url(#glow)">
+    <circle cx="110" cy="315" r="24" fill="#2563eb" opacity="0.06"/>
+    <circle cx="110" cy="315" r="14" fill="#2563eb" opacity="0.10"/>
+    <circle cx="110" cy="315" r="7"  fill="url(#nodeBlue)"/>
+    <circle cx="110" cy="315" r="14" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.25"/>
+  </g>
+
+  <!-- San Francisco -->
+  <g filter="url(#glow)">
+    <circle cx="200" cy="310" r="30" fill="#ea580c" opacity="0.06"/>
+    <circle cx="200" cy="310" r="17" fill="#ea580c" opacity="0.10"/>
+    <circle cx="200" cy="310" r="8"  fill="url(#nodeOrange)"/>
+    <circle cx="200" cy="310" r="17" fill="none" stroke="#f97316" stroke-width="1.5" opacity="0.25"/>
+  </g>
+
+  <!-- Chicago -->
+  <g filter="url(#glow)">
+    <circle cx="520" cy="305" r="25" fill="#2563eb" opacity="0.06"/>
+    <circle cx="520" cy="305" r="14" fill="#2563eb" opacity="0.10"/>
+    <circle cx="520" cy="305" r="7"  fill="url(#nodeBlue)"/>
+    <circle cx="520" cy="305" r="14" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.25"/>
+  </g>
+
+  <!-- Dallas -->
+  <g filter="url(#glow)">
+    <circle cx="750" cy="320" r="24" fill="#059669" opacity="0.06"/>
+    <circle cx="750" cy="320" r="14" fill="#059669" opacity="0.10"/>
+    <circle cx="750" cy="320" r="7"  fill="url(#nodeGreen)"/>
+    <circle cx="750" cy="320" r="14" fill="none" stroke="#10b981" stroke-width="1.5" opacity="0.25"/>
+  </g>
+
+  <!-- New York — hero node -->
+  <g filter="url(#glow)">
+    <circle cx="870" cy="295" r="36" fill="#2563eb" opacity="0.07"/>
+    <circle cx="870" cy="295" r="21" fill="#2563eb" opacity="0.10"/>
+    <circle cx="870" cy="295" r="10" fill="url(#nodeBlue)"/>
+    <circle cx="870" cy="295" r="21" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.22"/>
+  </g>
+
+  <!-- Boston -->
+  <g filter="url(#glow)">
+    <circle cx="960" cy="290" r="22" fill="#7c3aed" opacity="0.06"/>
+    <circle cx="960" cy="290" r="13" fill="#7c3aed" opacity="0.10"/>
+    <circle cx="960" cy="290" r="6"  fill="url(#nodePurple)"/>
+    <circle cx="960" cy="290" r="13" fill="none" stroke="#8b5cf6" stroke-width="1.5" opacity="0.25"/>
+  </g>
+
+  <!-- London -->
+  <g filter="url(#glow)">
+    <circle cx="1260" cy="300" r="28" fill="#2563eb" opacity="0.06"/>
+    <circle cx="1260" cy="300" r="16" fill="#2563eb" opacity="0.10"/>
+    <circle cx="1260" cy="300" r="8"  fill="url(#nodeBlue)"/>
+    <circle cx="1260" cy="300" r="16" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.22"/>
+  </g>
+
+  <!-- City labels — small, only near the bottom edge -->
+  <g font-family="Inter,sans-serif" font-size="9" fill="#6b7280" text-anchor="middle" opacity="0.65">
+    <text x="110"  y="345">Seattle</text>
+    <text x="200"  y="345">San Francisco</text>
+    <text x="520"  y="334">Chicago</text>
+    <text x="750"  y="349">Dallas</text>
+    <text x="870"  y="326">New York</text>
+    <text x="960"  y="318">Boston</text>
+    <text x="1260" y="330">London</text>
+  </g>
+
+  <!-- Top fade overlay: keeps the header text zone crystal clear -->
+  <rect width="1440" height="380" fill="url(#topFade)"/>
+</svg>

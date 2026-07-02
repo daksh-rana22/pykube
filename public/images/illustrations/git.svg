@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+
+    <!-- Branch Colors -->
+    <linearGradient id="mainGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+    <linearGradient id="devGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+    <linearGradient id="featGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#8b5cf6" />
+    </linearGradient>
+
+    <!-- Glow Filters -->
+    <filter id="glow-green" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="glow-blue" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="glow-purple" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    
+    <!-- Blueprint Grid -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255, 255, 255, 0.025)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" rx="16" fill="url(#bgGrad)" />
+  <rect width="800" height="500" rx="16" fill="url(#grid)" />
+
+  <!-- Title / Branding Header -->
+  <g transform="translate(40, 45)">
+    <!-- Git Icon -->
+    <path d="M19.17 0a3.67 3.67 0 0 0-2.58 1.08L1.08 16.59a3.67 3.67 0 0 0 0 5.17l12.16 12.16a3.67 3.67 0 0 0 5.17 0l15.51-15.51a3.67 3.67 0 0 0 0-5.17L21.75 1.08A3.66 3.66 0 0 0 19.17 0zm.04 7.23a2.12 2.12 0 1 1-1.5 3.62 2.12 2.12 0 0 1 1.5-3.62zm-6.9 14.15a2.12 2.12 0 1 1-1.5 3.62 2.12 2.12 0 0 1 1.5-3.62zm6.9 0a2.12 2.12 0 1 1-1.5 3.62 2.12 2.12 0 0 1 1.5-3.62z" fill="#f05032" transform="scale(0.85)" />
+    <!-- Connector Branch Lines in Icon -->
+    <path d="M10.8 17.8v-3.5a1.5 1.5 0 0 1 1.5-1.5h4v-1" fill="none" stroke="#fff" stroke-width="1.5" transform="scale(0.85)" />
+    
+    <text x="40" y="22" font-family="'Inter', sans-serif" font-size="16" font-weight="800" fill="#f8fafc" letter-spacing="1.5">GIT VERSION CONTROL</text>
+    <text x="40" y="38" font-family="'Inter', sans-serif" font-size="11" font-weight="600" fill="#64748b" letter-spacing="0.5">TEAM COLLABORATION &amp; BRANCHING MODEL</text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(540, 45)" font-family="'Inter', sans-serif" font-size="11" font-weight="600">
+    <!-- Main -->
+    <circle cx="10" cy="10" r="5" fill="#10b981" />
+    <text x="22" y="14" fill="#94a3b8">main</text>
+    <!-- Develop -->
+    <circle cx="90" cy="10" r="5" fill="#3b82f6" />
+    <text x="102" y="14" fill="#94a3b8">develop</text>
+    <!-- Feature -->
+    <circle cx="180" cy="10" r="5" fill="#8b5cf6" />
+    <text x="192" y="14" fill="#94a3b8">feature</text>
+  </g>
+
+  <!-- ── Branch Lines (Flowchart Tracks) ── -->
+  <!-- main branch line -->
+  <path d="M 80 180 L 720 180" fill="none" stroke="url(#mainGrad)" stroke-width="3" />
+  
+  <!-- develop branch lines -->
+  <path d="M 120 180 Q 160 270 200 270 L 600 270 Q 640 270 680 180" fill="none" stroke="url(#devGrad)" stroke-width="3" />
+
+  <!-- feature branch lines -->
+  <path d="M 280 270 Q 320 360 360 360 L 480 360 Q 520 360 560 270" fill="none" stroke="url(#featGrad)" stroke-width="3" />
+
+  <!-- ── Commits / Nodes ── -->
+  
+  <!-- Main Nodes -->
+  <!-- C1 (Initial Commit) -->
+  <g transform="translate(120, 180)">
+    <circle cx="0" cy="0" r="8" fill="#10b981" filter="url(#glow-green)" />
+    <circle cx="0" cy="0" r="4" fill="#fff" />
+    <text x="-25" y="-18" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#10b981">v1.0.0</text>
+  </g>
+
+  <!-- Develop Initial Node -->
+  <g transform="translate(200, 270)">
+    <circle cx="0" cy="0" r="7" fill="#3b82f6" filter="url(#glow-blue)" />
+    <circle cx="0" cy="0" r="3.5" fill="#fff" />
+    <text x="-20" y="22" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#3b82f6">c92a10</text>
+  </g>
+
+  <!-- Develop Commit 2 -->
+  <g transform="translate(280, 270)">
+    <circle cx="0" cy="0" r="7" fill="#3b82f6" filter="url(#glow-blue)" />
+    <circle cx="0" cy="0" r="3.5" fill="#fff" />
+    <text x="-20" y="22" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#3b82f6">d35f41</text>
+  </g>
+
+  <!-- Feature Commit 1 -->
+  <g transform="translate(360, 360)">
+    <circle cx="0" cy="0" r="7" fill="#8b5cf6" filter="url(#glow-purple)" />
+    <circle cx="0" cy="0" r="3.5" fill="#fff" />
+    <text x="-20" y="22" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#8b5cf6">f11b22</text>
+    <text x="12" y="4" font-family="'Inter', sans-serif" font-size="9" font-weight="600" fill="#64748b">feature-auth-init</text>
+  </g>
+
+  <!-- Feature Commit 2 -->
+  <g transform="translate(480, 360)">
+    <circle cx="0" cy="0" r="7" fill="#8b5cf6" filter="url(#glow-purple)" />
+    <circle cx="0" cy="0" r="3.5" fill="#fff" />
+    <text x="-20" y="22" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#8b5cf6">f42e91</text>
+    <text x="12" y="4" font-family="'Inter', sans-serif" font-size="9" font-weight="600" fill="#64748b">add-jwt-token</text>
+  </g>
+
+  <!-- Pull Request / Develop Merge Node -->
+  <g transform="translate(560, 270)">
+    <!-- PR Merge Node -->
+    <circle cx="0" cy="0" r="8" fill="#3b82f6" filter="url(#glow-blue)" />
+    <circle cx="0" cy="0" r="4" fill="#fff" />
+    <!-- PR Label Banner -->
+    <rect x="-45" y="-30" width="90" height="18" rx="4" fill="#1e1b4b" stroke="#3730a3" stroke-width="1"/>
+    <text x="0" y="-18" font-family="'Inter', sans-serif" font-size="9" font-weight="700" fill="#818cf8" text-anchor="middle">PR #12 MERGED</text>
+    <text x="-20" y="22" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#3b82f6">m10c22</text>
+  </g>
+
+  <!-- Release Candidate / Main Merge Node -->
+  <g transform="translate(680, 180)">
+    <circle cx="0" cy="0" r="9" fill="#10b981" filter="url(#glow-green)" />
+    <circle cx="0" cy="0" r="4.5" fill="#fff" />
+    <text x="-25" y="-18" font-family="'Inter', sans-serif" font-size="10" font-weight="800" fill="#10b981">v1.1.0-RC</text>
+    <text x="-20" y="24" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#10b981">v1.1.0</text>
+  </g>
+
+  <!-- Pull Request Icon Overlay on PR Branch Line -->
+  <g transform="translate(520, 310)" fill="#818cf8">
+    <circle cx="8" cy="8" r="14" fill="#1e1b4b" stroke="#312e81" stroke-width="1.5" />
+    <!-- PR SVG Path -->
+    <path d="M5 4.5a1.5 1.5 0 1 1-1.5 1.5 1.5 1.5 0 0 1 1.5-1.5zm6 0a1.5 1.5 0 1 1-1.5 1.5 1.5 1.5 0 0 1 1.5-1.5zm-6 7a1.5 1.5 0 1 1-1.5 1.5 1.5 1.5 0 0 1 1.5-1.5zm0-4.5v3.5" stroke="#818cf8" stroke-width="1.5" fill="none" transform="translate(2, 2) scale(0.8)"/>
+  </g>
+
+  <!-- Terminal Window Decoration (Bottom Left) -->
+  <g transform="translate(40, 370)">
+    <rect width="220" height="90" rx="8" fill="#0b0f19" stroke="#1e293b" stroke-width="1.5" />
+    <!-- Windows Dot Controls -->
+    <circle cx="15" cy="15" r="4" fill="#ef4444" />
+    <circle cx="27" cy="15" r="4" fill="#eab308" />
+    <circle cx="39" cy="15" r="4" fill="#22c55e" />
+    
+    <!-- Code Snippet text -->
+    <text x="15" y="38" font-family="'Courier New', Courier, monospace" font-size="9" fill="#94a3b8">$ git checkout -b feature/auth</text>
+    <text x="15" y="52" font-family="'Courier New', Courier, monospace" font-size="9" fill="#22c55e">Switched to a new branch 'feature/auth'</text>
+    <text x="15" y="66" font-family="'Courier New', Courier, monospace" font-size="9" fill="#94a3b8">$ git commit -m "add jwt auth"</text>
+    <text x="15" y="80" font-family="'Courier New', Courier, monospace" font-size="9" fill="#f59e0b">[feature/auth f42e91] add jwt auth</text>
+  </g>
+
+  <!-- Info Badge Details (Bottom Right) -->
+  <g transform="translate(540, 420)">
+    <rect width="220" height="40" rx="6" fill="rgba(30, 41, 59, 0.5)" stroke="rgba(255, 255, 255, 0.05)" stroke-width="1"/>
+    <text x="12" y="16" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#3b82f6" letter-spacing="0.5">GIT BEST PRACTICES</text>
+    <text x="12" y="30" font-family="'Inter', sans-serif" font-size="9" fill="#94a3b8">Short-lived branches, clean commit logs</text>
+  </g>
+</svg>

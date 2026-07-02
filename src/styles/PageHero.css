@@ -1,6 +1,11 @@
 /* ===== Page Hero Banner ===== */
 .page-hero {
-  background: linear-gradient(135deg, #0f1c3f 0%, #1e3a8a 55%, #1d4ed8 100%);
+  background: #0f1c3f;
+  background-image:
+    linear-gradient(135deg, rgba(8, 15, 40, 0.95) 0%, rgba(15, 50, 160, 0.92) 50%, rgba(8, 15, 40, 0.97) 100%),
+    url('/images/illustrations/tech_bg.svg');
+  background-size: cover;
+  background-position: center;
   padding: 100px 0 70px;
   position: relative;
   overflow: hidden;

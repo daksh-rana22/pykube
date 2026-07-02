@@ -4,9 +4,9 @@ import logo from '../assets/logo.png';
 
 const navLinks = [
   { label: 'Home', href: '/#home' },
-  { 
-    label: 'Programs', 
-    href: '/courses', 
+  {
+    label: 'Programs',
+    href: '/courses',
     dropdown: [
       { label: 'Java Full Stack', href: '/courses/java-full-stack', icon: '☕', sub: 'Spring Boot, Angular, AWS', color: '#e76f00', bg: '#fff7ed' },
       { label: 'Python Developer', href: '/courses/python-developer', icon: '🐍', sub: 'Django, Rest API, SQL', color: '#3776ab', bg: '#eff6ff' },
@@ -16,8 +16,8 @@ const navLinks = [
       { label: 'Data Scientist', href: '/courses/data-scientist', icon: '🤖', sub: 'ML, PySpark, Statistics', color: '#ef4444', bg: '#fef2f2' }
     ]
   },
-  { 
-    label: 'Services', 
+  {
+    label: 'Services',
     href: '/services',
     dropdown: [
       { label: 'Interview Preparation', icon: '🤝', sub: 'Practice interviews & get the right hire guidance', href: '/services/interview-preparation' },
@@ -30,15 +30,6 @@ const navLinks = [
   },
   { label: 'Success Stories', href: '/#testimonials' },
   { label: 'About Us', href: '/about-us' },
-  { 
-    label: 'Resources', 
-    href: '/#blog', 
-    dropdown: [
-      { label: 'Blog', href: '/#blog' },
-      { label: 'Videos', href: '/#blog' },
-      { label: 'Webinars', href: '/#blog' }
-    ]
-  },
   { label: 'Contact Us', href: '/contact' },
 ];
 
@@ -186,9 +177,9 @@ export default function Navbar() {
             ))}
           </nav>
           <a href="/contact" className="btn-primary navbar-cta">Book Free Consultation</a>
-          <button 
-            className="theme-toggle-btn" 
-            onClick={toggleTheme} 
+          <button
+            className="theme-toggle-btn"
+            onClick={toggleTheme}
             aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
           >
             {theme === 'dark' ? (

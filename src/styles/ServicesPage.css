@@ -9,9 +9,10 @@
   padding: 100px 0 70px;
   background: #0f1c3f;
   background-image:
-    radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.55) 0, transparent 60%),
-    radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.4) 0, transparent 60%),
-    radial-gradient(at 50% 50%, rgba(15, 23, 42, 0.85) 0, transparent 80%);
+    linear-gradient(135deg, rgba(8, 15, 40, 0.95) 0%, rgba(15, 50, 160, 0.92) 50%, rgba(8, 15, 40, 0.97) 100%),
+    url('/images/illustrations/tech_bg.svg');
+  background-size: cover;
+  background-position: center;
   text-align: center;
 }
 

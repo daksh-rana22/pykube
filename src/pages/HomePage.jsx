@@ -7,7 +7,6 @@ import Process from '../components/Process';
 import FAQ from '../components/FAQ';
 import Testimonials from '../components/Testimonials';
 import Companies from '../components/Companies';
-import Blog from '../components/Blog';
 import CTA from '../components/CTA';
 
 export default function HomePage() {
@@ -21,7 +20,6 @@ export default function HomePage() {
       <Process />
       <Testimonials />
       <Companies />
-      <Blog />
       <FAQ />
       <CTA />
     </main>

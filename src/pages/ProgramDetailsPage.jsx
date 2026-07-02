@@ -23,8 +23,8 @@ const roadmapMap = {
 const heroConfig = {
   'java-full-stack': {
     badge: '⚡ 2026 EDITION',
-    titleLine1: 'Java Full-Stack',
-    titleHighlight: 'Developer',
+    titleLine1: '',
+    titleHighlight: '',
     titleLine2: 'Roadmap',
     subtitle: 'A structured path from zero to production-ready. Click any section to explore the skills, tools, and concepts you need to master.',
     metrics: [
@@ -40,8 +40,8 @@ const heroConfig = {
   },
   'python-developer': {
     badge: '🐍 2026 EDITION',
-    titleLine1: 'Python',
-    titleHighlight: 'Developer',
+    titleLine1: '',
+    titleHighlight: '',
     titleLine2: 'Roadmap',
     subtitle: 'From Python basics to deploying a full E-Commerce platform. Click any section to explore every skill you need.',
     metrics: [
@@ -57,8 +57,8 @@ const heroConfig = {
   },
   'qa-automation': {
     badge: '🔍 2026 EDITION',
-    titleLine1: 'QA Automation',
-    titleHighlight: 'Engineer',
+    titleLine1: '',
+    titleHighlight: '',
     titleLine2: 'Roadmap',
     subtitle: 'From manual testing fundamentals to Selenium automation frameworks. Click any section to explore every skill you need.',
     metrics: [
@@ -74,8 +74,8 @@ const heroConfig = {
   },
   'data-analyst': {
     badge: '📊 2026 EDITION',
-    titleLine1: 'Data',
-    titleHighlight: 'Analyst',
+    titleLine1: '',
+    titleHighlight: '',
     titleLine2: 'Roadmap',
     subtitle: 'From Python fundamentals to Power BI dashboards. Click any section to explore every skill you need.',
     metrics: [
@@ -91,8 +91,8 @@ const heroConfig = {
   },
   'data-engineer': {
     badge: '🔧 2026 EDITION',
-    titleLine1: 'Data',
-    titleHighlight: 'Engineer',
+    titleLine1: '',
+    titleHighlight: '',
     titleLine2: 'Roadmap',
     subtitle: 'From advanced Python to PySpark pipelines at scale. Click any section to explore every skill you need.',
     metrics: [
@@ -108,8 +108,8 @@ const heroConfig = {
   },
   'data-scientist': {
     badge: '🤖 2026 EDITION',
-    titleLine1: 'Data',
-    titleHighlight: 'Scientist',
+    titleLine1: '',
+    titleHighlight: '',
     titleLine2: 'Roadmap',
     subtitle: 'From Python and ML fundamentals to Power BI and PySpark. Click any section to explore every skill you need.',
     metrics: [
@@ -125,22 +125,647 @@ const heroConfig = {
   },
 };
 
+const RoadmapSectionVisual = ({ title, accentColor }) => {
+  const t = title.toLowerCase();
+
+  const themeStyle = { '--accent': accentColor, '--accent-glow': `${accentColor}25` };
+
+  // 1. Python Core & Fundamentals
+  if (t === 'python core' || t === 'python fundamentals' || t === 'advanced python') {
+    return (
+      <div className="native-visual backend-visual" style={themeStyle}>
+        <div className="backend-header">🐍 Python Interactive Console</div>
+        <div className="testing-console" style={{ minHeight: '120px', fontFamily: 'monospace', padding: '12px' }}>
+          <div className="test-line pass" style={{ color: '#64748b' }}>&gt;&gt;&gt; name = "Python"</div>
+          <div className="test-line pass" style={{ color: '#64748b' }}>&gt;&gt;&gt; print(f"Hello, {name}!")</div>
+          <div className="test-line pass" style={{ color: '#4ade80' }}>Hello, Python!</div>
+          <div className="test-line pass" style={{ color: '#64748b' }}>&gt;&gt;&gt; items = [x**2 for x in range(3)]</div>
+          <div className="test-line pass" style={{ color: '#64748b' }}>&gt;&gt;&gt; print(items)</div>
+          <div className="test-line pass" style={{ color: '#4ade80' }}>[0, 1, 4]</div>
+        </div>
+      </div>
+    );
+  }
+
+  // 2. NumPy Array Operations
+  if (t === 'numpy') {
+    return (
+      <div className="native-visual backend-visual" style={themeStyle}>
+        <div className="backend-header">🔢 NumPy Array Operations</div>
+        <div className="testing-console" style={{ minHeight: '120px', fontFamily: 'monospace', padding: '12px' }}>
+          <div className="test-line pass" style={{ color: '#64748b' }}>&gt;&gt;&gt; import numpy as np</div>
+          <div className="test-line pass" style={{ color: '#64748b' }}>&gt;&gt;&gt; a = np.array([1, 2, 3])</div>
+          <div className="test-line pass" style={{ color: '#64748b' }}>&gt;&gt;&gt; print(a * 2)</div>
+          <div className="test-line pass" style={{ color: '#4ade80' }}>[2, 4, 6]</div>
+        </div>
+      </div>
+    );
+  }
+
+  // 3. Pandas / Data Libraries
+  if (t === 'pandas' || t === 'data libraries' || t.includes('python & ml libraries')) {
+    return (
+      <div className="native-visual database-visual" style={themeStyle}>
+        <div className="db-header">🐼 Pandas DataFrame</div>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '10.5px', fontFamily: 'monospace', background: '#0f172a', border: '1px solid rgba(255, 255, 255, 0.08)', marginBottom: '10px' }}>
+          <thead>
+            <tr style={{ background: '#1e293b', borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}>
+              <th style={{ padding: '6px', textAlign: 'left', color: '#94a3b8' }}>id</th>
+              <th style={{ padding: '6px', textAlign: 'left', color: '#94a3b8' }}>sales</th>
+              <th style={{ padding: '6px', textAlign: 'left', color: '#94a3b8' }}>region</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.05)' }}>
+              <td style={{ padding: '6px' }}>0</td>
+              <td style={{ padding: '6px', color: '#10b981' }}>1500</td>
+              <td style={{ padding: '6px' }}>East</td>
+            </tr>
+            <tr>
+              <td style={{ padding: '6px' }}>1</td>
+              <td style={{ padding: '6px', color: '#10b981' }}>2300</td>
+              <td style={{ padding: '6px' }}>West</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    );
+  }
+
+  // 4. Statistics & Visualization / Power BI
+  if (t.includes('statistics & visualization') || t.includes('power bi')) {
+    return (
+      <div className="native-visual backend-visual" style={{ ...themeStyle, padding: '16px' }}>
+        <div className="backend-header">📊 Matplotlib / Power BI Dashboard</div>
+        <div className="topic-visual-container" style={{ gap: '10px' }}>
+          {/* Chart Header */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '10px', color: '#94a3b8' }}>
+            <span style={{ fontWeight: 'bold', color: '#e2e8f0' }}>Quarterly Active Users (MAU)</span>
+            <span>Target: 20k</span>
+          </div>
+
+          {/* Chart Graphic */}
+          <div style={{ display: 'flex', height: '110px', position: 'relative', background: '#020617', borderRadius: '6px', padding: '10px 10px 5px 5px', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
+            {/* Y Axis Labels */}
+            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', fontSize: '8px', color: '#64748b', textAlign: 'right', width: '25px', paddingRight: '6px', height: '90px' }}>
+              <span>30k</span>
+              <span>20k</span>
+              <span>10k</span>
+              <span>0</span>
+            </div>
+
+            {/* Grid & Bars Container */}
+            <div style={{ flex: 1, position: 'relative', height: '90px', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-around', borderLeft: '1px solid #334155', borderBottom: '1px solid #334155' }}>
+              {/* Horizontal Gridlines */}
+              <div style={{ position: 'absolute', top: '0', left: 0, right: 0, height: '1px', background: 'rgba(255,255,255,0.03)' }} />
+              <div style={{ position: 'absolute', top: '33%', left: 0, right: 0, height: '1px', background: 'rgba(255,255,255,0.03)' }} />
+              <div style={{ position: 'absolute', top: '66%', left: 0, right: 0, height: '1px', background: 'rgba(255,255,255,0.03)' }} />
+
+              {/* Bars */}
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '25px', height: '60%', zIndex: 2 }}>
+                <span style={{ fontSize: '8px', color: '#38bdf8', marginBottom: '2px', fontWeight: 'bold' }}>18k</span>
+                <div style={{ width: '100%', flex: 1, background: 'linear-gradient(to top, #2563eb, #38bdf8)', borderRadius: '3px 3px 0 0' }} />
+                <span style={{ fontSize: '8px', color: '#64748b', marginTop: '4px' }}>Q1</span>
+              </div>
+
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '25px', height: '85%', zIndex: 2 }}>
+                <span style={{ fontSize: '8px', color: '#a855f7', marginBottom: '2px', fontWeight: 'bold' }}>25k</span>
+                <div style={{ width: '100%', flex: 1, background: 'linear-gradient(to top, #7c3aed, #a855f7)', borderRadius: '3px 3px 0 0' }} />
+                <span style={{ fontSize: '8px', color: '#64748b', marginTop: '4px' }}>Q2</span>
+              </div>
+
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '25px', height: '40%', zIndex: 2 }}>
+                <span style={{ fontSize: '8px', color: '#34d399', marginBottom: '2px', fontWeight: 'bold' }}>12k</span>
+                <div style={{ width: '100%', flex: 1, background: 'linear-gradient(to top, #059669, #34d399)', borderRadius: '3px 3px 0 0' }} />
+                <span style={{ fontSize: '8px', color: '#64748b', marginTop: '4px' }}>Q3</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Matplotlib Code */}
+          <div style={{ background: '#020617', padding: '6px 8px', borderRadius: '4px', fontFamily: 'monospace', fontSize: '8.5px', color: '#38bdf8', border: '1px solid rgba(255,255,255,0.03)' }}>
+            <div style={{ color: '#64748b', marginBottom: '2px' }}># Matplotlib Snippet</div>
+            <div style={{ color: '#ce9178' }}>plt.bar(['Q1', 'Q2', 'Q3'], [18, 25, 12])</div>
+            <div style={{ color: '#ce9178' }}>plt.ylabel('Users (in thousands)')</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // 5. PySpark Cluster
+  if (t === 'pyspark') {
+    return (
+      <div className="native-visual system-design-visual" style={{ ...themeStyle, padding: '16px' }}>
+        <div className="sys-header" style={{ marginBottom: '12px' }}>⚡ Apache PySpark Cluster</div>
+        <div className="topic-visual-container" style={{ gap: '10px' }}>
+          {/* Cluster Status Top Bar */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '9px', color: '#94a3b8', background: 'rgba(255, 255, 255, 0.02)', padding: '6px 10px', borderRadius: '4px', border: '1px solid rgba(255, 255, 255, 0.04)' }}>
+            <span>Master: <strong>spark://7077</strong></span>
+            <span>Cores: <strong>8</strong> | RAM: <strong>16GB</strong></span>
+          </div>
+
+          {/* Node Grid Layout */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 6px', background: '#020617', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.03)' }}>
+            {/* Driver Node */}
+            <div style={{ textAlign: 'center', flex: '1' }}>
+              <div className="sys-box client" style={{ minWidth: 'auto', padding: '8px 4px', margin: '0 auto', display: 'inline-block', width: '75px', fontSize: '10px' }}>Driver</div>
+              <div style={{ fontSize: '8px', color: '#64748b', marginTop: '4px' }}>SparkSession</div>
+            </div>
+
+            <div style={{ color: '#475569', fontSize: '12px', fontWeight: 'bold' }}>➔</div>
+
+            {/* Executor Workers */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', flex: '1.5', alignItems: 'center' }}>
+              <div style={{ display: 'flex', gap: '8px' }}>
+                <div style={{ textAlign: 'center' }}>
+                  <div className="sys-box node" style={{ minWidth: 'auto', padding: '6px 4px', width: '70px', fontSize: '9px' }}>Worker 1</div>
+                  <div style={{ fontSize: '7px', color: '#64748b', marginTop: '2px' }}>4 Cores / 8GB</div>
+                </div>
+                <div style={{ textAlign: 'center' }}>
+                  <div className="sys-box node" style={{ minWidth: 'auto', padding: '6px 4px', width: '70px', fontSize: '9px' }}>Worker 2</div>
+                  <div style={{ fontSize: '7px', color: '#64748b', marginTop: '2px' }}>4 Cores / 8GB</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Execution details */}
+          <div style={{ background: '#020617', padding: '8px 10px', borderRadius: '4px', border: '1px solid rgba(255, 255, 255, 0.03)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '9px', color: '#cbd5e1', marginBottom: '4px' }}>
+              <span>Job: <strong>df.groupBy().count()</strong></span>
+              <span style={{ color: '#10b981' }}>SUCCESS</span>
+            </div>
+            <div style={{ width: '100%', height: '4px', background: '#334155', borderRadius: '2px', overflow: 'hidden' }}>
+              <div style={{ width: '100%', height: '100%', background: '#10b981' }} />
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '8px', color: '#64748b', marginTop: '4px' }}>
+              <span>Stages: 2/2 Complete</span>
+              <span>Tasks: 32/32 Done</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // 6. Pipelines / Ingestion
+  if (t === 'data pipelines' || t === 'data ingestion') {
+    return (
+      <div className="native-visual devops-visual" style={{ ...themeStyle, padding: '16px' }}>
+        <div className="devops-header" style={{ marginBottom: '12px' }}>🔄 ETL Ingestion Pipeline</div>
+        <div className="topic-visual-container" style={{ gap: '10px' }}>
+
+          {/* Pipeline flow diagram */}
+          <div className="pipeline-flow" style={{ marginBottom: '4px', background: '#020617', padding: '12px 6px', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.03)' }}>
+            <div className="pipeline-node done" style={{ width: '52px', height: '52px', fontSize: '15px' }}>
+              <span className="node-icon">📥</span>
+              <span className="node-label" style={{ fontSize: '8px' }}>Extract</span>
+              <span style={{ fontSize: '6px', color: '#64748b', fontWeight: 'normal', marginTop: '1px' }}>S3 / RDBMS</span>
+            </div>
+
+            <div className="pipeline-connector active" />
+
+            <div className="pipeline-node done" style={{ width: '52px', height: '52px', fontSize: '15px' }}>
+              <span className="node-icon">⚙️</span>
+              <span className="node-label" style={{ fontSize: '8px' }}>Transform</span>
+              <span style={{ fontSize: '6px', color: '#64748b', fontWeight: 'normal', marginTop: '1px' }}>PySpark / SQL</span>
+            </div>
+
+            <div className="pipeline-connector active" />
+
+            <div className="pipeline-node active" style={{ width: '52px', height: '52px', fontSize: '15px' }}>
+              <span className="node-icon">📤</span>
+              <span className="node-label" style={{ fontSize: '8px' }}>Load</span>
+              <span style={{ fontSize: '6px', color: '#64748b', fontWeight: 'normal', marginTop: '1px' }}>Data Warehouse</span>
+            </div>
+          </div>
+
+          {/* Real-time Ingestion Metrics */}
+          <div style={{ background: '#020617', padding: '8px 10px', borderRadius: '4px', border: '1px solid rgba(255, 255, 255, 0.03)', fontSize: '9.5px', color: '#cbd5e1' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
+              <span style={{ fontWeight: 'bold' }}>Pipeline Stream Metrics</span>
+              <span style={{ color: '#10b981', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                <span className="status-dot pulsing" style={{ width: '6px', height: '6px', background: '#10b981' }} /> Active
+              </span>
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', fontSize: '8.5px', color: '#94a3b8' }}>
+              <div style={{ background: 'rgba(255,255,255,0.02)', padding: '4px 6px', borderRadius: '3px' }}>
+                Throughput: <strong style={{ color: '#e2e8f0' }}>14,500 rec/s</strong>
+              </div>
+              <div style={{ background: 'rgba(255,255,255,0.02)', padding: '4px 6px', borderRadius: '3px' }}>
+                Avg Latency: <strong style={{ color: '#e2e8f0' }}>850ms</strong>
+              </div>
+              <div style={{ background: 'rgba(255,255,255,0.02)', padding: '4px 6px', borderRadius: '3px' }}>
+                Source: <strong style={{ color: '#e2e8f0' }}>Kafka Topic</strong>
+              </div>
+              <div style={{ background: 'rgba(255,255,255,0.02)', padding: '4px 6px', borderRadius: '3px' }}>
+                Target: <strong style={{ color: '#e2e8f0' }}>Snowflake DB</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // 7. Manual Testing
+  if (t === 'manual testing') {
+    return (
+      <div className="native-visual database-visual" style={themeStyle}>
+        <div className="db-header">📋 Manual Test Cases</div>
+        <div className="db-tables" style={{ flexDirection: 'column', gap: '8px', alignItems: 'stretch' }}>
+          <div className="stack-var" style={{ background: '#1e293b', justifyContent: 'space-between', padding: '6px 12px' }}>
+            <span style={{ color: '#e2e8f0' }}>TC_01: User Login Auth</span>
+            <span className="status-badge" style={{ background: 'rgba(16, 185, 129, 0.15)', color: '#10b981', padding: '2px 6px', borderRadius: '4px', fontSize: '9px', fontWeight: 'bold' }}>PASSED</span>
+          </div>
+          <div className="stack-var" style={{ background: '#1e293b', justifyContent: 'space-between', padding: '6px 12px' }}>
+            <span style={{ color: '#e2e8f0' }}>TC_02: Payment Gateway Timeout</span>
+            <span className="status-badge" style={{ background: 'rgba(239, 68, 68, 0.15)', color: '#ef4444', padding: '2px 6px', borderRadius: '4px', fontSize: '9px', fontWeight: 'bold' }}>FAILED</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // 8. Core Java / QA
+  if (t.includes('core java')) {
+    return (
+      <div className="native-visual backend-visual" style={themeStyle}>
+        <div className="backend-header">☕ Java Console</div>
+        <div className="testing-console" style={{ minHeight: '120px', fontFamily: 'monospace', padding: '12px' }}>
+          <div className="test-line pass" style={{ color: '#64748b' }}>&gt; public class Test &#123;</div>
+          <div className="test-line pass" style={{ color: '#64748b' }}>&gt;&nbsp;&nbsp;&nbsp;public static void main(String[] args) &#123;</div>
+          <div className="test-line pass" style={{ color: '#64748b' }}>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Java QA Ready");</div>
+          <div className="test-line pass" style={{ color: '#4ade80' }}>Java QA Ready</div>
+        </div>
+      </div>
+    );
+  }
+
+  // 9. Machine Learning
+  if (t.includes('machine learning')) {
+    return (
+      <div className="native-visual testing-visual" style={{ ...themeStyle, padding: '16px' }}>
+        <div className="testing-header">🤖 ML Model Training Monitor</div>
+        <div className="topic-visual-container" style={{ gap: '10px' }}>
+          <div className="testing-console" style={{ minHeight: '80px', fontFamily: 'monospace', padding: '10px', fontSize: '9px' }}>
+            <div className="test-line pass" style={{ color: '#94a3b8' }}>Epoch 1/3 - loss: 0.4281 - acc: 0.825</div>
+            <div className="test-line pass" style={{ color: '#94a3b8' }}>Epoch 2/3 - loss: 0.2154 - acc: 0.912</div>
+            <div className="test-line running" style={{ color: '#a855f7' }}>⚡ Epoch 3/3 - loss: 0.0984 - acc: 0.965</div>
+          </div>
+          <div style={{ background: '#020617', padding: '6px 8px', borderRadius: '4px', fontSize: '9px', color: '#cbd5e1', border: '1px solid rgba(255,255,255,0.03)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
+              <span>Model: <strong>ResNet-50 Classifier</strong></span>
+              <span style={{ color: '#a855f7' }}>Training 96%</span>
+            </div>
+            <div style={{ width: '100%', height: '4px', background: '#334155', borderRadius: '2px', overflow: 'hidden' }}>
+              <div style={{ width: '96%', height: '100%', background: '#a855f7' }} />
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // 10. Django Framework & ORM / REST APIs / APIs
+  if (t.includes('django & orm') || t.includes('django framework') || t === 'rest apis' || t === 'rest api design') {
+    return (
+      <div className="native-visual database-visual" style={themeStyle}>
+        <div className="db-header">🦁 Django ORM Query Translator</div>
+        <div className="db-console" style={{ marginBottom: '10px', padding: '10px' }}>
+          <div className="console-line query" style={{ color: '#10b981' }}># Python: Django ORM</div>
+          <div className="console-line query">&gt; ActiveUsers = User.objects.filter(is_active=True)</div>
+        </div>
+        <div className="db-console" style={{ padding: '10px' }}>
+          <div className="console-line result" style={{ color: '#38bdf8' }}>-- SQL Translation</div>
+          <div className="console-line result">&gt; SELECT * FROM auth_user WHERE is_active = 1;</div>
+        </div>
+      </div>
+    );
+  }
+
+  // 11. Real Project
+  if (t === 'real project') {
+    return (
+      <div className="native-visual frontend-visual" style={themeStyle}>
+        <div className="browser-header">
+          <div className="browser-dot red" />
+          <div className="browser-dot yellow" />
+          <div className="browser-dot green" />
+          <div className="browser-address">localhost:8000/shop/</div>
+        </div>
+        <div className="browser-content" style={{ minHeight: '120px', display: 'flex', gap: '10px', padding: '12px' }}>
+          <div className="preview-card" style={{ flex: 1, padding: '10px', maxWidth: 'none', background: '#1e293b' }}>
+            <div className="preview-avatar" style={{ width: '32px', height: '32px', background: 'linear-gradient(135deg, #10b981, #3b82f6)' }} />
+            <div className="preview-line-short" style={{ width: '80px', background: '#e2e8f0', height: '6px', borderRadius: '3px', marginBottom: '8px' }} />
+            <div className="preview-line-long" style={{ width: '120px', background: '#64748b', height: '6px', borderRadius: '3px', marginBottom: '16px' }} />
+            <div className="preview-button" style={{ background: '#10b981', padding: '4px 10px', fontSize: '9px' }}>$29.99 Buy Now</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (t.includes('frontend') || t.includes('ui') || t.includes('ux') || t.includes('web dev') || t.includes('web development')) {
+    return (
+      <div className="native-visual frontend-visual" style={themeStyle}>
+        <div className="browser-header">
+          <div className="browser-dot red" />
+          <div className="browser-dot yellow" />
+          <div className="browser-dot green" />
+          <div className="browser-address">localhost:3000</div>
+        </div>
+        <div className="browser-content">
+          <div className="visual-code-editor">
+            <div className="code-line"><span className="keyword">import</span> React <span className="keyword">from</span> <span className="string">'react'</span>;</div>
+            <div className="code-line"><span className="keyword">const</span> <span className="function">PyKube</span> = () =&gt; &#123;</div>
+            <div className="code-line">&nbsp;&nbsp;<span className="keyword">return</span> (</div>
+            <div className="code-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span className="tag">div</span> className=<span className="string">"premium"</span>&gt;</div>
+            <div className="code-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span className="tag">h1</span>&gt;Build App&lt;/<span className="tag">h1</span>&gt;</div>
+            <div className="code-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span className="tag">div</span>&gt;</div>
+            <div className="code-line">&nbsp;&nbsp;);</div>
+            <div className="code-line">&#125;;</div>
+          </div>
+          <div className="visual-preview-pane">
+            <div className="preview-card">
+              <div className="preview-avatar" />
+              <div className="preview-line-short" />
+              <div className="preview-line-long" />
+              <div className="preview-button">Deploy Live</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (t.includes('database') || t.includes('sql') || t.includes('mongodb') || t.includes('redis')) {
+    return (
+      <div className="native-visual database-visual" style={themeStyle}>
+        <div className="db-header">
+          <span className="db-icon">🗄️</span> DB Schema Visualizer
+        </div>
+        <div className="db-tables">
+          <div className="db-table">
+            <div className="table-title">users</div>
+            <div className="table-row primary-key"><span>🔑 id</span><span className="type">INT</span></div>
+            <div className="table-row"><span>email</span><span className="type">VARCHAR</span></div>
+            <div className="table-row"><span>password</span><span className="type">HASH</span></div>
+          </div>
+          <div className="db-relation-arrow">➔</div>
+          <div className="db-table">
+            <div className="table-title">orders</div>
+            <div className="table-row primary-key"><span>🔑 id</span><span className="type">INT</span></div>
+            <div className="table-row foreign-key"><span>user_id</span><span className="type">INT</span></div>
+            <div className="table-row"><span>amount</span><span className="type">DECIMAL</span></div>
+          </div>
+        </div>
+        <div className="db-console">
+          <div className="console-line query">&gt; SELECT * FROM orders JOIN users ON orders.user_id = users.id;</div>
+          <div className="console-line result">✓ Query executed: 8 rows returned (0.12ms)</div>
+        </div>
+      </div>
+    );
+  }
+
+  if (t.includes('testing') || t.includes('qa') || t.includes('manual') || t.includes('selenium') || t.includes('testng')) {
+    return (
+      <div className="native-visual testing-visual" style={themeStyle}>
+        <div className="testing-header">
+          <span className="testing-icon">🔬</span> Automation Test Runner
+        </div>
+        <div className="testing-console">
+          <div className="test-line pass">✓ test_user_authentication (12ms)</div>
+          <div className="test-line pass">✓ test_payment_intent_creation (84ms)</div>
+          <div className="test-line pass">✓ test_cart_item_update (15ms)</div>
+          <div className="test-line pass">✓ test_responsive_mobile_menu (22ms)</div>
+          <div className="test-line running">⚡ running test_email_verification...</div>
+        </div>
+        <div className="testing-progress">
+          <div className="progress-bar-fill" />
+          <span className="progress-label">Tests: 24 Passed, 0 Failed</span>
+        </div>
+      </div>
+    );
+  }
+
+  if (t.includes('devops') || t.includes('pipeline') || t.includes('ci/cd') || t.includes('deployment')) {
+    return (
+      <div className="native-visual devops-visual" style={themeStyle}>
+        <div className="devops-header">
+          <span className="devops-icon">🚀</span> CI/CD Release Pipeline
+        </div>
+        <div className="pipeline-flow">
+          <div className="pipeline-node done">
+            <span className="node-icon">📝</span>
+            <span className="node-label">Build</span>
+          </div>
+          <div className="pipeline-connector active" />
+          <div className="pipeline-node done">
+            <span className="node-icon">🧪</span>
+            <span className="node-label">Test</span>
+          </div>
+          <div className="pipeline-connector active" />
+          <div className="pipeline-node active">
+            <span className="node-icon">📦</span>
+            <span className="node-label">Deploy</span>
+          </div>
+        </div>
+        <div className="pipeline-status">
+          Status: <span className="status-badge running">BUILD_SUCCESSFUL &gt; DEPLOYING TO AWS EC2...</span>
+        </div>
+      </div>
+    );
+  }
+
+  if (t.includes('security')) {
+    return (
+      <div className="native-visual security-visual" style={themeStyle}>
+        <div className="security-shield-container">
+          <div className="shield-icon">🛡️</div>
+          <div className="shield-glow" />
+        </div>
+        <div className="security-checks">
+          <div className="check-item pass">🟢 HTTPS & SSL: ENABLED</div>
+          <div className="check-item pass">🟢 JWT Signature: VERIFIED</div>
+          <div className="check-item pass">🟢 SQLi Protection: ACTIVE</div>
+          <div className="check-item pass">🟢 CSRF Middleware: SECURE</div>
+        </div>
+      </div>
+    );
+  }
+
+  if (t.includes('system design') || t.includes('architecture')) {
+    return (
+      <div className="native-visual system-design-visual" style={themeStyle}>
+        <div className="sys-header">🏢 High Availability Distributed System</div>
+        <div className="sys-grid">
+          <div className="sys-box client">Clients</div>
+          <div className="sys-arrow">⬇</div>
+          <div className="sys-box gateway">API Gateway</div>
+          <div className="sys-row-nodes">
+            <div className="sys-box node">Service A</div>
+            <div className="sys-box node">Service B</div>
+          </div>
+          <div className="sys-row-storage">
+            <div className="sys-box db">PostgreSQL</div>
+            <div className="sys-box cache">Redis</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (t.includes('backend') || t.includes('api') || t.includes('python') || t.includes('django') || t.includes('java')) {
+    return (
+      <div className="native-visual backend-visual" style={themeStyle}>
+        <div className="backend-header">🟢 API Routing Controller</div>
+        <div className="api-routes">
+          <div className="api-route get"><span className="method">GET</span><span className="path">/api/v1/courses</span><span className="status">200 OK</span></div>
+          <div className="api-route post"><span className="method">POST</span><span className="path">/api/v1/bookings</span><span className="status">201 Created</span></div>
+          <div className="api-route put"><span className="method">PUT</span><span className="path">/api/v1/users/profile</span><span className="status">200 OK</span></div>
+        </div>
+        <div className="server-status">
+          <span className="status-dot pulsing" /> Server Status: Healthy (CPU: 12%, RAM: 34%)
+        </div>
+      </div>
+    );
+  }
+
+  // Fallback / default visual (Version Control / Git / General)
+  return (
+    <div className="native-visual git-visual" style={themeStyle}>
+      <div className="git-header">🌿 Git Branch Visualizer</div>
+      <div className="git-tree">
+        <div className="git-branch main">
+          <div className="commit dot active" title="Initial Commit" />
+          <div className="commit-line" />
+          <div className="commit dot" title="Setup project" />
+          <div className="commit-line" />
+          <div className="commit dot active" title="Merge feature-1" />
+        </div>
+        <div className="git-branch feature">
+          <div className="commit-line-diagonal" />
+          <div className="commit dot" title="Feature dev" />
+          <div className="commit-line" />
+          <div className="commit dot" title="Feature testing" />
+        </div>
+      </div>
+      <div className="git-console">&gt; git commit -m "feat: complete active state loading"</div>
+    </div>
+  );
+};
+
+const getTagColors = (tag) => {
+  const t = tag.toLowerCase();
+  if (t.includes('core') || t.includes('essential')) {
+    return { color: '#3b82f6', bg: 'rgba(59, 130, 246, 0.08)', border: 'rgba(59, 130, 246, 0.2)' }; // Blue
+  }
+  if (t.includes('advanced') || t.includes('architecture') || t.includes('design') || t.includes('cap') || t.includes('patterns')) {
+    return { color: '#8b5cf6', bg: 'rgba(139, 92, 246, 0.08)', border: 'rgba(139, 92, 246, 0.2)' }; // Violet
+  }
+  if (t.includes('tooling') || t.includes('platform') || t.includes('workflow') || t.includes('process')) {
+    return { color: '#64748b', bg: 'rgba(100, 116, 139, 0.08)', border: 'rgba(100, 116, 139, 0.2)' }; // Slate
+  }
+  if (t.includes('framework') || t.includes('popular') || t.includes('typed')) {
+    return { color: '#06b6d4', bg: 'rgba(6, 182, 212, 0.08)', border: 'rgba(6, 182, 212, 0.2)' }; // Cyan
+  }
+  if (t.includes('sql') || t.includes('nosql') || t.includes('database') || t.includes('cache')) {
+    return { color: '#10b981', bg: 'rgba(16, 185, 129, 0.08)', border: 'rgba(16, 185, 129, 0.2)' }; // Emerald
+  }
+  return { color: '#f59e0b', bg: 'rgba(245, 158, 11, 0.08)', border: 'rgba(245, 158, 11, 0.2)' }; // Amber
+};
+
+const TopicCard = ({ topic, defaultOpen = false, secColor }) => {
+  const [isExpanded, setIsExpanded] = useState(defaultOpen);
+
+  return (
+    <div
+      className={`topic-card-redesign${isExpanded ? ' is-expanded' : ''}`}
+      onClick={() => setIsExpanded(!isExpanded)}
+      style={{
+        cursor: 'pointer',
+        '--topic-sec-color': secColor,
+        '--topic-sec-color-alpha': `${secColor}0d`,
+        '--topic-sec-color-alpha-hover': `${secColor}18`
+      }}
+    >
+      <div className="topic-card-header-redesign">
+        <div className="topic-card-header-left">
+          <div className="topic-check-wrap">
+            <span className="check-icon">✓</span>
+          </div>
+          <h4>{topic.name}</h4>
+          <div className="topic-tags-redesign">
+            {topic.tags.map(tag => {
+              const colors = getTagColors(tag);
+              return (
+                <span
+                  key={tag}
+                  className="topic-tag-badge-redesign"
+                  style={{
+                    color: colors.color,
+                    backgroundColor: colors.bg,
+                    borderColor: colors.border,
+                    borderWidth: '1px',
+                    borderStyle: 'solid'
+                  }}
+                >
+                  {tag}
+                </span>
+              );
+            })}
+          </div>
+        </div>
+        <div className="topic-toggle-icon">
+          {isExpanded ? '−' : '+'}
+        </div>
+      </div>
+      <div className={`topic-desc-wrapper${isExpanded ? ' is-open' : ''}`}>
+        <p className="topic-desc-redesign">{topic.desc}</p>
+      </div>
+    </div>
+  );
+};
+
 export default function ProgramDetailsPage() {
   const { id } = useParams();
   const program = programs.find(p => p.id === id);
 
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
-  const [expandedSections, setExpandedSections] = useState({});
+  const [expandedSections, setExpandedSections] = useState({ '01': true });
+  const [isMobile, setIsMobile] = useState(() => window.matchMedia('(max-width: 1100px)').matches);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 1100px)');
+    const handler = (e) => setIsMobile(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
 
   const toggleSection = (num) => {
-    setExpandedSections(prev => ({ ...prev, [num]: !prev[num] }));
+    const isOpening = !expandedSections[num];
+    setExpandedSections(prev => (prev[num] ? {} : { [num]: true }));
+
+    if (isOpening) {
+      setTimeout(() => {
+        const element = document.getElementById(`roadmap-sec-${num}`);
+        if (element) {
+          const yOffset = -100; // offset to clear the sticky navbar
+          const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }, 150);
+    }
   };
 
   useEffect(() => {
     setSubmitted(false);
     setForm({ name: '', email: '', phone: '', message: '' });
-    setExpandedSections({});
+    setExpandedSections({ '01': true });
     window.scrollTo(0, 0);
   }, [id]);
 
@@ -288,8 +913,10 @@ export default function ProgramDetailsPage() {
               {hero.badge}
             </span>
             <h1 className={`unified-hero-title${hero.whiteBg ? ' hero-title-dark' : ''}`}>
-              {hero.titleLine1}&nbsp;<br />
-              <span className="accent-text" style={{ color: hero.accentColor }}>{hero.titleHighlight}</span>&nbsp;{hero.titleLine2}
+              {hero.titleLine1 && <>{hero.titleLine1}&nbsp;<br /></>}
+              {hero.titleHighlight && <span className="accent-text" style={{ color: hero.accentColor }}>{hero.titleHighlight}</span>}
+              {hero.titleHighlight && hero.titleLine2 && <>&nbsp;</>}
+              {hero.titleLine2}
             </h1>
             <p className={`unified-hero-subtitle${hero.whiteBg ? ' hero-subtitle-dark' : ''}`}>{hero.subtitle}</p>
 
@@ -318,17 +945,19 @@ export default function ProgramDetailsPage() {
         </section>
 
         {/* ── Roadmap Timeline ── */}
-        <section className="java-roadmap-timeline-section-redesign">
+        <section className="java-roadmap-timeline-section-redesign" style={{ overflow: 'hidden' }}>
           <div className="container relative-timeline-container">
             <div className="timeline-vertical-line" />
             <div className="timeline-cards-list">
               {roadmap.map((section, idx) => {
                 const isOpen = !!expandedSections[section.number];
-                const sideClass = idx % 2 === 0 ? 'left-aligned' : 'right-aligned';
+                // On mobile/tablet suppress alternating alignment — render straight column
+                const sideClass = isMobile ? '' : (idx % 2 === 0 ? 'left-aligned' : 'right-aligned');
                 return (
                   <div
                     key={section.number}
-                    className={`timeline-card-wrapper ${sideClass}${isOpen ? ' is-open' : ''}`}
+                    id={`roadmap-sec-${section.number}`}
+                    className={`timeline-card-wrapper${sideClass ? ' ' + sideClass : ''}${isOpen ? ' is-open' : ''}`}
                     style={{ '--sec-color': getSectionColor(section.number) }}
                   >
                     <div className="timeline-anchor-dot" />
@@ -358,25 +987,23 @@ export default function ProgramDetailsPage() {
                           </div>
                           <div className="roadmap-topics-list-redesign">
                             {section.topics.map((topic, tIdx) => (
-                              <div key={tIdx} className="topic-card-redesign">
-                                <div className="topic-card-header-redesign">
-                                  <div className="topic-check-wrap">
-                                    <span className="check-icon">✓</span>
-                                  </div>
-                                  <h4>{topic.name}</h4>
-                                  <div className="topic-tags-redesign">
-                                    {topic.tags.map(tag => (
-                                      <span key={tag} className="topic-tag-badge-redesign">{tag}</span>
-                                    ))}
-                                  </div>
-                                </div>
-                                <p className="topic-desc-redesign">{topic.desc}</p>
-                              </div>
+                              <TopicCard
+                                key={tIdx}
+                                topic={topic}
+                                defaultOpen={tIdx === 0}
+                                secColor={getSectionColor(section.number)}
+                              />
                             ))}
                           </div>
                         </div>
                       )}
                     </div>
+                    {/* Only render the opposite illustration on desktop where it won't overflow */}
+                    {isOpen && !isMobile && (
+                      <div className="timeline-opposite-image-wrap">
+                        <RoadmapSectionVisual title={section.title} accentColor={hero.accentColor} />
+                      </div>
+                    )}
                   </div>
                 );
               })}
@@ -392,20 +1019,51 @@ export default function ProgramDetailsPage() {
         </section>
 
         {/* ── Consultation CTA ── */}
-        <section className="java-consultation-section-redesign">
+        <section
+          className="java-consultation-section-redesign dark-sidebar-card"
+          style={{
+            '--accent': hero.accentColor,
+            '--accent-glow': `${hero.accentColor}25`
+          }}
+        >
           <div className="container">
-            <div className="sidebar-card contact-sidebar-card dark-sidebar-card">
-              {submitted ? (
-                <div className="sidebar-success">
-                  <div className="success-icon">✅</div>
-                  <h3>Consultation Booked!</h3>
-                  <p>Thanks {form.name}, we will contact you within 24 hours to schedule your session for <strong>{program.title}</strong>.</p>
-                  <button className="btn-secondary-details" onClick={() => setSubmitted(false)}>Back to Form</button>
-                </div>
-              ) : (
-                <>
+            {submitted ? (
+              <div className="sidebar-success">
+                <div className="success-icon">✅</div>
+                <h3>Consultation Booked!</h3>
+                <p>Thanks {form.name}, we will contact you within 24 hours to schedule your session for <strong>{program.title}</strong>.</p>
+                <button className="btn-secondary-details" onClick={() => setSubmitted(false)}>Back to Form</button>
+              </div>
+            ) : (
+              <div className="consultation-layout">
+                <div className="consultation-info">
                   <h3>Book Your Free Career Consultation</h3>
                   <p className="form-sub-text">Speak with our career advisors to kickstart your <strong>{program.title}</strong> journey.</p>
+                  <div className="consultation-benefits">
+                    <div className="benefit-item">
+                      <span className="benefit-icon" style={{ color: hero.accentColor, background: `${hero.accentColor}15` }}>🎓</span>
+                      <div className="benefit-text">
+                        <h4>Personalized Career Roadmap</h4>
+                        <p>Get a custom learning path matching your experience level and career goals.</p>
+                      </div>
+                    </div>
+                    <div className="benefit-item">
+                      <span className="benefit-icon" style={{ color: hero.accentColor, background: `${hero.accentColor}15` }}>💼</span>
+                      <div className="benefit-text">
+                        <h4>US IT Job Market Guidance</h4>
+                        <p>Learn about current hiring trends, salary expectations, and placement support.</p>
+                      </div>
+                    </div>
+                    <div className="benefit-item">
+                      <span className="benefit-icon" style={{ color: hero.accentColor, background: `${hero.accentColor}15` }}>⚡</span>
+                      <div className="benefit-text">
+                        <h4>1-on-1 Advisor Session</h4>
+                        <p>Discuss schedules, curriculum deep-dives, and financial aid with our experts.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="consultation-form-wrap">
                   <form onSubmit={handleSubmit} className="sidebar-form">
                     <div className="sidebar-field">
                       <label>Full Name *</label>
@@ -438,9 +1096,9 @@ export default function ProgramDetailsPage() {
                       📅 Reserve My Free Session
                     </button>
                   </form>
-                </>
-              )}
-            </div>
+                </div>
+              </div>
+            )}
           </div>
         </section>
       </div>

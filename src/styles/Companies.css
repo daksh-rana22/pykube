@@ -1,16 +1,38 @@
 /* ===== Companies Placement Section ===== */
 .companies-section {
-  padding: 85px 0 95px;
-  background: var(--bg-subtle); /* Beautiful soft brand blue background */
-  border-top: 1px solid var(--border-light);
-  border-bottom: 1px solid var(--border-light);
+  padding: 40px 0;
   position: relative;
   z-index: 1;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(240, 245, 255, 0.97) 0%,
+      rgba(238, 244, 255, 0.82) 40%,
+      rgba(235, 242, 255, 0.68) 65%,
+      rgba(240, 247, 255, 0.88) 100%
+    ),
+    url('/images/illustrations/placement_map.svg') center bottom / cover no-repeat;
+  border-top: 1px solid rgba(37, 99, 235, 0.09);
+  border-bottom: 1px solid rgba(37, 99, 235, 0.09);
+  overflow: hidden;
 }
 
 .companies-header {
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 44px;
+}
+
+/* Override text colors — dark on light bg */
+.companies-section .section-tag {
+  background: rgba(249,115,22,0.08);
+  border-color: rgba(249,115,22,0.25);
+  color: #ea580c;
+}
+.companies-section .section-title {
+  color: var(--text-primary);
+}
+.companies-section .section-subtitle {
+  color: var(--text-muted);
 }
 
 .companies-marquee-container {
@@ -35,12 +57,12 @@
 
 .companies-marquee-container::before {
   left: 0;
-  background: linear-gradient(to right, var(--bg-subtle), transparent);
+  background: linear-gradient(to right, rgba(238,244,255,0.92), transparent);
 }
 
 .companies-marquee-container::after {
   right: 0;
-  background: linear-gradient(to left, var(--bg-subtle), transparent);
+  background: linear-gradient(to left, rgba(238,244,255,0.92), transparent);
 }
 
 .companies-marquee-track {
@@ -68,24 +90,25 @@
 
 .company-card {
   flex-shrink: 0;
-  min-width: 260px;
-  background: var(--bg-page); /* Pure white card badges */
-  border: 1px solid var(--border-light); /* Soft blue border */
+  min-width: 240px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(37, 99, 235, 0.12);
   border-radius: var(--r-md, 12px);
-  padding: 22px 32px;
+  padding: 18px 26px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
-  box-shadow: var(--shadow-sm); /* Extremely subtle blue shadow */
+  gap: 14px;
+  box-shadow: 0 2px 12px rgba(37, 99, 235, 0.07);
+  backdrop-filter: blur(8px);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: default;
 }
 
 .company-card:hover {
-  background: var(--bg-page);
-  border-color: var(--blue-500, #2563eb);
-  box-shadow: var(--shadow-md); /* More defined shadow on hover */
+  background: #ffffff;
+  border-color: rgba(37, 99, 235, 0.30);
+  box-shadow: 0 6px 24px rgba(37, 99, 235, 0.14);
   transform: translateY(-4px);
 }
 
@@ -108,31 +131,49 @@
 
 .company-name {
   font-family: 'Poppins', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
-  color: var(--text-secondary, #334155);
+  color: var(--text-secondary);
   letter-spacing: -0.2px;
   transition: all 0.3s ease;
 }
 
 .company-card:hover .company-name {
-  color: var(--text-primary, #0f172a);
+  color: var(--text-primary);
 }
 
 /* ===== Dark Theme Overrides ===== */
-.dark-theme .company-card {
-  background: linear-gradient(145deg, rgba(15, 23, 42, 0.4), rgba(30, 41, 59, 0.2));
-  border-color: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+.dark-theme .companies-section {
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(9, 18, 48, 0.90) 0%,
+      rgba(9, 18, 48, 0.82) 50%,
+      rgba(9, 18, 48, 0.92) 100%
+    ),
+    url('/images/illustrations/placement_map.svg') center / cover no-repeat;
 }
-
+.dark-theme .companies-section .section-title { color: #f1f5f9; }
+.dark-theme .companies-section .section-subtitle { color: rgba(255,255,255,0.55); }
+.dark-theme .companies-marquee-container::before {
+  background: linear-gradient(to right, rgba(9,18,48,0.95), transparent);
+}
+.dark-theme .companies-marquee-container::after {
+  background: linear-gradient(to left, rgba(9,18,48,0.95), transparent);
+}
+.dark-theme .company-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.09);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
 .dark-theme .company-card:hover {
-  background: linear-gradient(145deg, rgba(30, 41, 59, 0.6), rgba(15, 23, 42, 0.8));
-  border-color: rgba(96, 165, 250, 0.4);
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(96, 165, 250, 0.35);
   box-shadow: 0 8px 24px rgba(37, 99, 235, 0.2);
 }
-
+.dark-theme .company-name {
+  color: rgba(255,255,255,0.80);
+}
 .dark-theme .company-card:hover .company-name {
   color: #ffffff;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
 }

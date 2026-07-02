@@ -97,21 +97,7 @@ export default function ServicesPage() {
                   ))}
                 </div>
 
-                {/* Tools */}
-                <div className="service-tools">
-                  <span className="service-tools-label">Tools & Tech:</span>
-                  <div className="service-tools-list">
-                    {service.tools.map((tool) => (
-                      <span
-                        key={tool}
-                        className="service-tool-badge"
-                        style={{ color: service.color, background: service.bg, borderColor: `${service.color}33` }}
-                      >
-                        {tool}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+
 
                 {/* CTA */}
                 <Link to={`/services/${service.id}`} className="service-card-cta" style={{ background: service.color }}>

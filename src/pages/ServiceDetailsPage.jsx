@@ -1,7 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { services } from '../data/servicesData';
 import CTA from '../components/CTA';
-import interviewPrepVector from '../assets/interview_prep_vector.png';
 import '../styles/ServiceDetailsPage.css';
 
 // Custom services configurations (Interview Prep, Sales & Marketing, and Job Assistance)
@@ -19,7 +18,7 @@ const customServices = {
       "Helping the candidate prepare for potential challenges or obstacles they may encounter during the interview process, such as difficult questions or unexpected scenarios.",
       "Supporting and guiding the candidate throughout the interview process, providing advice and assistance as needed to help them succeed."
     ],
-    image: interviewPrepVector
+    image: 'https://images.unsplash.com/photo-1521791136368-1a8684c0286b?auto=format&fit=crop&w=800&q=80'
   },
   'sales-marketing': {
     title: 'Sales and Marketing',
@@ -35,7 +34,7 @@ const customServices = {
       "Using sales and marketing strategies and techniques to promote the candidate's skills and experience to potential employers and increase their chances of getting hired.",
       "Continually assessing the candidate's progress and providing feedback and support to help them succeed in their job search."
     ],
-    image: interviewPrepVector
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80'
   },
   'job-assistance': {
     title: 'Assistance for getting job',
@@ -50,7 +49,7 @@ const customServices = {
       "Supporting and guiding the candidate throughout the job search process, providing advice and assistance as needed.",
       "Continually assessing the candidate's progress and providing feedback and support to help them succeed in their job search."
     ],
-    image: interviewPrepVector
+    image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80'
   },
   'software-development': {
     title: 'Software Development',
@@ -62,7 +61,7 @@ const customServices = {
       "Mobile app development: This involves the development of apps for smartphones and tablets. This may include the design and development of both native apps (built specifically for a particular platform) and cross-platform apps (built to run on multiple platforms).",
       "Maintenance and support: Software development companies may also provide ongoing maintenance and support for software applications to ensure that they remain up-to-date and functioning properly. This may include bug fixes, security updates, and the addition of new features."
     ],
-    image: interviewPrepVector
+    image: 'https://images.unsplash.com/photo-1605379399642-870262d3d051?auto=format&fit=crop&w=800&q=80'
   },
   'ux-ui-design': {
     title: 'UX/UI Design & Ideation',
@@ -76,7 +75,7 @@ const customServices = {
       "Testing and validation: This involves conducting user testing to ensure that the product meets the needs and goals of users, and making any necessary changes based on feedback.",
       "Documentation and presentation: This may involve creating documentation and presentation materials to communicate the design process and decisions to stakeholders and clients."
     ],
-    image: interviewPrepVector
+    image: 'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=800&q=80'
   },
   'web-development': {
     title: 'Web Development',
@@ -90,7 +89,7 @@ const customServices = {
       "Search engine optimization (SEO): This involves optimizing websites to improve their visibility and ranking in search engine results pages.",
       "Website maintenance and support: This may include ongoing support and maintenance to ensure that the website remains up-to-date and functioning properly, as well as the addition of new features or functionality."
     ],
-    image: interviewPrepVector
+    image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80'
   }
 };
 
@@ -109,9 +108,7 @@ export default function ServiceDetailsPage() {
       <section 
         className="service-details-hero"
         style={{
-          backgroundImage: customService 
-            ? `linear-gradient(rgba(15, 28, 63, 0.85), rgba(15, 28, 63, 0.9)), url("${customService.heroBg}")`
-            : `linear-gradient(135deg, #0f1c3f 0%, ${service.color}dd 100%)`
+          backgroundImage: `linear-gradient(135deg, rgba(8, 15, 40, 0.95) 0%, rgba(15, 50, 160, 0.92) 50%, rgba(8, 15, 40, 0.97) 100%), url('/images/illustrations/tech_bg.svg')`
         }}
       >
         <div className="container service-details-hero-inner">

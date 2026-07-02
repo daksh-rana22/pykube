@@ -1,94 +1,137 @@
 /* ===== WhatWeDo ===== */
 .what-we-do {
-  padding: 90px 0;
+  padding: 56px 0;
   background: var(--bg-subtle);
 }
+
+/* Wider inner wrapper — stretches beyond the standard container */
+.what-we-do .container {
+  max-width: 1440px;
+  padding: 0 clamp(16px, 4vw, 40px);
+}
+
 .features-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: clamp(12px, 1.5vw, 20px);
 }
+
+/* ── Card ── */
 .feature-card {
   background: var(--bg-page);
-  border-radius: 18px;
-  padding: 32px 26px;
+  border-radius: 14px;
+  padding: clamp(16px, 2vw, 24px) clamp(14px, 1.8vw, 22px);
   border: 1px solid var(--border-light);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  /* Ensure card fills its grid cell fully */
+  width: 100%;
+  min-width: 0;
 }
+
 .feature-card::after {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 4px;
+  height: 3px;
   background: var(--accent);
   transform: scaleX(0);
   transform-origin: left;
   transition: all 0.3s ease;
 }
 .feature-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-6px);
   box-shadow: var(--shadow-lg);
   border-color: transparent;
 }
 .feature-card:hover::after {
   transform: scaleX(1);
 }
+
+/* ── Icon ── */
 .feature-icon-wrap {
-  width: 62px;
-  height: 62px;
-  border-radius: 14px;
+  width: clamp(38px, 4vw, 50px);
+  height: clamp(38px, 4vw, 50px);
+  border-radius: 11px;
   background: var(--accent-bg);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 28px;
-  margin-bottom: 20px;
+  font-size: clamp(18px, 2vw, 23px);
+  margin-bottom: clamp(10px, 1.2vw, 16px);
   transition: all 0.3s ease;
+  flex-shrink: 0;
 }
 .feature-card:hover .feature-icon-wrap {
   background: var(--accent);
   transform: scale(1.1) rotate(-5deg);
 }
+
+/* ── Text ── */
 .feature-title {
-  font-size: 1.05rem;
+  font-size: clamp(0.85rem, 1.1vw, 1rem);
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 10px;
+  margin-bottom: clamp(5px, 0.6vw, 8px);
 }
+
 .feature-desc {
-  font-size: 13.5px;
+  font-size: clamp(11.5px, 0.9vw, 13px);
   color: var(--text-muted);
-  line-height: 1.65;
-  margin-bottom: 20px;
+  line-height: 1.6;
+  margin-bottom: clamp(10px, 1.2vw, 16px);
 }
+
 .feature-link {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-size: 13px;
+  gap: 5px;
+  font-size: clamp(11px, 0.85vw, 12.5px);
   font-weight: 600;
   color: var(--accent);
   transition: all 0.2s ease;
 }
 .feature-link:hover {
-  gap: 10px;
+  gap: 9px;
 }
 
-/* Dark Theme Overrides */
+/* ── Dark theme ── */
 .dark-theme .feature-icon-wrap {
   background: rgba(255, 255, 255, 0.05);
 }
-@media (max-width: 900px) {
+
+/* ── Tablet: keep 3 columns, tighten gap ── */
+@media (max-width: 1024px) {
   .features-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
   }
 }
-@media (max-width: 560px) {
+
+/* ── Small tablet: switch to 2 columns ── */
+@media (max-width: 768px) {
+  .what-we-do {
+    padding: 44px 0;
+  }
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
+/* ── Mobile: single column ── */
+@media (max-width: 480px) {
+  .what-we-do {
+    padding: 36px 0;
+  }
   .features-grid {
     grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .feature-card {
+    padding: 16px 14px;
   }
 }

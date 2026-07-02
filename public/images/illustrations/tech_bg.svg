@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16" />
+      <stop offset="50%" stop-color="#0b1329" />
+      <stop offset="100%" stop-color="#05070f" />
+    </linearGradient>
+
+    <!-- Glowing Filters -->
+    <filter id="glow-orange" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="glow-blue" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="20" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Tech Grid Pattern -->
+    <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1.5"/>
+      <path d="M 40 0 L 40 80 M 0 40 L 80 40" fill="none" stroke="rgba(255, 255, 255, 0.02)" stroke-width="1" stroke-dasharray="4 4"/>
+    </pattern>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="1920" height="1080" fill="url(#bgGrad)" />
+  <rect width="1920" height="1080" fill="url(#grid)" />
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="200" cy="200" r="350" fill="#3b82f6" opacity="0.12" filter="url(#glow-blue)" />
+  <circle cx="1700" cy="800" r="400" fill="#f97316" opacity="0.08" filter="url(#glow-orange)" />
+  <circle cx="1000" cy="540" r="300" fill="#8b5cf6" opacity="0.08" filter="url(#glow-blue)" />
+
+  <!-- Concentric HUD Tech Circles (Top Right) -->
+  <g transform="translate(1600, 200)" opacity="0.32">
+    <circle cx="0" cy="0" r="220" fill="none" stroke="rgba(255, 255, 255, 0.3)" stroke-width="1.2" stroke-dasharray="12 6" />
+    <circle cx="0" cy="0" r="180" fill="none" stroke="rgba(59, 130, 246, 0.6)" stroke-width="2" />
+    <circle cx="0" cy="0" r="140" fill="none" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1" stroke-dasharray="4 8" />
+    <circle cx="0" cy="0" r="90" fill="none" stroke="rgba(255, 255, 255, 0.4)" stroke-width="2.5" stroke-dasharray="40 10 5 10" />
+    
+    <!-- Crosshairs -->
+    <line x1="-240" y1="0" x2="240" y2="0" stroke="rgba(255,255,255,0.18)" stroke-width="1" />
+    <line x1="0" y1="-240" x2="0" y2="240" stroke="rgba(255,255,255,0.18)" stroke-width="1" />
+  </g>
+
+  <!-- Concentric HUD Tech Circles (Bottom Left) -->
+  <g transform="translate(250, 850)" opacity="0.28">
+    <circle cx="0" cy="0" r="300" fill="none" stroke="rgba(255, 255, 255, 0.22)" stroke-width="1.2" stroke-dasharray="20 10" />
+    <circle cx="0" cy="0" r="240" fill="none" stroke="rgba(234, 88, 12, 0.5)" stroke-width="2" />
+    <circle cx="0" cy="0" r="160" fill="none" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1" stroke-dasharray="5 15" />
+    
+    <!-- Crosshairs -->
+    <line x1="-320" y1="0" x2="320" y2="0" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
+    <line x1="0" y1="-320" x2="0" y2="320" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
+  </g>
+
+  <!-- Network Topology Lines / Coding Nodes -->
+  <g stroke="rgba(255, 255, 255, 0.12)" stroke-width="1.8" fill="none" opacity="0.8">
+    <path d="M 100 400 L 300 200 L 500 280 L 700 150 L 950 350 L 1200 180" />
+    <path d="M 400 900 L 650 720 L 800 850 L 1100 680 L 1400 920 L 1650 780" />
+    <path d="M 600 200 L 800 450 L 1050 300 L 1350 480" />
+
+    <!-- Node Points -->
+    <circle cx="300" cy="200" r="5" fill="#3b82f6" />
+    <circle cx="500" cy="280" r="4" fill="#ffffff" />
+    <circle cx="700" cy="150" r="6" fill="#f97316" />
+    <circle cx="950" cy="350" r="5" fill="#3b82f6" />
+    
+    <circle cx="650" cy="720" r="6" fill="#f97316" />
+    <circle cx="800" cy="850" r="4" fill="#ffffff" />
+    <circle cx="1100" cy="680" r="5" fill="#3b82f6" />
+    <circle cx="1400" cy="920" r="5" fill="#8b5cf6" />
+
+    <circle cx="800" cy="450" r="6" fill="#8b5cf6" />
+    <circle cx="1050" cy="300" r="4" fill="#3b82f6" />
+  </g>
+
+  <!-- Binary Stream Fades -->
+  <g font-family="'Courier New', Courier, monospace" font-size="12.5" fill="rgba(255, 255, 255, 0.08)" xml:space="preserve" font-weight="bold">
+    <text x="120" y="100">01101001 01101110 01110100 01100101</text>
+    <text x="120" y="120">01100111 01110010 01100001 01110100</text>
+    <text x="120" y="140">01100101 00100000 01100100 01100101</text>
+    
+    <text x="1450" y="900">01100011 01101111 01101110 01110011</text>
+    <text x="1450" y="920">01110101 01101100 01110100 01100001</text>
+    <text x="1450" y="940">01110100 01101001 01101111 01101110</text>
+  </g>
+</svg>

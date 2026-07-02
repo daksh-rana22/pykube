@@ -124,3 +124,22 @@
   color: #ffffff;
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
 }
+
+/* Responsiveness overrides for Highlights Marquee */
+@media (max-width: 768px) {
+  .prog-marquee-container::before,
+  .prog-marquee-container::after {
+    width: 60px;
+  }
+  .prog-highlight {
+    min-width: 200px;
+    padding: 12px 18px;
+    gap: 10px;
+  }
+  .prog-hl-icon {
+    font-size: 18px;
+  }
+  .prog-hl-label {
+    font-size: 13px;
+  }
+}

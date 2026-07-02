@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+
+    <!-- Rainbow Infinity Line Gradient -->
+    <linearGradient id="infinityGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="25%" stop-color="#8b5cf6" />
+      <stop offset="50%" stop-color="#ec4899" />
+      <stop offset="75%" stop-color="#ef4444" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Blueprint Grid -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255, 255, 255, 0.025)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" rx="16" fill="url(#bgGrad)" />
+  <rect width="800" height="500" rx="16" fill="url(#grid)" />
+
+  <!-- Header Section -->
+  <g transform="translate(40, 45)">
+    <!-- DevOps Gear Icon -->
+    <path d="M6 18H4A2 2 0 0 1 2 16v-4a2 2 0 0 1 2-2h2m12 0h2a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2M12 2v2m0 16v2m-8-8H2m20 0h-2m-3.17-6.83l-1.42 1.42m-6.83 6.83l-1.42 1.42m0-9.66l1.42 1.42m6.83 6.83l1.42 1.42" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" />
+    <circle cx="12" cy="12" r="3" fill="#3b82f6" />
+    <text x="40" y="14" font-family="'Inter', sans-serif" font-size="16" font-weight="800" fill="#f8fafc" letter-spacing="1.5">DEVOPS PIPELINE</text>
+    <text x="40" y="30" font-family="'Inter', sans-serif" font-size="11" font-weight="600" fill="#64748b" letter-spacing="0.5">CONTINUOUS INTEGRATION &amp; DEPLOYMENT</text>
+  </g>
+
+  <!-- ── DevOps Infinity Loop ── -->
+  <g transform="translate(0, 30)">
+    <!-- Shadow path -->
+    <path d="M400,220 C320,110 180,110 180,220 C180,330 320,330 400,220 C480,110 620,110 620,220 C620,330 480,330 400,220 Z" fill="none" stroke="rgba(0,0,0,0.5)" stroke-width="12" />
+    <!-- Glowing Neon Line -->
+    <path d="M400,220 C320,110 180,110 180,220 C180,330 320,330 400,220 C480,110 620,110 620,220 C620,330 480,330 400,220 Z" fill="none" stroke="url(#infinityGrad)" stroke-width="8" filter="url(#neonGlow)" stroke-linecap="round" />
+    <!-- White center line for high-tech look -->
+    <path d="M400,220 C320,110 180,110 180,220 C180,330 320,330 400,220 C480,110 620,110 620,220 C620,330 480,330 400,220 Z" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.6" stroke-linecap="round" />
+  </g>
+
+  <!-- Loop State Labels & Dots -->
+  <!-- Left Side: PLAN, CODE, BUILD, TEST -->
+  <g font-family="'Inter', sans-serif" font-size="10" font-weight="800" text-anchor="middle" transform="translate(0, 30)">
+    <!-- PLAN -->
+    <circle cx="280" cy="142" r="5" fill="#fff" filter="url(#softGlow)" />
+    <text x="280" y="126" fill="#94a3b8">PLAN</text>
+
+    <!-- CODE -->
+    <circle cx="180" cy="220" r="5" fill="#fff" filter="url(#softGlow)" />
+    <text x="145" y="224" fill="#94a3b8">CODE</text>
+
+    <!-- BUILD -->
+    <circle cx="270" cy="293" r="5" fill="#fff" filter="url(#softGlow)" />
+    <text x="270" y="315" fill="#94a3b8">BUILD</text>
+
+    <!-- TEST -->
+    <circle cx="370" cy="254" r="5" fill="#fff" filter="url(#softGlow)" />
+    <text x="370" y="280" fill="#94a3b8">TEST</text>
+  </g>
+
+  <!-- Right Side: RELEASE, DEPLOY, OPERATE, MONITOR -->
+  <g font-family="'Inter', sans-serif" font-size="10" font-weight="800" text-anchor="middle" transform="translate(0, 30)">
+    <!-- RELEASE -->
+    <circle cx="430" cy="186" r="5" fill="#fff" filter="url(#softGlow)" />
+    <text x="430" y="168" fill="#94a3b8">RELEASE</text>
+
+    <!-- DEPLOY -->
+    <circle cx="530" cy="147" r="5" fill="#fff" filter="url(#softGlow)" />
+    <text x="530" y="128" fill="#94a3b8">DEPLOY</text>
+
+    <!-- OPERATE -->
+    <circle cx="620" cy="220" r="5" fill="#fff" filter="url(#softGlow)" />
+    <text x="660" y="224" fill="#94a3b8">OPERATE</text>
+
+    <!-- MONITOR -->
+    <circle cx="530" cy="293" r="5" fill="#fff" filter="url(#softGlow)" />
+    <text x="530" y="315" fill="#94a3b8">MONITOR</text>
+  </g>
+
+  <!-- ── Docker Isometric Cube (Bottom Left) ── -->
+  <g transform="translate(80, 360)">
+    <!-- Cube 1 -->
+    <g transform="translate(40, 20)">
+      <polygon points="0,-20 30,-35 60,-20 30,-5" fill="#0ea5e9" fill-opacity="0.3" stroke="#0ea5e9" stroke-width="1.5" />
+      <polygon points="0,-20 30,-5 30,25 0,10" fill="#0284c7" fill-opacity="0.4" stroke="#0ea5e9" stroke-width="1.5" />
+      <polygon points="60,-20 30,-5 30,25 60,10" fill="#0369a1" fill-opacity="0.5" stroke="#0ea5e9" stroke-width="1.5" />
+      <line x1="30" y1="-5" x2="30" y2="25" stroke="#0ea5e9" stroke-width="1.5" />
+    </g>
+    <!-- Cube 2 (Stacked behind) -->
+    <g transform="translate(10, 0)">
+      <polygon points="0,-20 30,-35 60,-20 30,-5" fill="#38bdf8" fill-opacity="0.3" stroke="#38bdf8" stroke-width="1.5" />
+      <polygon points="0,-20 30,-5 30,25 0,10" fill="#0ea5e9" fill-opacity="0.4" stroke="#38bdf8" stroke-width="1.5" />
+      <polygon points="60,-20 30,-5 30,25 60,10" fill="#0284c7" fill-opacity="0.5" stroke="#38bdf8" stroke-width="1.5" />
+      <line x1="30" y1="-5" x2="30" y2="25" stroke="#38bdf8" stroke-width="1.5" />
+    </g>
+    <!-- Label -->
+    <text x="50" y="80" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#38bdf8" text-anchor="middle" letter-spacing="0.5">DOCKER CONTAINERS</text>
+  </g>
+
+  <!-- ── Kubernetes Logo Representation (Bottom Right) ── -->
+  <g transform="translate(630, 350)">
+    <!-- Heptagon (Outer Ring) -->
+    <polygon points="40,0 75,17 90,53 65,83 15,83 -10,53 5,17" fill="none" stroke="#326ce5" stroke-width="3" filter="url(#softGlow)" />
+    <!-- Steering Spokes -->
+    <line x1="40" y1="41" x2="40" y2="0" stroke="#326ce5" stroke-width="3" />
+    <line x1="40" y1="41" x2="75" y2="17" stroke="#326ce5" stroke-width="3" />
+    <line x1="40" y1="41" x2="90" y2="53" stroke="#326ce5" stroke-width="3" />
+    <line x1="40" y1="41" x2="65" y2="83" stroke="#326ce5" stroke-width="3" />
+    <line x1="40" y1="41" x2="15" y2="83" stroke="#326ce5" stroke-width="3" />
+    <line x1="40" y1="41" x2="-10" y2="53" stroke="#326ce5" stroke-width="3" />
+    <line x1="40" y1="41" x2="5" y2="17" stroke="#326ce5" stroke-width="3" />
+    <!-- Center Hub -->
+    <circle cx="40" cy="41" r="12" fill="#1e293b" stroke="#326ce5" stroke-width="3" />
+    <circle cx="40" cy="41" r="5" fill="#326ce5" />
+    <!-- Label -->
+    <text x="40" y="105" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#60a5fa" text-anchor="middle" letter-spacing="0.5">KUBERNETES CLUSTER</text>
+  </g>
+
+  <!-- CI/CD Build Logs Box (Top Right) -->
+  <g transform="translate(540, 110)">
+    <rect width="220" height="70" rx="6" fill="#0b0f19" stroke="#1e293b" stroke-width="1.5" />
+    <circle cx="12" cy="12" r="3" fill="#22c55e" />
+    <text x="22" y="15" font-family="'Courier New', Courier, monospace" font-size="9" font-weight="700" fill="#22c55e">Pipeline: SUCCESS</text>
+    
+    <text x="12" y="34" font-family="'Courier New', Courier, monospace" font-size="8" fill="#64748b">Step 1/3: unit-tests completed (142 passed)</text>
+    <text x="12" y="46" font-family="'Courier New', Courier, monospace" font-size="8" fill="#64748b">Step 2/3: docker build success - v1.2.0</text>
+    <text x="12" y="58" font-family="'Courier New', Courier, monospace" font-size="8" fill="#64748b">Step 3/3: helm upgrade deploy completed</text>
+  </g>
+</svg>

@@ -1,10 +1,7 @@
-import { useState } from 'react';
 import '../styles/Programs.css';
 import { programs } from '../data/programsData';
 
 export default function Programs() {
-  const [expanded, setExpanded] = useState({});
-  const toggle = (i) => setExpanded(prev => ({ ...prev, [i]: !prev[i] }));
 
   return (
     <section className="programs" id="programs">
@@ -35,22 +32,7 @@ export default function Programs() {
                   ))}
                 </div>
 
-                {expanded[i] && (
-                  <div className="program-curriculum">
-                    <div className="curriculum-title">📋 Curriculum Overview</div>
-                    {p.curriculum.map((c, j) => (
-                      <div className="curriculum-phase" key={j}>
-                        <div className="phase-name">{c.phase}</div>
-                        <p className="phase-topics">{c.topics}</p>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
                 <div className="program-actions">
-                  <button className="program-toggle" onClick={() => toggle(i)} style={{ color: p.color, borderColor: p.color }}>
-                    {expanded[i] ? '▲ Hide Curriculum' : '▼ View Curriculum'}
-                  </button>
                   <a href={`/courses/${p.id}`} className="program-cta">
                     More Details
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
