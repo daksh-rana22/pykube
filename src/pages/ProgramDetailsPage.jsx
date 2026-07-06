@@ -1041,7 +1041,9 @@ export default function ProgramDetailsPage() {
                   <p className="form-sub-text">Speak with our career advisors to kickstart your <strong>{program.title}</strong> journey.</p>
                   <div className="consultation-benefits">
                     <div className="benefit-item">
-                      <span className="benefit-icon" style={{ color: hero.accentColor, background: `${hero.accentColor}15` }}>🎓</span>
+                      <span className="benefit-icon" style={{ color: hero.accentColor, background: `${hero.accentColor}15` }}>
+                        <img src="/images/illustrations/learner_icon.png" alt="Roadmap" className="benefit-icon-img" />
+                      </span>
                       <div className="benefit-text">
                         <h4>Personalized Career Roadmap</h4>
                         <p>Get a custom learning path matching your experience level and career goals.</p>

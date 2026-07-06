@@ -1,5 +1,6 @@
 import '../styles/Testimonials.css';
 import { useState } from 'react';
+import { FiAward, FiSmile, FiTrendingUp } from 'react-icons/fi';
 
 const testimonials = [
   {
@@ -20,10 +21,10 @@ const testimonials = [
 ];
 
 const achievements = [
-  { number: '100+', label: 'Candidates Placed in USA', icon: '🏆' },
-  { number: '300+', label: 'Happy Learners', icon: '😊' },
-  { number: '50+', label: 'Hiring Partners', icon: '🤝' },
-  { number: '95%', label: 'Placement Success Rate', icon: '📈' },
+  { number: '100+', label: 'Candidates Placed in USA', icon: <FiAward /> },
+  { number: '300+', label: 'Happy Learners', icon: <FiSmile /> },
+  { number: '50+', label: 'Hiring Partners', icon: '/images/illustrations/partners_icon.png' },
+  { number: '95%', label: 'Placement Success Rate', icon: <FiTrendingUp /> },
 ];
 
 export default function Testimonials() {
@@ -40,7 +41,13 @@ export default function Testimonials() {
             <div className="achievements-grid">
               {achievements.map((a, i) => (
                 <div className="achievement-card" key={i}>
-                  <span className="ach-icon">{a.icon}</span>
+                  <span className="ach-icon">
+                    {typeof a.icon === 'string' && a.icon.startsWith('/') ? (
+                      <img src={a.icon} alt={a.label} className="ach-icon-img" />
+                    ) : (
+                      a.icon
+                    )}
+                  </span>
                   <span className="ach-num">{a.number}</span>
                   <span className="ach-label">{a.label}</span>
                 </div>

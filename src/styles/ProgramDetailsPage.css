@@ -1545,6 +1545,12 @@
   font-size: 18px;
   flex-shrink: 0;
 }
+.benefit-icon-img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  display: block;
+}
 
 .benefit-text h4 {
   color: #ffffff;

@@ -1,6 +1,7 @@
 import '../styles/Navbar.css';
 import { useState, useEffect, useRef } from 'react';
 import logo from '../assets/logo.png';
+import { FiTrendingUp, FiBriefcase, FiPenTool, FiGlobe, FiCalendar, FiSun, FiMoon } from 'react-icons/fi';
 
 const navLinks = [
   { label: 'Home', href: '/#home' },
@@ -8,27 +9,28 @@ const navLinks = [
     label: 'Programs',
     href: '/courses',
     dropdown: [
-      { label: 'Java Full Stack', href: '/courses/java-full-stack', icon: '/images/illustrations/java_icon.jpg', sub: 'Spring Boot, Angular, AWS', color: '#e76f00', bg: '#fff7ed' },
+      { label: 'Java Full Stack', href: '/courses/java-full-stack', icon: '/images/illustrations/java_icon.png', sub: 'Spring Boot, Angular, AWS', color: '#e76f00', bg: '#fff7ed' },
       { label: 'Python Developer', href: '/courses/python-developer', icon: '/images/illustrations/python_icon.png', sub: 'Django, Rest API, SQL', color: '#3776ab', bg: '#eff6ff' },
-      { label: 'QA Automation', href: '/courses/qa-automation', icon: '/images/illustrations/qa_icon.jpg', sub: 'Selenium, Java, TestNG', color: '#8b5cf6', bg: '#f5f3ff' },
-      { label: 'Data Analyst', href: '/courses/data-analyst', icon: '📊', sub: 'Pandas, Stats, Power BI', color: '#10b981', bg: '#ecfdf5' },
-      { label: 'Data Engineer', href: '/courses/data-engineer', icon: '🔧', sub: 'PySpark, SQL, Ingestion', color: '#f97316', bg: '#fff7ed' },
-      { label: 'Data Scientist', href: '/courses/data-scientist', icon: '🤖', sub: 'ML, PySpark, Statistics', color: '#ef4444', bg: '#fef2f2' }
+      { label: 'QA Automation', href: '/courses/qa-automation', icon: '/images/illustrations/qa_icon.png', sub: 'Selenium, Java, TestNG', color: '#8b5cf6', bg: '#f5f3ff' },
+      { label: 'Data Analyst', href: '/courses/data-analyst', icon: '/images/illustrations/analyst_icon.png', sub: 'Pandas, Stats, Power BI', color: '#10b981', bg: '#ecfdf5' },
+      { label: 'Data Engineer', href: '/courses/data-engineer', icon: '/images/illustrations/engineer_icon.png', sub: 'PySpark, SQL, Ingestion', color: '#f97316', bg: '#fff7ed' },
+      { label: 'Data Scientist', href: '/courses/data-scientist', icon: '/images/illustrations/scientist_icon.png', sub: 'ML, PySpark, Statistics', color: '#ef4444', bg: '#fef2f2' }
     ]
   },
   {
     label: 'Services',
     href: '/services',
     dropdown: [
-      { label: 'Interview Preparation', icon: '🤝', sub: 'Practice interviews & get the right hire guidance', href: '/services/interview-preparation' },
-      { label: 'Sales & Marketing', icon: '📈', sub: 'Lead generation, revenue & business growth', href: '/services/sales-marketing' },
-      { label: 'Job Assistance', icon: '💼', sub: '100% job assistance & professional career guidance', href: '/services/job-assistance' },
-      { label: 'Software Development', icon: '💻', sub: 'Custom software to meet your business goals', href: '/services/software-development' },
-      { label: 'UX/UI Design', icon: '🎨', sub: 'Design thinking & UI/UX strategies that convert', href: '/services/ux-ui-design' },
-      { label: 'Web Development', icon: '🌐', sub: 'Web-based & mobile web development solutions', href: '/services/web-development' },
+      { label: 'Interview Preparation', icon: '/images/illustrations/partners_icon.png', sub: 'Practice interviews & get the right hire guidance', href: '/services/interview-preparation' },
+      { label: 'Sales & Marketing', icon: <FiTrendingUp />, sub: 'Lead generation, revenue & business growth', href: '/services/sales-marketing' },
+      { label: 'Job Assistance', icon: <FiBriefcase />, sub: '100% job assistance & professional career guidance', href: '/services/job-assistance' },
+      { label: 'Software Development', icon: '/images/illustrations/laptop_icon.png', sub: 'Custom software to meet your business goals', href: '/services/software-development' },
+      { label: 'UX/UI Design', icon: <FiPenTool />, sub: 'Design thinking & UI/UX strategies that convert', href: '/services/ux-ui-design' },
+      { label: 'Web Development', icon: <FiGlobe />, sub: 'Web-based & mobile web development solutions', href: '/services/web-development' },
     ]
   },
   { label: 'About Us', href: '/about-us' },
+  { label: 'Careers', href: '/careers' },
   { label: 'Contact Us', href: '/contact' },
 ];
 
@@ -36,8 +38,14 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [activeMobileDropdown, setActiveMobileDropdown] = useState(null);
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
   const closeTimer = useRef(null);
+
+  const toggleMobileDropdown = (label, e) => {
+    e.preventDefault();
+    setActiveMobileDropdown(prev => prev === label ? null : label);
+  };
 
   const openDropdown = (label) => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
@@ -127,7 +135,7 @@ export default function Navbar() {
                           <div className="mega-dropdown-grid">
                             {link.dropdown.map(item => (
                               <a key={item.label} href={item.href} className="mega-dropdown-item">
-                                {item.icon.startsWith('/') ? (
+                                {typeof item.icon === 'string' && item.icon.startsWith('/') ? (
                                   <span className="mega-item-icon" style={{ backgroundColor: '#ffffff', padding: '4px' }}>
                                     <img src={item.icon} alt={item.label} className="mega-item-icon-img" />
                                   </span>
@@ -143,12 +151,14 @@ export default function Navbar() {
                           </div>
                         </div>
                         <div className="mega-dropdown-right">
-                          <div className="mega-promo-card">
-                            <span className="promo-badge">📅 Free Session</span>
-                            <h4>Not sure where to start?</h4>
-                            <p>Schedule a 1-on-1 career mapping call with our US tech advisors.</p>
-                            <a href="/contact" className="promo-cta-btn">Book Free Call</a>
-                          </div>
+                           <div className="mega-promo-card">
+                             <span className="promo-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                               <FiCalendar /> Free Session
+                             </span>
+                             <h4>Not sure where to start?</h4>
+                             <p>Schedule a 1-on-1 career mapping call with our US tech advisors.</p>
+                             <a href="/contact" className="promo-cta-btn">Book Free Call</a>
+                           </div>
                         </div>
                       </div>
                     ) : link.label === 'Services' ? (
@@ -157,7 +167,13 @@ export default function Navbar() {
                         <div className="services-dropdown-grid">
                           {link.dropdown.map(item => (
                             <a key={item.label} href={item.href} className="service-dropdown-item">
-                              <span className="service-item-icon">{item.icon}</span>
+                              <span className="service-item-icon">
+                                {typeof item.icon === 'string' && item.icon.startsWith('/') ? (
+                                  <img src={item.icon} alt={item.label} className="service-item-icon-img" />
+                                ) : (
+                                  item.icon
+                                )}
+                              </span>
                               <div className="service-item-text">
                                 <span className="service-item-title">{item.label}</span>
                                 <span className="service-item-desc">{item.sub}</span>
@@ -212,12 +228,47 @@ export default function Navbar() {
         {mobileOpen && (
           <div className="mobile-menu">
             {navLinks.map(link => (
-              <a key={link.label} href={link.href} className="mobile-link" onClick={() => setMobileOpen(false)}>{link.label}</a>
+              <div key={link.label} className="mobile-link-wrapper">
+                <div className="mobile-link-header">
+                  <a href={link.href} className="mobile-link" onClick={() => setMobileOpen(false)}>
+                    {link.label}
+                  </a>
+                  {link.dropdown && (
+                    <button 
+                      className={`mobile-dropdown-toggle ${activeMobileDropdown === link.label ? 'open' : ''}`}
+                      onClick={(e) => toggleMobileDropdown(link.label, e)}
+                      aria-label="Toggle dropdown"
+                    >
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="mobile-arrow-svg">
+                        <path d="M6 9l6 6 6-6" />
+                      </svg>
+                    </button>
+                  )}
+                </div>
+                {link.dropdown && activeMobileDropdown === link.label && (
+                  <div className="mobile-dropdown-content">
+                    {link.dropdown.map(item => (
+                      <a 
+                        key={item.label} 
+                        href={item.href} 
+                        className="mobile-dropdown-item" 
+                        onClick={() => {
+                          setMobileOpen(false);
+                          setActiveMobileDropdown(null);
+                        }}
+                      >
+                        <span className="mobile-dropdown-dot"></span>
+                        {item.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
             <div className="mobile-actions">
               <a href="/contact" className="btn-primary" style={{ flex: 1, justifyContent: 'center' }} onClick={() => setMobileOpen(false)}>Book Free Consultation</a>
-              <button className="theme-toggle-btn" onClick={toggleTheme} aria-label="Toggle Theme">
-                {theme === 'dark' ? '☀️' : '🌙'}
+              <button className="theme-toggle-btn" onClick={toggleTheme} aria-label="Toggle Theme" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                {theme === 'dark' ? <FiSun /> : <FiMoon />}
               </button>
             </div>
           </div>

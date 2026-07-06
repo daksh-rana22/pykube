@@ -280,6 +280,15 @@
 
 .hero-stat-icon {
   font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.about-stat-icon-img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  display: block;
 }
 
 .hero-stat-num {
@@ -392,19 +401,29 @@
 }
 
 .mission-point-icon-wrap {
-  width: 42px;
-  height: 42px;
-  border-radius: var(--r-md);
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(16, 185, 129, 0.08));
-  border: 1px solid rgba(37, 99, 235, 0.12);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  box-shadow: 0 4px 14px rgba(37,99,235,0.3);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.mission-point:hover .mission-point-icon-wrap {
+  transform: scale(1.1) rotate(-4deg);
+  box-shadow: 0 6px 20px rgba(37,99,235,0.4);
 }
 
 .mission-point-icon {
-  font-size: 20px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
 }
 
 .mission-point-title {
@@ -509,6 +528,10 @@
 
 .mission-stat-icon {
   font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
 }
 
 .mission-stat-num {
@@ -589,16 +612,28 @@
 .value-icon-box {
   width: 52px;
   height: 52px;
-  border-radius: var(--r-md);
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 18px;
-  border: 1px solid transparent;
+  background: linear-gradient(135deg, var(--v-color, #2563eb), color-mix(in srgb, var(--v-color, #2563eb) 70%, #000 30%)) !important;
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--v-color, #2563eb) 40%, transparent);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.value-card-v2:hover .value-icon-box {
+  transform: scale(1.1) rotate(-5deg);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--v-color, #2563eb) 50%, transparent);
 }
 
 .value-icon-emoji {
-  font-size: 26px;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
 }
 
 .value-title-v2 {
@@ -817,13 +852,73 @@
   }
 
   .about-values-grid-v2 {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .value-card-v2 {
+    padding: 16px 12px;
+    border-radius: 12px;
+  }
+
+  .value-icon-box {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+  }
+
+  .value-icon-emoji {
+    font-size: 16px;
+  }
+  
+  .value-icon-img {
+    width: 16px;
+    height: 16px;
+  }
+
+  .value-title-v2 {
+    font-size: 12px;
+    margin: 0 0 6px;
+  }
+
+  .value-desc-v2 {
+    font-size: 10.5px;
+    line-height: 1.4;
   }
 
   .about-team-grid-v2 {
-    grid-template-columns: 1fr;
-    max-width: 300px;
-    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    max-width: none;
+    margin: 0;
+  }
+
+  .team-card-v2 {
+    padding: 20px 10px 16px;
+    border-radius: 12px;
+  }
+
+  .team-avatar-v2 {
+    width: 56px;
+    height: 56px;
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .team-name-v2 {
+    font-size: 12.5px;
+  }
+
+  .team-role-v2 {
+    font-size: 10px;
+    margin-bottom: 12px;
+  }
+
+  .team-li-btn {
+    padding: 5px 10px;
+    font-size: 10px;
+    gap: 4px;
   }
 
   .about-feature-pills {
@@ -832,5 +927,39 @@
 
   .mission-heading {
     font-size: 1.5rem;
+  }
+
+  .about-hero-stats-inner {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 0 16px;
+  }
+
+  .hero-stat-item {
+    border: none;
+    padding: 0;
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+  
+  .hero-stat-icon {
+    margin-bottom: 2px;
+  }
+  
+  .about-stat-icon-img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .hero-stat-num {
+    font-size: 1.3rem;
+  }
+
+  .hero-stat-lbl {
+    font-size: 11px;
+    line-height: 1.3;
+    max-width: 120px;
   }
 }

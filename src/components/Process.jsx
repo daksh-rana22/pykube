@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import '../styles/Process.css';
+import { FiFileText, FiMic } from 'react-icons/fi';
 
 const steps = [
   { 
     n: '01', 
     title: 'Career Counseling', 
     desc: 'One-on-one sessions to align your unique background with the right high-demand IT career path.', 
-    icon: '🎓', 
+    icon: '/images/illustrations/learner_icon.png', 
     color: '#3b82f6',
     bgImage: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600&auto=format&fit=crop'
   },
@@ -14,7 +15,7 @@ const steps = [
     n: '02', 
     title: 'Skill-Based Training', 
     desc: 'Learn the right skills with live training and hands-on practice.', 
-    icon: '📚', 
+    icon: '/images/illustrations/programs_icon.png', 
     color: '#f97316',
     bgImage: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1600&auto=format&fit=crop'
   },
@@ -30,7 +31,7 @@ const steps = [
     n: '04', 
     title: 'Resume & LinkedIn', 
     desc: 'We build a professional resume that gets you noticed.', 
-    icon: '📄', 
+    icon: <FiFileText />, 
     color: '#10b981',
     bgImage: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=1600&auto=format&fit=crop'
   },
@@ -38,7 +39,7 @@ const steps = [
     n: '05', 
     title: 'Mock Interviews', 
     desc: 'Practice technical, HR and client interviews with experts.', 
-    icon: '🎤', 
+    icon: <FiMic />, 
     color: '#ef4444',
     bgImage: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1600&auto=format&fit=crop'
   },
@@ -46,7 +47,7 @@ const steps = [
     n: '06', 
     title: 'Placement Support', 
     desc: 'Direct referrals to our network of 50+ US hiring partners and salary negotiation guidance until Day 1.', 
-    icon: '🤝', 
+    icon: '/images/illustrations/partners_icon.png', 
     color: '#f59e0b',
     bgImage: 'https://images.unsplash.com/photo-1573497019236-17f8177b81e8?q=80&w=1600&auto=format&fit=crop'
   },
@@ -103,7 +104,13 @@ export default function Process() {
             >
               <div className="step-header">
                 <div className="step-icon-ring">
-                  <span className="step-icon">{s.icon}</span>
+                  <span className="step-icon">
+                    {typeof s.icon === 'string' && s.icon.startsWith('/') ? (
+                      <img src={s.icon} alt={s.title} className="process-step-icon-img" />
+                    ) : (
+                      s.icon
+                    )}
+                  </span>
                 </div>
               </div>
               <h3 className="step-title">{s.title}</h3>

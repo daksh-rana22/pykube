@@ -1,6 +1,71 @@
 import { useParams } from 'react-router-dom';
 import { services } from '../data/servicesData';
 import '../styles/ServiceDetailsPage.css';
+import { 
+  FiTarget, FiFileText, FiSearch, FiMic, FiMessageSquare, FiZap, 
+  FiGlobe, FiBarChart2, FiActivity, FiEdit3, FiPenTool, FiCompass, 
+  FiCheckCircle, FiClipboard, FiLayout, FiShoppingCart, FiEdit2, 
+  FiSmartphone, FiSettings, FiVolume2, FiTrendingUp, FiBriefcase 
+} from 'react-icons/fi';
+
+const iconMap = {
+  '🎯': <FiTarget />,
+  '📄': <FiFileText />,
+  '🔍': <FiSearch />,
+  '🎤': <FiMic />,
+  '💬': <FiMessageSquare />,
+  '⚡': <FiZap />,
+  '🌐': <FiGlobe />,
+  '📈': <FiTrendingUp />,
+  '💼': <FiBriefcase />,
+  '📊': <FiBarChart2 />,
+  '🔬': <FiActivity />,
+  '✏️': <FiEdit3 />,
+  '🎨': <FiPenTool />,
+  '🧭': <FiCompass />,
+  '✅': <FiCheckCircle />,
+  '📋': <FiClipboard />,
+  '🏗️': <FiLayout />,
+  '🛒': <FiShoppingCart />,
+  '📝': <FiEdit2 />,
+  '📱': <FiSmartphone />,
+  '🔧': <FiSettings />,
+  '📣': <FiVolume2 />
+};
+
+const getBadgeContent = (badgeText) => {
+  if (!badgeText) return null;
+  const emoji = Array.from(badgeText)[0];
+  const text = badgeText.replace(emoji, '').trim();
+  
+  if (emoji === '💻') {
+    return (
+      <>
+        <img src="/images/illustrations/laptop_icon.png" alt="" style={{ width: '14px', height: '14px', objectFit: 'contain' }} />
+        {text}
+      </>
+    );
+  }
+  if (emoji === '🤝') {
+    return (
+      <>
+        <img src="/images/illustrations/partners_icon.png" alt="" style={{ width: '14px', height: '14px', objectFit: 'contain' }} />
+        {text}
+      </>
+    );
+  }
+  
+  if (iconMap[emoji]) {
+    return (
+      <>
+        <span style={{ display: 'flex', alignItems: 'center' }}>{iconMap[emoji]}</span>
+        {text}
+      </>
+    );
+  }
+  
+  return badgeText;
+};
 
 const customServices = {
   'interview-preparation': {
@@ -22,7 +87,7 @@ const customServices = {
       { icon: '🎤', title: 'Mock Interview Sessions', text: "Conducting mock interviews to help the candidate practice and improve their interview skills in a realistic, pressure-free environment." },
       { icon: '💬', title: 'Performance Feedback', text: "Providing feedback and guidance on how to improve the candidate's performance during interviews, including advice on body language, tone of voice, and other factors that can impact their chances of success." },
       { icon: '⚡', title: 'Challenge Preparedness', text: "Helping the candidate prepare for potential challenges or obstacles they may encounter during the interview process, such as difficult questions or unexpected scenarios." },
-      { icon: '🤝', title: 'End-to-End Support', text: "Supporting and guiding the candidate throughout the interview process, providing advice and assistance as needed to help them succeed." },
+      { icon: '/images/illustrations/partners_icon.png', title: 'End-to-End Support', text: "Supporting and guiding the candidate throughout the interview process, providing advice and assistance as needed to help them succeed." },
     ],
   },
   'sales-marketing': {
@@ -42,8 +107,8 @@ const customServices = {
       { icon: '📄', title: 'Resume & Cover Letter Coaching', text: "Providing guidance on how to create a compelling resume and cover letter that will attract the attention of potential employers." },
       { icon: '🔍', title: 'Targeted Job Research', text: "Offering advice on how to research and target companies and job roles that align with the candidate's interests and goals." },
       { icon: '🌐', title: 'Employer Networking', text: "Connecting the candidate with potential employers and helping them network to increase their chances of finding job opportunities." },
-      { icon: '📚', title: 'Job Training Programs', text: "Providing access to job training and education programs to help the candidate acquire the skills and knowledge needed to succeed in their chosen field." },
-      { icon: '🤝', title: 'Ongoing Support', text: "Supporting and guiding the candidate throughout the job search process, providing advice and assistance as needed." },
+      { icon: '/images/illustrations/programs_icon.png', title: 'Job Training Programs', text: "Providing access to job training and education programs to help the candidate acquire the skills and knowledge needed to succeed in their chosen field." },
+      { icon: '/images/illustrations/partners_icon.png', title: 'Ongoing Support', text: "Supporting and guiding the candidate throughout the job search process, providing advice and assistance as needed." },
       { icon: '📣', title: 'Sales & Marketing Outreach', text: "Using sales and marketing strategies and techniques to promote the candidate's skills and experience to potential employers." },
       { icon: '📊', title: 'Progress Tracking', text: "Continually assessing the candidate's progress and providing feedback and support to help them succeed in their job search." },
     ],
@@ -65,8 +130,8 @@ const customServices = {
       { icon: '📄', title: 'Resume & Cover Letter', text: "Providing guidance on how to create a compelling resume and cover letter that will attract the attention of potential employers." },
       { icon: '🎤', title: 'Interview Prep', text: "Offering advice on how to prepare for job interviews, including tips on what to expect and how to answer common questions." },
       { icon: '🌐', title: 'Employer Connections', text: "Connecting the candidate with potential employers and helping them network to increase their chances of finding job opportunities." },
-      { icon: '📚', title: 'Training Programs', text: "Providing access to job training and education programs to help the candidate acquire the skills and knowledge needed to succeed in their chosen field." },
-      { icon: '🤝', title: 'Dedicated Support', text: "Supporting and guiding the candidate throughout the job search process, providing advice and assistance as needed." },
+      { icon: '/images/illustrations/programs_icon.png', title: 'Training Programs', text: "Providing access to job training and education programs to help the candidate acquire the skills and knowledge needed to succeed in their chosen field." },
+      { icon: '/images/illustrations/partners_icon.png', title: 'Dedicated Support', text: "Supporting and guiding the candidate throughout the job search process, providing advice and assistance as needed." },
       { icon: '📊', title: 'Progress Tracking', text: "Continually assessing the candidate's progress and providing feedback and support to help them succeed in their job search." },
     ],
   },
@@ -151,7 +216,9 @@ export default function ServiceDetailsPage() {
         </div>
         <div className="container sdp-hero-inner">
           {customService && (
-            <span className="service-hero-badge">{customService.badge}</span>
+            <span className="service-hero-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+              {getBadgeContent(customService.badge)}
+            </span>
           )}
           <h1 className="sdp-hero-title">
             {customService ? customService.title : service.title}
@@ -178,7 +245,15 @@ export default function ServiceDetailsPage() {
                 <div className="sdp-list">
                   {customService.details.map((detail, idx) => (
                     <div className="sdp-card" key={idx}>
-                      <div className="sdp-card-icon">{detail.icon}</div>
+                      <div className="sdp-card-icon">
+                        {typeof detail.icon === 'string' && detail.icon.startsWith('/') ? (
+                          <img src={detail.icon} alt={detail.title} className="sdp-card-icon-img" />
+                        ) : iconMap[detail.icon] ? (
+                          iconMap[detail.icon]
+                        ) : (
+                          detail.icon
+                        )}
+                      </div>
                       <div className="sdp-card-body">
                         <h4 className="sdp-card-title">{detail.title}</h4>
                         <p className="sdp-card-text">{detail.text}</p>

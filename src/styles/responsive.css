@@ -1,0 +1,450 @@
+/* ============================================================
+   Global Responsive Overrides — Reduce vertical scroll
+   Breakpoints: 1024px (tablet), 768px (small tablet), 480px (mobile)
+   ============================================================ */
+
+/* ── Container gutters ── */
+@media (max-width: 1024px) {
+  .container {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+}
+@media (max-width: 640px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+@media (max-width: 900px) {
+  .hero {
+    padding: 90px 0 44px;
+  }
+  .hero-title {
+    font-size: 2.4rem;
+  }
+  .hero-container {
+    gap: 36px;
+  }
+  .hero-image-area {
+    margin-top: 0;
+  }
+}
+@media (max-width: 640px) {
+  .hero {
+    padding: 80px 0 36px;
+  }
+  .hero-title {
+    font-size: 2rem;
+  }
+  .hero-desc {
+    font-size: 14px;
+  }
+  .hero-img-card {
+    max-width: 280px;
+  }
+  /* Hide floating cards on very small screens to reduce height */
+  .float-card-2,
+  .float-card-3 {
+    display: none;
+  }
+}
+@media (max-width: 480px) {
+  .hero {
+    padding: 74px 0 28px;
+  }
+  .hero-title {
+    font-size: 1.85rem;
+  }
+  .hero-features {
+    gap: 6px;
+  }
+  .hero-pill {
+    font-size: 11px;
+    padding: 4px 10px 4px 5px;
+  }
+  .hero-pill-icon {
+    width: 18px;
+    height: 18px;
+    font-size: 11px;
+  }
+}
+
+/* ============================================================
+   STATS BAR
+   ============================================================ */
+@media (max-width: 900px) {
+  .stat-item {
+    padding: 18px 10px;
+  }
+  .stat-number {
+    font-size: 1.5rem;
+  }
+  .stat-icon-wrap {
+    width: 42px;
+    height: 42px;
+    font-size: 18px;
+  }
+}
+@media (max-width: 560px) {
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .stat-item {
+    padding: 14px 8px;
+  }
+  .stat-number {
+    font-size: 1.2rem;
+  }
+  .stat-label {
+    font-size: 10px;
+  }
+  .stat-icon-wrap {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+  }
+}
+
+/* ============================================================
+   WHAT WE DO
+   ============================================================ */
+@media (max-width: 900px) {
+  .what-we-do {
+    padding: 52px 0;
+  }
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+}
+@media (max-width: 480px) {
+  .what-we-do {
+    padding: 36px 0;
+  }
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+/* ============================================================
+   PROCESS / HOW IT WORKS
+   ============================================================ */
+@media (max-width: 1024px) {
+  .process {
+    padding: 32px 0;
+  }
+  .process-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+}
+@media (max-width: 600px) {
+  .process {
+    padding: 28px 0;
+  }
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .step-icon-ring {
+    width: 56px;
+    height: 56px;
+    font-size: 20px;
+  }
+  .process-step {
+    padding: 20px 10px;
+  }
+  .step-title {
+    font-size: 13px;
+  }
+  .step-desc {
+    font-size: 12px;
+  }
+}
+@media (max-width: 480px) {
+  .process {
+    padding: 24px 0;
+  }
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+  }
+  .step-icon-ring {
+    width: 48px;
+    height: 48px;
+    font-size: 18px;
+  }
+}
+
+/* ============================================================
+   PROGRAMS TICKER BAR
+   ============================================================ */
+@media (max-width: 768px) {
+  .prog-highlights-bar {
+    padding: 10px 0;
+  }
+  .prog-highlight {
+    padding: 10px 16px;
+    min-width: 180px;
+    gap: 10px;
+  }
+  .prog-hl-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+  }
+  .prog-hl-label {
+    font-size: 12.5px;
+  }
+}
+
+/* ============================================================
+   SERVICES PAGE
+   ============================================================ */
+@media (max-width: 900px) {
+  .services-grid-section {
+    padding: 56px 0;
+  }
+  .services-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+}
+@media (max-width: 640px) {
+  .services-grid-section {
+    padding: 40px 0;
+  }
+  .services-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .service-card {
+    padding: 22px;
+  }
+  .services-hero-title,
+  .services-hero-title {
+    font-size: 2rem;
+  }
+}
+
+/* ============================================================
+   SERVICE DETAILS PAGE
+   ============================================================ */
+@media (max-width: 960px) {
+  .service-details-hero {
+    padding: 100px 0 52px;
+  }
+  .service-details-content-section {
+    padding: 52px 0;
+  }
+}
+@media (max-width: 640px) {
+  .service-details-hero {
+    padding: 84px 0 40px;
+  }
+  .sdp-hero-title {
+    font-size: 2rem;
+  }
+  .sdp-card {
+    padding: 16px;
+    gap: 12px;
+  }
+  .sdp-card-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+}
+
+/* ============================================================
+   PAGE HERO (PageHero.jsx — shared inner pages)
+   ============================================================ */
+@media (max-width: 768px) {
+  .page-hero {
+    padding: 90px 0 44px;
+  }
+  .page-hero-title {
+    font-size: 2.1rem;
+  }
+}
+@media (max-width: 480px) {
+  .page-hero {
+    padding: 80px 0 32px;
+  }
+  .page-hero-title {
+    font-size: 1.8rem;
+  }
+  .page-hero-subtitle {
+    font-size: 13.5px;
+  }
+}
+
+/* ============================================================
+   TESTIMONIALS
+   ============================================================ */
+@media (max-width: 900px) {
+  .testimonials-section {
+    padding: 56px 0;
+  }
+  .testimonials-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .achievements-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .achievements-panel {
+    padding: 28px 24px;
+  }
+}
+@media (max-width: 640px) {
+  .testimonials-section {
+    padding: 40px 0;
+  }
+  .achievements-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .ach-icon {
+    width: 34px;
+    height: 34px;
+    font-size: 16px;
+  }
+  .ach-num {
+    font-size: 1.4rem;
+  }
+}
+
+/* ============================================================
+   ABOUT US PAGE
+   ============================================================ */
+@media (max-width: 900px) {
+  .about-hero-section-v2 {
+    padding: 90px 0 52px;
+  }
+  .about-hero-heading {
+    font-size: 2rem;
+  }
+  .about-mission-section,
+  .about-values-section,
+  .about-team-section {
+    padding: 56px 0;
+  }
+}
+@media (max-width: 640px) {
+  .about-hero-section-v2 {
+    padding: 80px 0 40px;
+  }
+  .about-hero-heading {
+    font-size: 1.75rem;
+  }
+  .about-mission-section,
+  .about-values-section,
+  .about-team-section {
+    padding: 40px 0;
+  }
+  .about-values-grid-v2 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .value-card-v2 {
+    padding: 20px 16px;
+  }
+  .value-icon-box {
+    width: 42px;
+    height: 42px;
+    border-radius: 11px;
+    margin-bottom: 12px;
+  }
+  .value-title-v2 {
+    font-size: 0.95rem;
+  }
+}
+@media (max-width: 420px) {
+  .about-values-grid-v2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   CTA SECTION
+   ============================================================ */
+@media (max-width: 900px) {
+  .cta-section,
+  .cta {
+    padding: 52px 0;
+  }
+}
+@media (max-width: 640px) {
+  .cta-section,
+  .cta {
+    padding: 40px 0;
+  }
+}
+
+/* ============================================================
+   FAQ SECTION
+   ============================================================ */
+@media (max-width: 768px) {
+  .faq {
+    padding: 52px 0;
+  }
+}
+@media (max-width: 480px) {
+  .faq {
+    padding: 36px 0;
+  }
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+@media (max-width: 640px) {
+  .footer {
+    padding-top: 44px;
+    padding-bottom: 20px;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+}
+@media (max-width: 420px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   PROGRAMS PAGE HERO (PageHero)
+   ============================================================ */
+@media (max-width: 640px) {
+  .page-hero-breadcrumb {
+    font-size: 11px;
+  }
+}
+
+/* ============================================================
+   GLOBAL SECTION SPACING REDUCTION
+   Targets any section with excessive vertical padding
+   ============================================================ */
+@media (max-width: 768px) {
+  section {
+    /* Clamp section padding to avoid excessive scroll */
+    padding-top: min(var(--section-pt, 90px), 56px);
+    padding-bottom: min(var(--section-pb, 90px), 56px);
+  }
+}
+@media (max-width: 480px) {
+  section {
+    padding-top: min(var(--section-pt, 90px), 40px);
+    padding-bottom: min(var(--section-pb, 90px), 40px);
+  }
+}

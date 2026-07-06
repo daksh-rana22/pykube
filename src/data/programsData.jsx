@@ -9,7 +9,7 @@ export const programs = [
   {
     id: 'java-full-stack',
     image: '/images/illustrations/java.png',
-    icon: '☕',
+    icon: '/images/illustrations/java_icon.png',
     title: 'Full Stack Java Developer',
     duration: '4-6 Months',
     desc: 'Master the complete Java ecosystem from Core to Cloud. Build real-world banking and enterprise applications.',
@@ -37,7 +37,7 @@ export const programs = [
   {
     id: 'python-developer',
     image: '/images/illustrations/python.png',
-    icon: '🐍',
+    icon: '/images/illustrations/python_icon.png',
     title: 'Python Developer',
     duration: '3-5 Months',
     desc: 'Build production-ready web applications with Python and Django. Deploy real e-commerce platforms.',
@@ -65,7 +65,7 @@ export const programs = [
   {
     id: 'qa-automation',
     image: '/images/illustrations/qa.png',
-    icon: '🔍',
+    icon: '/images/illustrations/qa_icon.png',
     title: 'QA Automation Engineer',
     duration: '3-5 Months',
     desc: 'Become a certified QA Engineer skilled in manual testing, Java, and Selenium automation from scratch.',
@@ -92,7 +92,7 @@ export const programs = [
   {
     id: 'data-analyst',
     image: analystImg,
-    icon: '📊',
+    icon: '/images/illustrations/analyst_icon.png',
     title: 'Data Analyst',
     duration: '3-4 Months',
     desc: 'Learn to extract insights from data using Python, Pandas, and Power BI. Work on real datasets.',
@@ -119,7 +119,7 @@ export const programs = [
   {
     id: 'data-engineer',
     image: engineerImg,
-    icon: '🔧',
+    icon: '/images/illustrations/engineer_icon.png',
     title: 'Data Engineer',
     duration: '4-6 Months',
     desc: 'Build large-scale data pipelines and ETL workflows. Master PySpark, Django, and real-time ingestion.',
@@ -147,7 +147,7 @@ export const programs = [
   {
     id: 'data-scientist',
     image: scientistImg,
-    icon: '🤖',
+    icon: '/images/illustrations/scientist_icon.png',
     title: 'Data Scientist',
     duration: '4-6 Months',
     desc: 'From Python basics to PySpark, Power BI, and machine learning — become a complete data scientist.',

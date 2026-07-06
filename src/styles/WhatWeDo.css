@@ -69,6 +69,16 @@
   background: var(--accent);
   transform: scale(1.1) rotate(-5deg);
 }
+.feature-icon-wrap svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--accent);
+  transition: stroke 0.3s ease;
+  display: block;
+}
+.feature-card:hover .feature-icon-wrap svg {
+  stroke: #ffffff;
+}
 
 /* ── Text ── */
 .feature-title {

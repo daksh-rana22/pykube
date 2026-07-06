@@ -53,7 +53,7 @@ export default function ContactUsPage() {
       </section>
 
       {/* Main Content Grid */}
-      <section className="contact-content-section" style={{ background: isDark ? '#111625' : '#f8fafc' }}>
+      <section className="contact-content-section">
         <div className="container contact-grid">
           
           {/* Left Column: Info & Map */}

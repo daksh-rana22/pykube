@@ -1,7 +1,7 @@
 export const services = [
   {
     id: 'interview-preparation',
-    icon: '🤝',
+    icon: '/images/illustrations/partners_icon.png',
     title: 'Interview Preparation',
     tagline: 'Land your dream job with confidence',
     color: '#2563eb',
@@ -18,7 +18,7 @@ export const services = [
   },
   {
     id: 'sales-marketing',
-    icon: '📈',
+    icon: 'FiTrendingUp',
     title: 'Sales & Marketing',
     tagline: 'Drive growth and generate revenue',
     color: '#f97316',
@@ -35,7 +35,7 @@ export const services = [
   },
   {
     id: 'job-assistance',
-    icon: '💼',
+    icon: 'FiBriefcase',
     title: 'Job Assistance',
     tagline: '100% placement support guaranteed',
     color: '#10b981',
@@ -52,7 +52,7 @@ export const services = [
   },
   {
     id: 'software-development',
-    icon: '💻',
+    icon: '/images/illustrations/laptop_icon.png',
     title: 'Software Development',
     tagline: 'Custom software for your business goals',
     color: '#8b5cf6',
@@ -69,7 +69,7 @@ export const services = [
   },
   {
     id: 'ux-ui-design',
-    icon: '🎨',
+    icon: 'FiPenTool',
     title: 'UX/UI Design & Ideation',
     tagline: 'Design thinking that converts visitors',
     color: '#ec4899',
@@ -86,7 +86,7 @@ export const services = [
   },
   {
     id: 'web-development',
-    icon: '🌐',
+    icon: 'FiGlobe',
     title: 'Web Development',
     tagline: 'Modern web solutions that perform',
     color: '#06b6d4',

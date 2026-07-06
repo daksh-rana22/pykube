@@ -131,15 +131,72 @@
   }
 }
 @media (max-width: 640px) {
+  .footer-top {
+    padding: 16px 0 12px;
+  }
   .footer-grid {
     grid-template-columns: 1fr 1fr;
+    gap: 12px;
   }
   .footer-brand {
     grid-column: 1 / -1;
   }
+  .footer-logo-container {
+    margin-bottom: 6px;
+    padding: 3px 8px;
+  }
+  .footer-logo {
+    height: 20px;
+  }
+  .footer-about {
+    font-size: 10px;
+    margin-bottom: 6px;
+    line-height: 1.45;
+  }
+  .footer-contact-info {
+    margin-bottom: 6px;
+    gap: 4px;
+  }
+  .fc-item {
+    font-size: 10px;
+    line-height: 1.3;
+  }
+  .fc-item svg {
+    width: 11px;
+    height: 11px;
+    margin-top: 1.5px;
+  }
+  .footer-socials {
+    margin-bottom: 6px;
+    gap: 6px;
+  }
+  .social-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+  }
+  .social-btn svg {
+    width: 11px;
+    height: 11px;
+  }
+  .footer-col-title {
+    font-size: 10.5px;
+    margin-bottom: 4px;
+    padding-bottom: 2px;
+  }
+  .footer-links-list {
+    gap: 3px;
+  }
+  .footer-link {
+    font-size: 10px;
+  }
+  .footer-bottom {
+    padding: 6px 0;
+  }
   .footer-bottom-inner {
     flex-direction: column;
-    gap: 6px;
+    gap: 2px;
     text-align: center;
+    font-size: 9.5px;
   }
 }

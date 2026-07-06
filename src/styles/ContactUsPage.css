@@ -119,7 +119,25 @@
 .contact-content-section {
   padding: 100px 0;
   flex-grow: 1;
-  transition: background-color 0.3s ease;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-color 0.3s ease, background-image 0.3s ease;
+  position: relative;
+}
+
+.light-theme .contact-content-section {
+  background-image: 
+    linear-gradient(180deg, rgba(248, 250, 252, 0.94) 0%, rgba(241, 245, 249, 0.97) 100%),
+    url('/images/illustrations/tech_bg.svg');
+  background-color: #f8fafc;
+}
+
+.dark-theme .contact-content-section {
+  background-image: 
+    linear-gradient(180deg, rgba(17, 22, 37, 0.94) 0%, rgba(12, 16, 29, 0.98) 100%),
+    url('/images/illustrations/tech_bg.svg');
+  background-color: #111625;
 }
 
 .contact-grid {

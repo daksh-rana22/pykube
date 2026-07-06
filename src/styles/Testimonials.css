@@ -1,6 +1,6 @@
 /* ===== Testimonials ===== */
 .testimonials-section {
-  padding: 90px 0;
+  padding: 70px 0;
   background: var(--bg-subtle);
 }
 .testimonials-layout {
@@ -51,8 +51,23 @@
   transform: scale(1.04);
 }
 .ach-icon {
-  font-size: 22px;
-  margin-bottom: 4px;
+  font-size: 20px;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.18);
+  color: #fde68a;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+.ach-icon-img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: block;
 }
 .ach-num {
   font-size: 1.7rem;
@@ -152,5 +167,96 @@
 @media (max-width: 900px) {
   .testimonials-layout {
     grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 576px) {
+  .testimonials-section {
+    padding: 50px 0;
+  }
+  
+  .achievements-panel {
+    padding: 28px 20px;
+    border-radius: 16px;
+  }
+  
+  .achievements-title {
+    font-size: 1.6rem;
+  }
+  
+  .achievements-sub {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+  
+  .achievement-card {
+    padding: 12px 10px;
+    border-radius: 12px;
+  }
+  
+  .ach-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+  
+  .ach-icon-img {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .ach-num {
+    font-size: 1.4rem;
+  }
+  
+  .ach-label {
+    font-size: 10px;
+  }
+  
+  .testimonial-card {
+    padding: 18px 16px;
+    border-radius: 12px;
+  }
+  
+  .tcard-avatar {
+    width: 38px;
+    height: 38px;
+    font-size: 15px;
+  }
+  
+  .tcard-name {
+    font-size: 13px;
+  }
+  
+  .tcard-role {
+    font-size: 11px;
+  }
+  
+  .tcard-company {
+    font-size: 10px;
+  }
+  
+  .tcard-stars {
+    font-size: 11px;
+  }
+  
+  .tcard-text {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  
+  /* Make it a slider on mobile to save space */
+  .testimonial-card:not(.tcard-active) {
+    display: none;
+  }
+  
+  .tcard-active {
+    transform: none !important;
+  }
+  
+  .tcard-dots {
+    margin-top: 10px;
   }
 }

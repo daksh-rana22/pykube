@@ -135,6 +135,68 @@
   .why-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 600px) {
-  .about-milestones { grid-template-columns: repeat(2, 1fr); }
-  .why-grid { grid-template-columns: 1fr; }
+  .about-section {
+    padding: 44px 0;
+  }
+  .about-mission {
+    gap: 28px;
+    margin-bottom: 44px;
+  }
+  .about-desc {
+    font-size: 13.5px;
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  .about-mission-ctas {
+    margin-top: 20px;
+    gap: 10px;
+  }
+  .about-mission-ctas .btn-primary,
+  .about-mission-ctas .about-btn-sec {
+    padding: 10px 18px;
+    font-size: 12.5px;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+  .about-milestones {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .milestone-card {
+    padding: 12px 6px;
+    border-radius: var(--r-md);
+  }
+  .milestone-value {
+    font-size: 1.35rem;
+    margin-bottom: 2px;
+  }
+  .milestone-label {
+    font-size: 9.5px;
+    letter-spacing: -0.2px;
+  }
+  .about-why-header {
+    margin-bottom: 24px;
+  }
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .why-card {
+    padding: 12px 8px;
+    border-radius: var(--r-md);
+  }
+  .why-icon {
+    font-size: 1.4rem;
+    margin-bottom: 6px;
+  }
+  .why-title {
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+    font-weight: 700;
+  }
+  .why-desc {
+    font-size: 10.5px;
+    line-height: 1.35;
+  }
 }

@@ -87,6 +87,12 @@
   background: var(--pc);
   transform: rotate(-8deg) scale(1.12);
 }
+.program-icon-img {
+  width: 58%;
+  height: 58%;
+  object-fit: contain;
+  display: block;
+}
 
 .program-duration {
   font-size: clamp(9.5px, 0.8vw, 11px);
@@ -187,16 +193,46 @@
   }
 }
 
-/* Mobile: 1 column */
 @media (max-width: 480px) {
   .programs {
     padding: 36px 0;
   }
   .programs-grid {
-    grid-template-columns: 1fr;
-    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
   }
   .program-image-wrapper {
-    height: 140px;
+    height: 100px;
+  }
+  .program-card-content {
+    padding: 10px;
+  }
+  .program-title {
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+  }
+  .program-desc {
+    font-size: 10.5px;
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+  .program-skills-tags {
+    display: none;
+  }
+  .program-icon-wrap {
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    font-size: 14px;
+    border-width: 1.5px;
+  }
+  .program-duration {
+    font-size: 9px;
+    padding: 2px 6px;
+  }
+  .program-cta {
+    padding: 6px 12px;
+    font-size: 11px;
+    border-radius: var(--r-btn);
   }
 }

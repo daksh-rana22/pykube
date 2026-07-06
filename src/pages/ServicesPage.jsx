@@ -3,14 +3,16 @@ import { Link } from 'react-router-dom';
 import { services } from '../data/servicesData';
 import CTA from '../components/CTA';
 import '../styles/ServicesPage.css';
+import * as FiIcons from 'react-icons/fi';
+import { FiUsers, FiFolder, FiMic, FiSend, FiTarget } from 'react-icons/fi';
 
 const highlights = [
-  { icon: '👨‍🏫', label: '10+ Expert Trainers' },
-  { icon: '💻', label: 'Live Online Classes' },
-  { icon: '📁', label: 'Real-Time Projects' },
-  { icon: '🎤', label: 'Mock Interviews' },
-  { icon: '🚀', label: '100% Placement Support' },
-  { icon: '🎯', label: '6 Job-Ready Courses' },
+  { icon: <FiUsers />, label: '10+ Expert Trainers' },
+  { icon: '/images/illustrations/laptop_icon.png', label: 'Live Online Classes' },
+  { icon: <FiFolder />, label: 'Real-Time Projects' },
+  { icon: <FiMic />, label: 'Mock Interviews' },
+  { icon: <FiSend />, label: '100% Placement Support' },
+  { icon: <FiTarget />, label: '6 Job-Ready Courses' },
 ];
 
 export default function ServicesPage() {
@@ -44,13 +46,21 @@ export default function ServicesPage() {
 
       {/* ── Highlights Bar (Horizontal Ticker) ── */}
       <section className="serv-highlights-bar">
-        <div className="serv-highlights-track">
-          {[...highlights, ...highlights, ...highlights].map((h, i) => (
-            <div className="serv-highlight" key={i}>
-              <span className="serv-hl-icon">{h.icon}</span>
-              <span className="serv-hl-label">{h.label}</span>
-            </div>
-          ))}
+        <div className="serv-marquee-container">
+          <div className="serv-highlights-track">
+            {[...highlights, ...highlights, ...highlights].map((h, i) => (
+              <div className="serv-highlight" key={i}>
+                <span className="serv-hl-icon">
+                  {typeof h.icon === 'string' && h.icon.startsWith('/') ? (
+                    <img src={h.icon} alt={h.label} className="serv-hl-icon-img" />
+                  ) : (
+                    h.icon
+                  )}
+                </span>
+                <span className="serv-hl-label">{h.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -76,7 +86,18 @@ export default function ServicesPage() {
                 {/* Card Header */}
                 <div className="service-card-top">
                   <div className="service-card-icon-wrap" style={{ background: service.bg }}>
-                    <span className="service-card-icon" style={{ color: service.color }}>{service.icon}</span>
+                    <span className="service-card-icon" style={{ color: service.color }}>
+                      {(() => {
+                        const IconComp = FiIcons[service.icon];
+                        if (typeof service.icon === 'string' && service.icon.startsWith('/')) {
+                          return <img src={service.icon} alt={service.title} className="service-card-icon-img" />;
+                        }
+                        if (IconComp) {
+                          return <IconComp />;
+                        }
+                        return service.icon;
+                      })()}
+                    </span>
                   </div>
                   <div className="service-card-meta">
                     <h3 className="service-card-title">{service.title}</h3>

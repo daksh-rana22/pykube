@@ -2,7 +2,7 @@ import '../styles/Hero.css';
 import heroImg from '../assets/hero_person.png';
 
 const techChips = [
-  { icon: '☕', name: 'Java' }, { icon: '🐍', name: 'Python' },
+  { icon: '/images/illustrations/java_icon.png', name: 'Java' }, { icon: '/images/illustrations/python_icon.png', name: 'Python' },
   { icon: '⚛', name: 'React' }, { icon: '☁', name: 'AWS' },
   { icon: '🗄', name: 'SQL' }, { icon: '🤖', name: 'Selenium' },
 ];
@@ -19,10 +19,6 @@ export default function Hero() {
       <div className="container hero-container">
         {/* LEFT */}
         <div className="hero-content">
-          <div className="hero-eyebrow">
-            <span className="hero-eyebrow-dot" />
-            #1 IT Training &amp; Placement in USA
-          </div>
           <h1 className="hero-title">
             Launch Your <span className="word-blue">IT Career</span><br />
             in the <span className="word-blue">USA</span> with<br />
@@ -33,8 +29,22 @@ export default function Hero() {
             PyKube Technologies transforms fresh graduates and career-changers into job-ready IT professionals through live training, real-time projects, resume building, mock interviews, and guaranteed placement support across the USA.
           </p>
           <div className="hero-features">
-            {['✅ 300+ Candidates Trained', '💻 Live Online Classes', '🎤 Mock Client Interviews', '🚀 100% Placement Support'].map(f => (
-              <span key={f} className="hero-pill">{f}</span>
+            {[
+              { text: '300+ Candidates Trained', icon: '✅' },
+              { text: 'Live Online Classes', icon: '/images/illustrations/laptop_icon.png' },
+              { text: 'Mock Client Interviews', icon: '🎤' },
+              { text: '100% Placement Support', icon: '🚀' }
+            ].map((f, idx) => (
+              <span key={idx} className="hero-pill">
+                <span className="hero-pill-icon">
+                  {f.icon.startsWith('/') ? (
+                    <img src={f.icon} alt={f.text} className="hero-feature-icon-img" />
+                  ) : (
+                    f.icon
+                  )}
+                </span>
+                {f.text}
+              </span>
             ))}
           </div>
           <div className="hero-ctas">
@@ -61,7 +71,9 @@ export default function Hero() {
             </div>
           </div>
           <div className="float-card float-card-2">
-            <div className="float-icon float-icon-green">🎓</div>
+            <div className="float-icon float-icon-green">
+              <img src="/images/illustrations/learner_icon.png" alt="Instructor" className="hero-float-icon-img" />
+            </div>
             <div className="float-label-only">Live Instructor<br />Led Training</div>
           </div>
           <div className="float-card float-card-3">
@@ -76,7 +88,12 @@ export default function Hero() {
             <div className="tech-chips">
               {techChips.map(t => (
                 <span key={t.name} className="tech-chip">
-                  <span>{t.icon}</span>{t.name}
+                  {t.icon.startsWith('/') ? (
+                    <img src={t.icon} alt={t.name} className="tech-chip-icon" />
+                  ) : (
+                    <span>{t.icon}</span>
+                  )}
+                  {t.name}
                 </span>
               ))}
             </div>
