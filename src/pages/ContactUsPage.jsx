@@ -3,7 +3,7 @@ import '../styles/ContactUsPage.css';
 
 export default function ContactUsPage() {
   const [isDark, setIsDark] = useState(false);
-  const [form, setForm] = useState({ name: '', email: '', phone: '', program: '', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export default function ContactUsPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (form.name && form.email && form.phone && form.program) {
+    if (form.name && form.email && form.phone) {
       setSubmitted(true);
     }
   };
@@ -55,7 +55,7 @@ export default function ContactUsPage() {
       {/* Main Content Grid */}
       <section className="contact-content-section">
         <div className="container contact-grid">
-          
+
           {/* Left Column: Info & Map */}
           <div className="contact-info-column">
             <span className="accent-sub">CONNECT WITH US</span>
@@ -236,37 +236,7 @@ export default function ContactUsPage() {
                       </div>
                     </div>
 
-                    <div className="contact-form-group">
-                      <label htmlFor="program" style={{ color: isDark ? '#cbd5e1' : '#475569' }}>Program of Interest *</label>
-                      <div className="input-with-icon">
-                        <span className="input-icon">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                          </svg>
-                        </span>
-                        <select
-                          id="program"
-                          name="program"
-                          required
-                          value={form.program}
-                          onChange={handleChange}
-                          style={{
-                            background: isDark ? '#070a13' : '#f8fafc',
-                            color: isDark ? '#ffffff' : '#0f172a',
-                            borderColor: isDark ? 'rgba(255,255,255,0.08)' : '#cbd5e1'
-                          }}
-                        >
-                          <option value="" disabled>Select a course</option>
-                          <option value="Java Full Stack Developer">Java Full Stack Developer Bootcamp</option>
-                          <option value="Python Data Science & AI">Python Data Science & AI Bootcamp</option>
-                          <option value="QA Software Testing Automation">QA Test Automation Bootcamp</option>
-                          <option value="DevOps & Cloud Engineering">DevOps & Cloud Infrastructure Bootcamp</option>
-                          <option value="Corporate Training / Other">Corporate Tech Training</option>
-                          <option value="General Career Guidance">General Career Consultation</option>
-                        </select>
-                      </div>
-                    </div>
+
 
                     <div className="contact-form-group">
                       <label htmlFor="message" style={{ color: isDark ? '#cbd5e1' : '#475569' }}>Tell Us About Your Goals (Optional)</label>
@@ -293,14 +263,14 @@ export default function ContactUsPage() {
                     </div>
 
                     <button type="submit" className="contact-submit-btn">
-                      Book My Free Consultation 
+                      Book My Free Consultation
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="btn-arrow">
                         <line x1="5" y1="12" x2="19" y2="12"></line>
                         <polyline points="12 5 19 12 12 19"></polyline>
                       </svg>
                     </button>
                   </form>
-                  
+
                   <div className="privacy-badge">
                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
@@ -318,9 +288,9 @@ export default function ContactUsPage() {
                   </div>
                   <h3 style={{ color: isDark ? '#ffffff' : '#0f172a' }}>Consultation Scheduled!</h3>
                   <p style={{ color: isDark ? '#cbd5e1' : '#475569' }}>
-                    Thank you <strong>{form.name}</strong>. A PyKube Career Advisor will reach out to you within 24 hours at <strong>{form.email}</strong> or <strong>{form.phone}</strong> regarding the <strong>{form.program}</strong> track.
+                    Thank you <strong>{form.name}</strong>. A PyKube Career Advisor will reach out to you within 24 hours at <strong>{form.email}</strong> or <strong>{form.phone}</strong>.
                   </p>
-                  <button onClick={() => { setForm({ name: '', email: '', phone: '', program: '', message: '' }); setSubmitted(false); }} className="reset-form-btn">
+                  <button onClick={() => { setForm({ name: '', email: '', phone: '', message: '' }); setSubmitted(false); }} className="reset-form-btn">
                     Schedule Another Session
                   </button>
                 </div>
