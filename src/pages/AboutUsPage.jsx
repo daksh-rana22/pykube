@@ -155,21 +155,7 @@ export default function AboutUsPage() {
                 </div>
               </div>
             </div>
-            <div className="mission-stats-bar">
-              {stats.slice(0, 3).map((s, i) => (
-                <div className="mission-stat" key={i}>
-                  <span className="mission-stat-icon">
-                    {s.icon.startsWith('/') ? (
-                      <img src={s.icon} alt={s.label} className="about-stat-icon-img" />
-                    ) : (
-                      s.icon
-                    )}
-                  </span>
-                  <span className="mission-stat-num">{s.num}</span>
-                  <span className="mission-stat-lbl">{s.label}</span>
-                </div>
-              ))}
-            </div>
+
           </div>
         </div>
       </section>

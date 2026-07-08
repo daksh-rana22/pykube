@@ -265,8 +265,7 @@ export default function Navbar() {
                 )}
               </div>
             ))}
-            <div className="mobile-actions">
-              <a href="/contact" className="btn-primary" style={{ flex: 1, justifyContent: 'center' }} onClick={() => setMobileOpen(false)}>Book Free Consultation</a>
+            <div className="mobile-actions" style={{ justifyContent: 'flex-end' }}>
               <button className="theme-toggle-btn" onClick={toggleTheme} aria-label="Toggle Theme" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 {theme === 'dark' ? <FiSun /> : <FiMoon />}
               </button>

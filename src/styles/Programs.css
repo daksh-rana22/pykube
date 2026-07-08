@@ -187,6 +187,9 @@
   .programs {
     padding: 44px 0;
   }
+  .programs .section-title {
+    font-size: 1.4rem;
+  }
   .programs-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
@@ -196,6 +199,9 @@
 @media (max-width: 480px) {
   .programs {
     padding: 36px 0;
+  }
+  .programs .section-title {
+    font-size: 1.3rem;
   }
   .programs-grid {
     grid-template-columns: repeat(2, 1fr);

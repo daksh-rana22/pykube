@@ -94,12 +94,17 @@ export default function Process() {
               className={`process-step${activeIndex === i ? ' active' : ''}`}
               key={i} 
               style={{ '--sc': s.color }}
+              onClick={() => setActiveIndex(i)}
               onMouseEnter={() => {
-                setActiveIndex(i);
-                setIsHovered(true);
+                if (window.matchMedia('(hover: hover)').matches) {
+                  setActiveIndex(i);
+                  setIsHovered(true);
+                }
               }}
               onMouseLeave={() => {
-                setIsHovered(false);
+                if (window.matchMedia('(hover: hover)').matches) {
+                  setIsHovered(false);
+                }
               }}
             >
               <div className="step-header">

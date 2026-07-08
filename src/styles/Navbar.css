@@ -35,8 +35,9 @@
 }
 
 .navbar.scrolled {
-  background: rgba(9, 14, 40, 0.94);
-  backdrop-filter: blur(20px);
+  background: rgba(9, 14, 40, 0.98);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
   padding: 10px 0;
@@ -135,7 +136,7 @@
   width: 100vw;
   /* Push visible content below the navbar bar */
   padding-top: 16px;
-  background: rgba(9, 14, 40, 0.97);
+  background: rgba(9, 14, 40, 0.98);
   backdrop-filter: blur(24px) saturate(1.4);
   -webkit-backdrop-filter: blur(24px) saturate(1.4);
   border: none;
@@ -474,10 +475,11 @@
 .mobile-menu {
   display: flex;
   flex-direction: column;
-  padding: 10px 20px 18px;
+  padding: 8px 16px 16px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(9, 14, 40, 0.96);
-  backdrop-filter: blur(20px);
+  background: rgba(9, 14, 40, 0.98);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
 }
 
 .mobile-link-wrapper {
@@ -491,10 +493,10 @@
 }
 
 .mobile-link {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.75);
-  padding: 14px 0;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 12px 0;
   text-decoration: none;
   transition: all 0.2s ease;
   flex: 1;
@@ -506,15 +508,15 @@
 }
 
 .mobile-dropdown-toggle {
-  background: rgba(255, 255, 255, 0.05);
-  border: none;
-  width: 34px;
-  height: 34px;
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.65);
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -526,6 +528,8 @@
 
 .mobile-arrow-svg {
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 14px;
+  height: 14px;
 }
 
 .mobile-dropdown-toggle.open .mobile-arrow-svg {
@@ -536,22 +540,22 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
-  padding: 5px 0 15px 15px;
-  border-left: 1.5px solid rgba(255, 255, 255, 0.1);
-  margin-left: 8px;
-  margin-bottom: 5px;
+  padding: 4px 0 10px 12px;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  margin-left: 6px;
+  margin-bottom: 4px;
 }
 
 .mobile-dropdown-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.65);
-  padding: 10px 12px;
+  gap: 8px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 8px 10px;
   text-decoration: none;
   transition: all 0.2s ease;
-  border-radius: 8px;
+  border-radius: 6px;
 }
 
 .mobile-dropdown-item:hover {
@@ -562,7 +566,7 @@
 .mobile-dropdown-dot {
   width: 4px;
   height: 4px;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.25);
   border-radius: 50%;
   transition: all 0.2s ease;
 }
@@ -575,11 +579,11 @@
 /* Theme Toggler */
 .theme-toggle-btn {
   background: rgba(255, 255, 255, 0.08);
-  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   color: rgba(255, 255, 255, 0.85);
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -596,17 +600,26 @@
 
 .mobile-actions {
   display: flex;
-  gap: 12px;
+  gap: 10px;
   align-items: center;
-  margin-top: 18px;
+  margin-top: 14px;
+}
+
+.mobile-actions .navbar-cta {
+  padding: 8px 16px;
+  font-size: 12px;
+  border-radius: 6px;
+  flex: 1;
+  text-align: center;
+  justify-content: center;
 }
 
 .mobile-actions .theme-toggle-btn {
   display: flex !important;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  width: 44px;
-  height: 44px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  width: 36px;
+  height: 36px;
 }
 
 @media (max-width: 1050px) {
@@ -619,5 +632,31 @@
 
   .mobile-toggle {
     display: flex;
+  }
+}
+
+@media (max-width: 640px) {
+  .navbar {
+    padding: 10px 0;
+  }
+  .navbar.scrolled {
+    padding: 8px 0;
+  }
+  .navbar-logo {
+    padding: 6px 12px;
+  }
+  .navbar-logo img {
+    height: 24px;
+  }
+  .mobile-toggle {
+    width: 34px;
+    height: 34px;
+    padding: 6px;
+  }
+  .ham-line {
+    width: 16px;
+  }
+  .ham-line:nth-child(2) {
+    width: 10px;
   }
 }

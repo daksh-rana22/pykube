@@ -38,7 +38,6 @@ export default function ServicesPage() {
             to help individuals and businesses grow, hire, and succeed.
           </p>
           <div className="services-hero-actions">
-            <a href="/#contact" className="btn-primary">Book Free Consultation</a>
             <a href="#services-grid" className="services-hero-scroll-btn">Explore Services ↓</a>
           </div>
         </div>

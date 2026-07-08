@@ -12,11 +12,10 @@
   overflow: hidden;
   padding: 120px 0 0;
   background: #0f1c3f;
-  background-image:
-    linear-gradient(135deg, rgba(8, 15, 40, 0.95) 0%, rgba(15, 50, 160, 0.92) 50%, rgba(8, 15, 40, 0.97) 100%),
-    url('/images/illustrations/tech_bg.svg');
-  background-size: cover;
-  background-position: center;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.55) 0, transparent 60%),
+    radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.45) 0, transparent 60%),
+    radial-gradient(at 50% 50%, rgba(15, 23, 42, 0.85) 0, transparent 80%);
   color: #fff;
 }
 
@@ -367,7 +366,7 @@
   display: grid;
   grid-template-columns: 1fr 1.05fr;
   gap: 64px;
-  align-items: start;
+  align-items: stretch;
 }
 
 .mission-text-col {
@@ -452,18 +451,22 @@
 .mission-img-col {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .mission-office-card {
   position: relative;
-  border-radius: var(--r-lg) var(--r-lg) 0 0;
+  border-radius: var(--r-lg);
   overflow: hidden;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  display: flex;
 }
 
 .mission-office-img {
   width: 100%;
-  height: 300px;
+  height: 100%;
+  min-height: 300px;
   object-fit: cover;
   display: block;
 }
@@ -843,12 +846,28 @@
 }
 
 @media (max-width: 640px) {
+  .about-hero-v2 {
+    padding: 76px 0 0;
+  }
+  .about-hero-inner-v2 {
+    padding-bottom: 24px;
+    gap: 24px;
+  }
   .about-hero-heading {
-    font-size: 1.9rem;
+    font-size: 1.65rem;
+  }
+  .about-hero-desc {
+    font-size: 12px;
+    margin-bottom: 12px;
   }
 
   .about-section-title {
     font-size: 1.7rem;
+  }
+
+  .about-values-v2,
+  .about-team-v2 {
+    padding: 40px 0;
   }
 
   .about-values-grid-v2 {
@@ -925,15 +944,52 @@
     gap: 8px;
   }
 
+  .about-mission-v2 {
+    padding: 40px 0;
+  }
+
+  .about-mission-grid-v2 {
+    gap: 20px;
+  }
+
   .mission-heading {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+    margin: 0 0 16px;
+  }
+
+  .mission-points {
+    gap: 12px;
+  }
+
+  .mission-point {
+    gap: 10px;
+  }
+
+  .mission-point-icon-wrap {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+  }
+
+  .mission-point-icon {
+    font-size: 14px;
+  }
+
+  .mission-point-title {
+    font-size: 13px;
+    margin: 0 0 2px;
+  }
+
+  .mission-point p {
+    font-size: 11px;
+    line-height: 1.4;
   }
 
   .about-hero-stats-inner {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    padding: 0 16px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    padding: 0 2px;
   }
 
   .hero-stat-item {
@@ -941,7 +997,7 @@
     padding: 0;
     flex-direction: column;
     text-align: center;
-    gap: 8px;
+    gap: 2px;
   }
   
   .hero-stat-icon {
@@ -949,17 +1005,16 @@
   }
   
   .about-stat-icon-img {
-    width: 28px;
-    height: 28px;
+    width: 16px;
+    height: 16px;
   }
 
   .hero-stat-num {
-    font-size: 1.3rem;
+    font-size: 0.85rem;
   }
 
   .hero-stat-lbl {
-    font-size: 11px;
-    line-height: 1.3;
-    max-width: 120px;
+    font-size: 8px;
+    line-height: 1.1;
   }
 }

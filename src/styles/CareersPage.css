@@ -332,6 +332,22 @@
   gap: 25px;
 }
 
+@media (min-width: 992px) {
+  .careers-values-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .careers-values-grid .value-card {
+    grid-column: span 2;
+  }
+  .careers-values-grid .value-card:nth-child(4),
+  .careers-values-grid .value-card:nth-child(5) {
+    grid-column: span 3;
+  }
+  .perks-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 .value-card,
 .perk-card {
   background: var(--white);
@@ -1359,11 +1375,28 @@
   .careers-perks {
     padding: 80px 0;
   }
+
+  .join-team-card {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .join-team-visual {
+    min-height: 300px;
+  }
 }
 
 @media (max-width: 768px) {
+  .careers-hero {
+    padding: 110px 0 50px;
+  }
+
+  .careers-hero-inner {
+    gap: 30px;
+  }
+
   .careers-hero-heading {
-    font-size: 2.8rem;
+    font-size: 2.4rem;
   }
 
   .careers-section-title {
@@ -1378,15 +1411,32 @@
     padding: 8px 18px;
     font-size: 12.5px;
   }
+
+  .careers-hero-image-pane {
+    display: none;
+  }
 }
 
 @media (max-width: 576px) {
+  .careers-hero {
+    padding: 85px 0 40px;
+  }
+
+  .careers-hero-inner {
+    gap: 24px;
+  }
+
   .careers-hero-heading {
-    font-size: 2.2rem;
+    font-size: 1.9rem;
+  }
+
+  .careers-hero-desc {
+    font-size: 13px;
+    margin-bottom: 20px;
   }
 
   .careers-hero-img-card {
-    height: 280px;
+    height: 220px;
   }
 
   .careers-glass-badge.badge-1 {
@@ -1406,6 +1456,122 @@
   .category-tab-btn {
     padding: 6px 14px;
     font-size: 11.5px;
+  }
+
+  .careers-join-team-section {
+    padding: 50px 0 60px;
+  }
+
+  .join-team-content {
+    padding: 24px 16px;
+  }
+
+  .join-team-badge {
+    padding: 4px 12px;
+    font-size: 11px;
+    margin-bottom: 16px;
+  }
+
+  .join-team-title {
+    font-size: 1.45rem;
+    margin-bottom: 12px;
+  }
+
+  .join-team-desc {
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+
+  .join-team-perks-list {
+    margin-bottom: 24px;
+    gap: 10px;
+  }
+
+  .join-team-perks-list li {
+    font-size: 13px;
+    gap: 8px;
+  }
+
+  .perk-check {
+    font-size: 14px;
+  }
+
+  .join-team-visual {
+    min-height: 200px;
+    padding: 16px;
+  }
+
+  .visual-circle {
+    width: 140px;
+    height: 140px;
+  }
+
+  .visual-icon {
+    font-size: 50px;
+  }
+
+  .visual-floating-badge {
+    padding: 8px 14px;
+    font-size: 11.5px;
+  }
+
+  .join-team-action {
+    padding: 16px;
+  }
+
+  .join-team-action p {
+    font-size: 12.5px;
+    margin-bottom: 8px;
+  }
+
+  .join-team-email {
+    font-size: 1.05rem;
+  }
+
+  .careers-values,
+  .careers-perks {
+    padding: 40px 0;
+  }
+
+  .careers-values-grid,
+  .perks-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .value-card,
+  .perk-card {
+    padding: 16px 12px;
+    border-radius: 12px;
+  }
+
+  .value-card h3,
+  .perk-card h3 {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+  .value-card p,
+  .perk-card p {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .value-icon-box,
+  .perk-icon-box {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+  }
+
+  .value-card-num,
+  .perk-card-num {
+    font-size: 3rem;
+    right: 8px;
+    bottom: -8px;
   }
 }
 

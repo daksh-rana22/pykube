@@ -22,7 +22,7 @@ const roadmapMap = {
 // Map program id -> hero config
 const heroConfig = {
   'java-full-stack': {
-    badge: '⚡ 2026 EDITION',
+    badge: '2026 EDITION',
     titleLine1: '',
     titleHighlight: '',
     titleLine2: 'Roadmap',
@@ -39,7 +39,7 @@ const heroConfig = {
     whiteBg: true,
   },
   'python-developer': {
-    badge: '🐍 2026 EDITION',
+    badge: '2026 EDITION',
     titleLine1: '',
     titleHighlight: '',
     titleLine2: 'Roadmap',
@@ -56,7 +56,7 @@ const heroConfig = {
     whiteBg: true,
   },
   'qa-automation': {
-    badge: '🔍 2026 EDITION',
+    badge: '2026 EDITION',
     titleLine1: '',
     titleHighlight: '',
     titleLine2: 'Roadmap',
@@ -73,7 +73,7 @@ const heroConfig = {
     whiteBg: true,
   },
   'data-analyst': {
-    badge: '📊 2026 EDITION',
+    badge: '2026 EDITION',
     titleLine1: '',
     titleHighlight: '',
     titleLine2: 'Roadmap',
@@ -90,7 +90,7 @@ const heroConfig = {
     whiteBg: true,
   },
   'data-engineer': {
-    badge: '🔧 2026 EDITION',
+    badge: '2026 EDITION',
     titleLine1: '',
     titleHighlight: '',
     titleLine2: 'Roadmap',
@@ -107,7 +107,7 @@ const heroConfig = {
     whiteBg: true,
   },
   'data-scientist': {
-    badge: '🤖 2026 EDITION',
+    badge: '2026 EDITION',
     titleLine1: '',
     titleHighlight: '',
     titleLine2: 'Roadmap',
@@ -909,7 +909,12 @@ export default function ProgramDetailsPage() {
           }}
         >
           <div className="unified-hero-content-wrap">
-            <span className="unified-hero-badge" style={{ color: hero.accentColor, borderColor: `${hero.accentColor}55`, background: `${hero.accentColor}15` }}>
+            <span className="unified-hero-badge" style={{ color: hero.accentColor, borderColor: `${hero.accentColor}55`, background: `${hero.accentColor}15`, display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+              {program.icon && (
+                <span style={{ backgroundColor: '#ffffff', padding: '3px', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <img src={program.icon} alt={program.title} style={{ width: '14px', height: '14px', objectFit: 'contain' }} />
+                </span>
+              )}
               {hero.badge}
             </span>
             <h1 className={`unified-hero-title${hero.whiteBg ? ' hero-title-dark' : ''}`}>

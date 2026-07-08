@@ -177,42 +177,49 @@
   }
   
   .achievements-panel {
-    padding: 28px 20px;
-    border-radius: 16px;
-  }
-  
-  .achievements-title {
-    font-size: 1.6rem;
-  }
-  
-  .achievements-sub {
-    font-size: 13px;
-    margin-bottom: 20px;
-  }
-  
-  .achievement-card {
-    padding: 12px 10px;
+    padding: 20px 16px;
     border-radius: 12px;
   }
   
-  .ach-icon {
-    width: 32px;
-    height: 32px;
-    font-size: 16px;
-    margin-bottom: 4px;
-  }
-  
-  .ach-icon-img {
-    width: 18px;
-    height: 18px;
-  }
-  
-  .ach-num {
+  .achievements-title {
     font-size: 1.4rem;
   }
   
+  .achievements-sub {
+    font-size: 11px;
+    margin-bottom: 16px;
+  }
+  
+  .achievements-grid {
+    gap: 10px;
+  }
+  
+  .achievement-card {
+    padding: 6px 4px;
+    border-radius: 8px;
+    gap: 2px;
+  }
+  
+  .ach-icon {
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
+    margin-bottom: 2px;
+    border-radius: 4px;
+  }
+  
+  .ach-icon-img {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .ach-num {
+    font-size: 1.05rem;
+  }
+  
   .ach-label {
-    font-size: 10px;
+    font-size: 8px;
+    line-height: 1.2;
   }
   
   .testimonial-card {

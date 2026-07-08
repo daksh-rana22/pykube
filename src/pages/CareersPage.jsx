@@ -374,12 +374,6 @@ export default function CareersPage() {
               <div className="visual-circle">
                 <FiUpload className="visual-icon" />
               </div>
-              <div className="visual-floating-badge float-1">
-                <FiStar className="float-icon"/> Send Your CV
-              </div>
-              <div className="visual-floating-badge float-2">
-                <FiUsers className="float-icon"/> We're Hiring
-              </div>
             </div>
           </div>
         </div>
