@@ -2677,6 +2677,272 @@
   }
 }
 
+/* REST API visual */
+.restapi-visual {
+  background: #020617;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.api-header {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.api-tester-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.api-request-box {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.api-method.get {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  font-weight: 800;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.api-endpoint {
+  font-family: monospace;
+  font-size: 12px;
+  color: #cbd5e1;
+  flex-grow: 1;
+}
+
+.api-send-btn {
+  background: #3b82f6;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.api-connection-line {
+  height: 24px;
+  width: 2px;
+  background: #334155;
+  margin: 0 auto;
+  position: relative;
+}
+
+.api-packet {
+  position: absolute;
+  top: 0;
+  left: -3px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 10px #38bdf8;
+  animation: api-packet-travel 1.5s infinite;
+}
+
+@keyframes api-packet-travel {
+  0% { top: 0; opacity: 1; }
+  50% { top: 24px; opacity: 1; }
+  51% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.api-response-box {
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.api-status {
+  background: rgba(255, 255, 255, 0.04);
+  padding: 6px 12px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 10px;
+  font-family: monospace;
+}
+
+.status-code {
+  color: #4ade80;
+  font-weight: 700;
+}
+
+.status-time {
+  color: #94a3b8;
+}
+
+.api-json-body {
+  padding: 12px;
+  font-family: monospace;
+  font-size: 11.5px;
+  line-height: 1.6;
+}
+
+.json-line {
+  padding-left: 12px;
+}
+
+.json-key { color: #f472b6; }
+.json-val.num { color: #f59e0b; }
+.json-val.str { color: #38bdf8; }
+.json-val.bool { color: #c084fc; }
+
+/* Selenium WebDriver visual */
+.selenium-visual {
+  background: #020617;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.selenium-browser {
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.browser-header {
+  background: #f1f5f9;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.browser-dots {
+  display: flex;
+  gap: 6px;
+  margin-right: 16px;
+}
+
+.browser-dots .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dot.red { background: #ef4444; }
+.dot.yellow { background: #f59e0b; }
+.dot.green { background: #10b981; }
+
+.browser-url {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  padding: 4px 12px;
+  font-size: 11px;
+  color: #475569;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.browser-body {
+  padding: 30px;
+  background: #f8fafc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 140px;
+}
+
+.browser-element-highlight {
+  position: relative;
+  display: inline-block;
+}
+
+.element-box {
+  position: relative;
+  border: 2px dashed #3b82f6;
+  padding: 10px;
+  border-radius: 6px;
+  background: rgba(59, 130, 246, 0.05);
+  animation: sel-pulse-border 2s infinite;
+}
+
+@keyframes sel-pulse-border {
+  0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+}
+
+.element-tag {
+  position: absolute;
+  top: -24px;
+  left: -2px;
+  background: #3b82f6;
+  color: #fff;
+  font-family: monospace;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.fake-login-btn {
+  background: #10b981;
+  color: #fff;
+  border: none;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.automated-cursor {
+  position: absolute;
+  bottom: -15px;
+  right: -15px;
+  font-size: 24px;
+  animation: sel-click-motion 2s infinite;
+}
+
+@keyframes sel-click-motion {
+  0%, 10% { transform: translate(20px, 20px); opacity: 0; }
+  30%, 70% { transform: translate(0, 0); opacity: 1; }
+  75% { transform: scale(0.9); opacity: 1; }
+  80%, 100% { transform: scale(1); opacity: 0; }
+}
+
+.selenium-console {
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 12px;
+  font-family: monospace;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.log-line.info { color: #94a3b8; }
+.log-line.success { color: #4ade80; }
+.log-line.action { color: #38bdf8; animation: pulse 1.5s infinite; }
+
 /* DevOps Pipeline visual */
 .devops-visual {
   background: #020617;
@@ -3341,6 +3607,41 @@ html:not(.dark-theme) .timeline-opposite-image-wrap {
   border-color: var(--border-light);
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.05);
 }
+
+/* --- Light Theme Overrides for New Visuals --- */
+html:not(.dark-theme) .api-header,
+html:not(.dark-theme) .selenium-visual .browser-header {
+  color: var(--gray-800) !important;
+}
+
+html:not(.dark-theme) .restapi-visual,
+html:not(.dark-theme) .selenium-visual {
+  background: var(--gray-100);
+}
+
+html:not(.dark-theme) .api-request-box,
+html:not(.dark-theme) .api-response-box,
+html:not(.dark-theme) .selenium-console {
+  background: #ffffff;
+  border-color: var(--border-light);
+}
+
+html:not(.dark-theme) .api-connection-line {
+  background: var(--border-light);
+}
+
+html:not(.dark-theme) .api-status {
+  border-bottom: 1px solid var(--border-light);
+}
+
+html:not(.dark-theme) .api-json-body .json-key { color: #d946ef !important; }
+html:not(.dark-theme) .api-json-body .json-val.num { color: #ea580c !important; }
+html:not(.dark-theme) .api-json-body .json-val.str { color: #0ea5e9 !important; }
+html:not(.dark-theme) .api-json-body .json-val.bool { color: #a855f7 !important; }
+
+html:not(.dark-theme) .selenium-console .log-line.info { color: var(--gray-500) !important; }
+html:not(.dark-theme) .selenium-console .log-line.success { color: #16a34a !important; }
+html:not(.dark-theme) .selenium-console .log-line.action { color: #0284c7 !important; }
 
 /* --- New Semantic Classes for Roadmap Visual Elements --- */
 .visual-console-box {

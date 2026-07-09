@@ -430,7 +430,40 @@ const RoadmapSectionVisual = ({ title, accentColor }) => {
   }
 
   // 10. Django Framework & ORM / REST APIs / APIs
-  if (t.includes('django & orm') || t.includes('django framework') || t === 'rest apis' || t === 'rest api design') {
+  if (t.includes('rest api') || t === 'rest apis' || t.includes('fastapi')) {
+    return (
+      <div className="native-visual restapi-visual" style={themeStyle}>
+        <div className="api-header">
+          <span className="api-icon">⚡</span> RESTful API Tester
+        </div>
+        <div className="api-tester-container">
+          <div className="api-request-box">
+            <div className="api-method get">GET</div>
+            <div className="api-endpoint">/api/v1/users/me</div>
+            <button className="api-send-btn">Send</button>
+          </div>
+          
+          <div className="api-connection-line">
+            <div className="api-packet"></div>
+          </div>
+          
+          <div className="api-response-box">
+            <div className="api-status">
+              <span className="status-code">200 OK</span>
+              <span className="status-time">42ms</span>
+            </div>
+            <div className="api-json-body">
+              <div className="json-line"><span className="json-key">"id"</span>: <span className="json-val num">4012</span>,</div>
+              <div className="json-line"><span className="json-key">"role"</span>: <span className="json-val str">"admin"</span>,</div>
+              <div className="json-line"><span className="json-key">"active"</span>: <span className="json-val bool">true</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (t.includes('django & orm') || t.includes('django framework')) {
     return (
       <div className="native-visual database-visual" style={themeStyle}>
         <div className="db-header">🦁 Django ORM Query Translator</div>
@@ -530,7 +563,41 @@ const RoadmapSectionVisual = ({ title, accentColor }) => {
     );
   }
 
-  if (t.includes('testing') || t.includes('qa') || t.includes('manual') || t.includes('selenium') || t.includes('testng')) {
+  if (t.includes('selenium') || t.includes('webdriver')) {
+    return (
+      <div className="native-visual selenium-visual" style={themeStyle}>
+        <div className="selenium-browser">
+          <div className="browser-header">
+            <div className="browser-dots">
+              <span className="dot red"></span>
+              <span className="dot yellow"></span>
+              <span className="dot green"></span>
+            </div>
+            <div className="browser-url">
+              <span className="lock-icon">🔒</span> https://automation-target.app
+            </div>
+          </div>
+          <div className="browser-body">
+            <div className="browser-element-highlight">
+              <div className="element-box">
+                <span className="element-tag">driver.findElement(By.id("login"))</span>
+                <button className="fake-login-btn">Login</button>
+                <div className="automated-cursor">👆</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="selenium-console">
+          <div className="log-line info">[INFO] Starting ChromeDriver 114.0</div>
+          <div className="log-line info">[INFO] Navigating to https://automation-target.app</div>
+          <div className="log-line success">[SUCCESS] Element located: By.id("login")</div>
+          <div className="log-line action">&gt; Performing click() action...</div>
+        </div>
+      </div>
+    );
+  }
+
+  if (t.includes('testing') || t.includes('qa') || t.includes('manual') || t.includes('testng')) {
     return (
       <div className="native-visual testing-visual" style={themeStyle}>
         <div className="testing-header">

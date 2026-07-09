@@ -649,44 +649,107 @@
 
 @media (max-width: 640px) {
   .contact-hero {
-    padding: 100px 0 60px;
+    padding: 80px 0 40px;
   }
   
   .contact-hero-title {
-    font-size: 32px;
+    font-size: 26px;
     letter-spacing: -1px;
   }
   
   .contact-hero-subtitle {
-    font-size: 15px;
+    font-size: 13.5px;
   }
   
   .contact-content-section {
-    padding: 60px 0;
+    padding: 40px 0;
   }
   
   .contact-sec-heading {
-    font-size: 26px;
-  }
-  
-  .contact-detail-card {
-    padding: 18px 22px;
-    gap: 18px;
-  }
-  
-  .contact-form-card {
-    padding: 24px;
-  }
-  
-  .contact-form-title {
     font-size: 22px;
   }
   
-  .contact-timeline-section {
-    padding: 60px 0;
+  .contact-detail-card {
+    padding: 14px 16px;
+    gap: 14px;
+  }
+
+  .contact-icon-badge {
+    width: 40px;
+    height: 40px;
+  }
+
+  .contact-card-label {
+    font-size: 9.5px;
+  }
+
+  .contact-card-value {
+    font-size: 13px;
   }
   
+  .contact-form-card {
+    padding: 36px 20px 20px;
+  }
+  
+  .contact-form-title {
+    font-size: 18px;
+  }
+
+  .input-with-icon input,
+  .input-with-icon select,
+  .input-with-icon textarea {
+    font-size: 13px;
+    padding: 10px 12px 10px 36px;
+  }
+
+  .input-icon {
+    left: 12px;
+  }
+
+  .textarea-icon {
+    top: 11px;
+  }
+
+  .contact-submit-btn {
+    font-size: 13.5px;
+    padding: 12px 18px;
+  }
+  
+  .contact-timeline-section {
+    padding: 30px 0;
+  }
+  
+  .timeline-header {
+    margin-bottom: 32px;
+  }
+
   .timeline-title {
-    font-size: 26px;
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+  
+  .timeline-subtitle {
+    font-size: 13px;
+  }
+
+  .timeline-steps {
+    gap: 24px;
+  }
+
+  .timeline-number {
+    width: 48px;
+    height: 48px;
+    font-size: 16px;
+    border-width: 4px;
+    margin-bottom: 12px;
+  }
+
+  .timeline-step-title {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  .timeline-step-desc {
+    font-size: 12.5px;
   }
 }

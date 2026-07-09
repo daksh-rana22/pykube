@@ -144,7 +144,7 @@ const customServices = {
     ctaImage: 'https://images.unsplash.com/photo-1537432376769-00f5c2f4c8d2?auto=format&fit=crop&w=700&q=85',
     stats: [
       { value: '150+', label: 'Projects Delivered' },
-      { value: '99.9%', label: 'Uptime SLA' },
+      { value: '99.9%', lael: 'Uptime SLA' },
       { value: '12+', label: 'Tech Stacks' },
     ],
     details: [
