@@ -31,6 +31,7 @@ const navLinks = [
   },
   { label: 'About Us', href: '/about-us' },
   { label: 'Careers', href: '/careers' },
+  { label: 'Interview Q&A', href: '/interview' },
   { label: 'Contact Us', href: '/contact' },
 ];
 

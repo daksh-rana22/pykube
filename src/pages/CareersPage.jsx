@@ -134,87 +134,77 @@ const jobs = [
 ];
 
 function ApplyModal({ job, onClose }) {
-  const [form, setForm] = useState({ name: "", email: "", phone: "", linkedin: "", message: "" });
-  const [submitted, setSubmitted] = useState(false);
-  const [fileName, setFileName] = useState("");
-
-  const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });
-
-  const handleFileChange = e => {
-    if (e.target.files && e.target.files[0]) {
-      setFileName(e.target.files[0].name);
-    }
-  };
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
+  const emailSubject = encodeURIComponent(`Application for ${job.title}`);
+  const emailBody = encodeURIComponent(
+    `Hi PyKube Team,\n\nI am interested in the ${job.title} (${job.dept}) position.\n\nPlease find my CV attached.\n\nBest regards,`
+  );
+  const mailtoLink = `mailto:careers@pykube.com?subject=${emailSubject}&body=${emailBody}`;
 
   return (
-    <div className="careers-modal-overlay" onClick={onClose}>
-      <div className="careers-modal" onClick={e => e.stopPropagation()}>
-        <button className="careers-modal-close" onClick={onClose}><FiX /></button>
-        {submitted ? (
-          <div className="careers-modal-success">
-            <div className="success-icon-wrap"><FiCheck /></div>
-            <h3>Application Submitted!</h3>
-            <p>Thanks for applying for <strong>{job.title}</strong>. Our team will reach out within 3-5 business days.</p>
-            <button className="btn-primary" onClick={onClose}>Close</button>
+    <div className="apply-overlay" onClick={onClose}>
+      <div className="apply-card" onClick={e => e.stopPropagation()}>
+
+        {/* Close button */}
+        <button className="apply-card-close" onClick={onClose} aria-label="Close">
+          <FiX size={18} />
+        </button>
+
+        {/* Top accent bar using job color */}
+        <div className="apply-card-accent" style={{ background: job.color }} />
+
+        {/* Icon */}
+        <div className="apply-card-icon" style={{ background: `${job.color}18`, color: job.color }}>
+          <FiMail size={28} />
+        </div>
+
+        {/* Role info */}
+        <span className="apply-card-dept" style={{ background: `${job.color}15`, color: job.color }}>
+          {job.dept}
+        </span>
+        <h2 className="apply-card-title">Apply for <span style={{ color: job.color }}>{job.title}</span></h2>
+
+        {/* Instruction */}
+        <p className="apply-card-instruction">
+          To apply for this role, simply send your <strong>CV / Resume</strong> to our hiring team at the email below. 
+          Please mention the role you're applying for in the subject line.
+        </p>
+
+        {/* Email box */}
+        <div className="apply-email-box">
+          <div className="apply-email-label">Send your CV to:</div>
+          <div className="apply-email-addr">
+            <FiMail size={16} />
+            careers@pykube.com
           </div>
-        ) : (
-          <>
-            <div className="careers-modal-header">
-              <span className="careers-modal-dept" style={{ background: job.color + "18", color: job.color }}>{job.dept}</span>
-              <h2 className="careers-modal-title">Apply for {job.title}</h2>
-              <p className="careers-modal-sub"><FiGlobe /> {job.location} &nbsp;•&nbsp; <FiClock /> {job.type}</p>
-            </div>
-            <form className="careers-apply-form" onSubmit={handleSubmit}>
-              <div className="form-row">
-                <div className="form-group">
-                  <label>Full Name *</label>
-                  <input name="name" required placeholder="John Smith" value={form.name} onChange={handleChange} />
-                </div>
-                <div className="form-group">
-                  <label>Email Address *</label>
-                  <input name="email" type="email" required placeholder="john@email.com" value={form.email} onChange={handleChange} />
-                </div>
-              </div>
-              <div className="form-row">
-                <div className="form-group">
-                  <label>Phone Number</label>
-                  <input name="phone" placeholder="+1 (555) 000-0000" value={form.phone} onChange={handleChange} />
-                </div>
-                <div className="form-group">
-                  <label>LinkedIn Profile</label>
-                  <input name="linkedin" placeholder="linkedin.com/in/yourname" value={form.linkedin} onChange={handleChange} />
-                </div>
-              </div>
-              <div className="form-group">
-                <label>Why do you want to join PyKube? *</label>
-                <textarea name="message" required rows={4} placeholder="Tell us about yourself and why you are excited about this role..." value={form.message} onChange={handleChange} />
-              </div>
-              <div className="form-group">
-                <label>Resume / CV *</label>
-                <div className="file-drop-zone">
-                  <FiUpload style={{ color: "#4f46e5" }} />
-                  {fileName ? (
-                    <span className="file-selected-name">Selected: {fileName}</span>
-                  ) : (
-                    <span>Drag and drop your resume, or <label className="file-browse" htmlFor="resume-upload">browse files</label></span>
-                  )}
-                  <input id="resume-upload" type="file" accept=".pdf,.doc,.docx" onChange={handleFileChange} style={{ display: "none" }} required={!fileName} />
-                  <span className="file-hint">PDF, DOC or DOCX - max 5MB</span>
-                </div>
-              </div>
-              <button type="submit" className="btn-primary form-submit-btn" style={{ background: "#4f46e5" }}>Submit Application</button>
-            </form>
-          </>
-        )}
+          <div className="apply-email-subject">
+            Subject: <strong>Application for {job.title}</strong>
+          </div>
+        </div>
+
+        {/* Tips */}
+        <ul className="apply-tips">
+          <li><FiCheck size={13} /> Attach your CV as a PDF or Word document</li>
+          <li><FiCheck size={13} /> Include a short intro about yourself</li>
+          <li><FiCheck size={13} /> We typically respond within 3–5 business days</li>
+        </ul>
+
+        {/* CTA button — opens mailto */}
+        <a href={mailtoLink} className="apply-email-btn" style={{ background: job.color }}>
+          <FiMail size={16} /> Open Email App
+        </a>
+
       </div>
     </div>
   );
 }
+
+const resumeJob = {
+  title: 'Your Desired Role',
+  dept: 'General Application',
+  color: '#4f46e5',
+  location: 'Remote',
+  type: 'Full-time',
+};
 
 export default function CareersPage() {
   const [selectedDept, setSelectedDept] = useState("All");
@@ -342,39 +332,184 @@ export default function CareersPage() {
 
 
 
-      {/* Expanded Join Our Team Banner */}
+      {/* ── Open Positions Section ── */}
+      <section className="careers-open-positions">
+        <div className="container">
+          <div className="careers-section-header">
+            <span className="accent-sub">WE'RE HIRING</span>
+            <h2 className="careers-section-title">Open Positions</h2>
+            <p className="careers-section-sub">
+              Join a passionate team building the future of tech education. Explore roles across engineering, teaching, and beyond.
+            </p>
+            <div className="section-title-bar" />
+          </div>
+
+          <div className="open-positions-list">
+            {jobs.map((job) => {
+              const Icon = job.icon;
+              return (
+                <div className="job-card" key={job.id} style={{ '--job-color': job.color }}>
+                  <div className="job-card-left">
+                    <div className="job-icon-box" style={{ background: `${job.color}18`, color: job.color }}>
+                      <Icon size={20} />
+                    </div>
+                    <div className="job-card-info">
+                      <div className="job-card-top">
+                        <span className="job-dept-badge" style={{ background: `${job.color}15`, color: job.color }}>
+                          {job.dept}
+                        </span>
+                        <div className="job-meta-pills">
+                          <span className="job-pill"><FiGlobe size={11} /> {job.location}</span>
+                          <span className="job-pill"><FiClock size={11} /> {job.type}</span>
+                          <span className="job-pill"><FiBriefcase size={11} /> {job.experience}</span>
+                        </div>
+                      </div>
+                      <h3 className="job-title">{job.title}</h3>
+                      <p className="job-summary">{job.summary}</p>
+                      <div className="job-tags">
+                        {job.tags.map(tag => (
+                          <span className="job-tag" key={tag}>{tag}</span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="job-card-right">
+                    <button
+                      className="job-apply-btn"
+                      style={{ background: job.color }}
+                      onClick={() => setActiveJob(job)}
+                    >
+                      Apply Now <FiChevronRight size={15} />
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+
+
+      {/* ── Join Our Team Banner ── */}
       <section className="careers-join-team-section" id="join-team">
         <div className="container">
-          <div className="join-team-card">
-            <div className="join-team-bg-glow"></div>
-            
-            <div className="join-team-content">
-              <span className="join-team-badge"><FiBriefcase /> Join Our Team</span>
-              <h2 className="join-team-title">Shape the Future With Us</h2>
-              <p className="join-team-desc">
-                We're always on the lookout for passionate educators, creative designers, 
+          <div className="jt-wrapper">
+
+            {/* ── LEFT COLUMN ── */}
+            <div className="jt-left">
+              {/* Badge */}
+              <span className="jt-badge">
+                <FiUsers size={13} /> Join Our Team
+              </span>
+
+              {/* Headline */}
+              <h2 className="jt-heading">
+                Shape the Future<br />
+                <span className="jt-heading-accent">With Us</span>
+              </h2>
+              <div className="jt-heading-bar" />
+
+              {/* Description */}
+              <p className="jt-desc">
+                We're always on the lookout for passionate educators, creative designers,
                 and brilliant engineers. We're growing fast and always looking for talent.
               </p>
-              
-              <ul className="join-team-perks-list">
-                <li><FiCheck className="perk-check" /> Remote-first culture</li>
-                <li><FiCheck className="perk-check" /> Continuous learning & growth</li>
-                <li><FiCheck className="perk-check" /> Competitive equity & bonuses</li>
-              </ul>
 
-              <div className="join-team-action">
-                <p>Send your CV and a brief introduction to:</p>
-                <a href="mailto:careers@pykube.com" className="join-team-email">
-                  <FiMail /> careers@pykube.com
-                </a>
+              {/* Feature pills */}
+              <div className="jt-features">
+                <div className="jt-feature-pill">
+                  <FiGlobe size={16} />
+                  <span>Remote-first culture</span>
+                </div>
+                <div className="jt-feature-pill">
+                  <FiBookOpen size={16} />
+                  <span>Continuous learning &amp; growth</span>
+                </div>
+                <div className="jt-feature-pill">
+                  <FiAward size={16} />
+                  <span>Competitive equity &amp; bonuses</span>
+                </div>
+              </div>
+
+              {/* Stats row */}
+              <div className="jt-stats">
+                {[
+                  { num: '150+', label: 'Projects Delivered', icon: FiLayers },
+                  { num: '50+',  label: 'Team Members',       icon: FiUsers  },
+                  { num: '12+',  label: 'Countries',          icon: FiGlobe  },
+                  { num: '95%',  label: 'Employee Satisfaction', icon: FiStar },
+                ].map(({ num, label, icon: Icon }) => (
+                  <div className="jt-stat" key={label}>
+                    <Icon size={18} className="jt-stat-icon" />
+                    <span className="jt-stat-num">{num}</span>
+                    <span className="jt-stat-label">{label}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA buttons */}
+              <div className="jt-cta-row">
+                <button
+                  className="jt-btn-primary"
+                  onClick={() => setActiveJob(resumeJob)}
+                >
+                  <FiUpload size={16} /> Upload Your Resume
+                </button>
+              </div>
+
+              {/* Email info bar */}
+              <div className="jt-email-bar">
+                <div className="jt-email-item">
+                  <FiMail size={15} />
+                  <span>Or email us directly at <a href="mailto:careers@pykube.com" className="jt-email-link">careers@pykube.com</a></span>
+                </div>
+                <div className="jt-email-divider" />
+                <div className="jt-email-item">
+                  <FiClock size={15} />
+                  <span>We'll get back to you within <strong>3–5 business days.</strong></span>
+                </div>
               </div>
             </div>
 
-            <div className="join-team-visual">
-              <div className="visual-circle">
-                <FiUpload className="visual-icon" />
+            {/* ── RIGHT COLUMN ── */}
+            <div className="jt-right">
+              {/* Illustration */}
+              <div className="jt-illustration">
+                <img
+                  src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&q=80"
+                  alt="Team collaboration"
+                  className="jt-team-img"
+                />
+                {/* Floating code tag */}
+                <div className="jt-float-badge jt-float-top">
+                  <span className="jt-code-tag">&lt;/&gt;</span>
+                </div>
+              </div>
+
+              {/* Testimonial card */}
+              <div className="jt-testimonial-card">
+                <div className="jt-quote-icon">"</div>
+                <h4 className="jt-testimonial-title">Great People. Great Culture.</h4>
+                <p className="jt-testimonial-text">
+                  We believe in building a supportive environment where ideas thrive and people grow together.
+                </p>
+                <div className="jt-avatars">
+                  {[
+                    'https://randomuser.me/api/portraits/men/32.jpg',
+                    'https://randomuser.me/api/portraits/women/44.jpg',
+                    'https://randomuser.me/api/portraits/men/56.jpg',
+                    'https://randomuser.me/api/portraits/women/68.jpg',
+                    'https://randomuser.me/api/portraits/men/77.jpg',
+                  ].map((src, i) => (
+                    <img key={i} src={src} alt="team member" className="jt-avatar" />
+                  ))}
+                  <div className="jt-avatar-more">50+</div>
+                </div>
+                <p className="jt-avatars-label">Join 50+ amazing people at Pykube</p>
               </div>
             </div>
+
           </div>
         </div>
       </section>

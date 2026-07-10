@@ -10,6 +10,7 @@ import ServiceDetailsPage from './pages/ServiceDetailsPage';
 import AboutUsPage from './pages/AboutUsPage';
 import ContactUsPage from './pages/ContactUsPage';
 import CareersPage from './pages/CareersPage';
+import InterviewPage from './pages/InterviewPage';
 import ScrollToAnchor from './components/ScrollToAnchor';
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path="/about-us" element={<AboutUsPage />} />
         <Route path="/contact" element={<ContactUsPage />} />
         <Route path="/careers" element={<CareersPage />} />
+        <Route path="/interview" element={<InterviewPage />} />
       </Routes>
       <Footer />
     </Router>
