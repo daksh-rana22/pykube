@@ -1,5 +1,5 @@
 import '../styles/Hero.css';
-import heroImg from '../assets/hero_person.png';
+import heroImg from '../assets/56dfb6a7-16bf-4c47-96ab-2a412ef41718.png';
 
 const techChips = [
   { icon: '/images/illustrations/java_icon.png', name: 'Java' }, { icon: '/images/illustrations/python_icon.png', name: 'Python' },
