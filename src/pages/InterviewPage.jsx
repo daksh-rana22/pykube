@@ -4,6 +4,32 @@ import {
   FiMessageCircle, FiClock, FiStar, FiCheckCircle, FiAward
 } from 'react-icons/fi';
 import '../styles/InterviewPage.css';
+import { DATA_ANALYST_QUESTIONS } from '../data/dataAnalystQuestions';
+import { DATA_SCIENCE_QUESTIONS } from '../data/dataScienceQuestions';
+import { DEEP_LEARNING_QUESTIONS } from '../data/deepLearningQuestions';
+import { DOCKER_QUESTIONS } from '../data/dockerQuestions';
+import { EXCEL_QUESTIONS } from '../data/excelQuestions';
+import { EXPRESS_QUESTIONS } from '../data/expressQuestions';
+import { FULL_STACK_QUESTIONS } from '../data/fullStackQuestions';
+import { GITHUB_QUESTIONS } from '../data/githubQuestions';
+import { HIBERNATE_QUESTIONS } from '../data/hibernateQuestions';
+import { JAVASCRIPT_QUESTIONS } from '../data/javascriptQuestions';
+import { JENKINS_QUESTIONS } from '../data/jenkinsQuestions';
+import { MACHINE_LEARNING_QUESTIONS } from '../data/machineLearningQuestions';
+import { MEAN_STACK_QUESTIONS } from '../data/meanStackQuestions';
+import { MERN_STACK_QUESTIONS } from '../data/mernStackQuestions';
+import { MICROSERVICES_QUESTIONS } from '../data/microservicesQuestions';
+import { MONGODB_QUESTIONS } from '../data/mongodbQuestions';
+import { PHP_QUESTIONS } from '../data/phpQuestions';
+import { PLSQL_QUESTIONS } from '../data/plsqlQuestions';
+import { POWER_BI_QUESTIONS } from '../data/powerBIQuestions';
+import { PYTHON_QUESTIONS } from '../data/pythonQuestions';
+import { REST_API_QUESTIONS } from '../data/restApiQuestions';
+import { SOFTWARE_TESTING_QUESTIONS } from '../data/softwareTestingQuestions';
+import { SPRING_BOOT_QUESTIONS } from '../data/springBootQuestions';
+import { SOAP_QUESTIONS } from '../data/soapQuestions';
+import { SQL_QUESTIONS } from '../data/sqlQuestions';
+import { TABLEAU_QUESTIONS } from '../data/tableauQuestions';
 
 /* ─── Data ─────────────────────────────────────────────────── */
 const CATEGORIES = [
@@ -25,7 +51,6 @@ const CATEGORIES = [
   'Full Stack',
   'GitHub',
   'Hibernate',
-  'Informatica',
   'JavaScript',
   'Jenkins',
   'JUnit',
@@ -34,27 +59,46 @@ const CATEGORIES = [
   'MERN Stack',
   'Microservices',
   'MongoDB',
-  'NLP',
   'PHP',
   'PL/SQL',
   'Power BI',
   'Python',
-  'PyTorch',
   'REST API',
-  'R Programming',
-  'SAAS',
-  'SAS',
   'Software Testing',
   'Spring Boot',
-  'SCALA',
   'SOAP Web Services',
   'SQL',
-  'TensorFlow',
   'Tableau'
 ];
 
 const QUESTIONS = [
-  /* ── Python ── */
+  ...DATA_ANALYST_QUESTIONS,
+  ...DATA_SCIENCE_QUESTIONS,
+  ...DEEP_LEARNING_QUESTIONS,
+  ...DOCKER_QUESTIONS,
+  ...EXCEL_QUESTIONS,
+  ...EXPRESS_QUESTIONS,
+  ...FULL_STACK_QUESTIONS,
+  ...GITHUB_QUESTIONS,
+  ...HIBERNATE_QUESTIONS,
+  ...JAVASCRIPT_QUESTIONS,
+  ...JENKINS_QUESTIONS,
+  ...MACHINE_LEARNING_QUESTIONS,
+  ...MEAN_STACK_QUESTIONS,
+  ...MERN_STACK_QUESTIONS,
+  ...MICROSERVICES_QUESTIONS,
+  ...MONGODB_QUESTIONS,
+  ...PHP_QUESTIONS,
+  ...PLSQL_QUESTIONS,
+  ...POWER_BI_QUESTIONS,
+  ...PYTHON_QUESTIONS,
+  ...REST_API_QUESTIONS,
+  ...SOFTWARE_TESTING_QUESTIONS,
+  ...SPRING_BOOT_QUESTIONS,
+  ...SOAP_QUESTIONS,
+  ...SQL_QUESTIONS,
+  ...TABLEAU_QUESTIONS,
+  /* ── Python (inline) ── */
   {
     id: 1,
     category: 'Python',
@@ -12877,11 +12921,11 @@ export default function InterviewPage() {
             </p>
             <div className="interview-hero-stats">
               <div className="ih-stat">
-                <div className="ih-stat-num">50+</div>
+                <div className="ih-stat-num">3500+</div>
                 <div className="ih-stat-label">Questions</div>
               </div>
               <div className="ih-stat">
-                <div className="ih-stat-num">40+</div>
+                <div className="ih-stat-num">35+</div>
                 <div className="ih-stat-label">Categories</div>
               </div>
               <div className="ih-stat">
@@ -12896,72 +12940,74 @@ export default function InterviewPage() {
       {/* ── Filter Bar ── */}
       <section className="interview-filter-section">
         <div className="container">
-          {/* Search */}
-          <div className="interview-search-wrapper">
-            <FiSearch className="interview-search-icon" size={18} />
-            <input
-              type="text"
-              className="interview-search-input"
-              placeholder="Search questions…"
-              value={searchQuery}
-              onChange={e => {
-                setSearchQuery(e.target.value);
-                setCurrentPage(1);
-                setOpenId(null);
-              }}
-            />
-          </div>
+          <div className="filter-top-row">
+            {/* Search */}
+            <div className="interview-search-wrapper">
+              <FiSearch className="interview-search-icon" size={18} />
+              <input
+                type="text"
+                className="interview-search-input"
+                placeholder="Search questions…"
+                value={searchQuery}
+                onChange={e => {
+                  setSearchQuery(e.target.value);
+                  setCurrentPage(1);
+                  setOpenId(null);
+                }}
+              />
+            </div>
 
-          {/* Category Select (Mobile only - Custom Dropdown) */}
-          <div className="interview-category-select-wrapper" ref={categoryDropdownRef}>
-            <button
-              type="button"
-              className="interview-category-select-btn"
-              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            >
-              <span className="selected-text">
-                {activeCategory === 'All' ? 'All Categories' : activeCategory}
-              </span>
-              <FiChevronDown className={`select-arrow-icon ${isDropdownOpen ? 'open' : ''}`} size={16} />
-            </button>
+            {/* Category Select (Mobile only - Custom Dropdown) */}
+            <div className="interview-category-select-wrapper" ref={categoryDropdownRef}>
+              <button
+                type="button"
+                className="interview-category-select-btn"
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              >
+                <span className="selected-text">
+                  {activeCategory === 'All' ? 'All Categories' : activeCategory}
+                </span>
+                <FiChevronDown className={`select-arrow-icon ${isDropdownOpen ? 'open' : ''}`} size={16} />
+              </button>
 
-            {isDropdownOpen && (
-              <div className="category-dropdown-menu">
-                <div className="category-dropdown-search">
-                  <FiSearch className="search-icon" size={14} />
-                  <input
-                    type="text"
-                    className="category-dropdown-input"
-                    placeholder="Search categories..."
-                    value={categoryFilter}
-                    onChange={e => setCategoryFilter(e.target.value)}
-                    onClick={e => e.stopPropagation()}
-                  />
+              {isDropdownOpen && (
+                <div className="category-dropdown-menu">
+                  <div className="category-dropdown-search">
+                    <FiSearch className="search-icon" size={14} />
+                    <input
+                      type="text"
+                      className="category-dropdown-input"
+                      placeholder="Search categories..."
+                      value={categoryFilter}
+                      onChange={e => setCategoryFilter(e.target.value)}
+                      onClick={e => e.stopPropagation()}
+                    />
+                  </div>
+                  <div className="category-dropdown-options">
+                    {filteredCategories.length === 0 ? (
+                      <div className="no-categories-found">No categories found</div>
+                    ) : (
+                      filteredCategories.map(cat => (
+                        <button
+                          key={cat}
+                          type="button"
+                          className={`category-dropdown-option${activeCategory === cat ? ' active' : ''}`}
+                          onClick={() => {
+                            setActiveCategory(cat);
+                            setCurrentPage(1);
+                            setOpenId(null);
+                            setIsDropdownOpen(false);
+                            setCategoryFilter('');
+                          }}
+                        >
+                          {cat}
+                        </button>
+                      ))
+                    )}
+                  </div>
                 </div>
-                <div className="category-dropdown-options">
-                  {filteredCategories.length === 0 ? (
-                    <div className="no-categories-found">No categories found</div>
-                  ) : (
-                    filteredCategories.map(cat => (
-                      <button
-                        key={cat}
-                        type="button"
-                        className={`category-dropdown-option${activeCategory === cat ? ' active' : ''}`}
-                        onClick={() => {
-                          setActiveCategory(cat);
-                          setCurrentPage(1);
-                          setOpenId(null);
-                          setIsDropdownOpen(false);
-                          setCategoryFilter('');
-                        }}
-                      >
-                        {cat}
-                      </button>
-                    ))
-                  )}
-                </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
 
           {/* Category tabs (Desktop only) */}

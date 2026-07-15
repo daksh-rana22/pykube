@@ -897,21 +897,22 @@
   .interview-filter-section {
     padding: 6px 0 4px;
   }
-  /* Search + category select side-by-side on one row */
+  /* Search + category select stacked vertically */
   .filter-top-row {
     display: flex;
-    align-items: center;
-    gap: 6px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
     padding: 0 10px;
-    margin-bottom: 5px;
+    margin-bottom: 12px;
   }
   .filter-top-row .interview-search-wrapper {
-    flex: 1.2;
+    width: 100%;
     margin-bottom: 0;
     padding: 0;
   }
   .filter-top-row .interview-category-select-wrapper {
-    flex: 1;
+    width: 100%;
     display: block;
     margin-bottom: 0;
     padding: 0;

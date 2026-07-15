@@ -489,6 +489,12 @@
   .float-card-3 { left: 10%; }
 }
 
+@media (max-width: 768px) {
+  .hero-img-card {
+    display: none !important;
+  }
+}
+
 @media (max-width: 640px) {
   .hero {
     padding: 80px 0 20px;
@@ -510,10 +516,7 @@
     gap: 12px;
   }
   .hero-img-card {
-    order: 1;
-    width: 100%;
-    max-width: 280px;
-    margin-bottom: 6px;
+    display: none;
   }
   .float-card {
     position: relative;
@@ -522,11 +525,32 @@
     right: auto !important;
     bottom: auto !important;
     width: 100%;
-    max-width: 280px;
+    max-width: 220px;
+    padding: 6px 10px;
+    gap: 8px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     transform: none !important;
     animation: none !important;
     justify-content: flex-start;
+  }
+  .float-card .float-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+  .float-card .hero-float-icon-img {
+    width: 18px;
+    height: 18px;
+  }
+  .float-card .float-number {
+    font-weight: 800;
+    font-size: 0.95rem;
+  }
+  .float-card .float-label {
+    font-size: 9px;
+  }
+  .float-card .float-label-only {
+    font-size: 10px;
   }
   /* Only show main card + 1 float card on small mobile */
   .float-card-1 { order: 2; }
@@ -563,12 +587,7 @@
     width: 12px;
     height: 12px;
   }
-  .float-card {
-    padding: 10px 14px;
-    gap: 10px;
-  }
-  .float-number { font-size: 1.1rem; }
-  .float-label-only { font-size: 11px; }
+  /* inherited float-card size from 640px */
   .tech-bar {
     display: none;
   }

@@ -143,8 +143,7 @@ export default function Footer() {
 
       <div className="footer-bottom">
         <div className="container footer-bottom-inner">
-          <p>© 2024 PyKube Technologies LLC. All Rights Reserved.</p>
-          <p>Built with ❤️ for aspiring IT professionals in the USA</p>
+          <p>© 2026 PyKube Technologies LLC. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

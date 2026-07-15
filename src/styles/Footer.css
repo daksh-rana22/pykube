@@ -117,8 +117,9 @@
 }
 .footer-bottom-inner {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  text-align: center;
   font-size: 11.5px;
   color: rgba(255, 255, 255, 0.35);
 }
