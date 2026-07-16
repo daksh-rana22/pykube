@@ -3,11 +3,11 @@ import logo from '../assets/logo.png';
 
 const quickLinks = [
   { label: 'Home', href: '/#home' },
-  { label: 'What We Do', href: '/#about' },
   { label: 'Programs', href: '/courses' },
-  { label: 'Our Process', href: '/#process' },
+  { label: 'Services', href: '/services' },
   { label: 'About Us', href: '/about-us' },
-  { label: 'FAQ', href: '/#faq' },
+  { label: 'Careers', href: '/careers' },
+  { label: 'Interview Q&A', href: '/interview' },
   { label: 'Contact Us', href: '/contact' },
 ];
 
@@ -23,10 +23,7 @@ const programLinks = [
 const support = [
   { label: 'Career Consultation', href: '/contact' },
   { label: 'FAQ', href: '/#faq' },
-  { label: 'Interview Preparation', href: '/services/interview-preparation' },
-  { label: 'Resume Building', href: '/#process' },
-  { label: 'Privacy Policy', href: '#' },
-  { label: 'Terms & Conditions', href: '#' },
+  { label: 'Interview Q&A', href: '/interview' },
 ];
 
 const socials = [

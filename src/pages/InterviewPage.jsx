@@ -13155,27 +13155,6 @@ export default function InterviewPage() {
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <section className="interview-cta-section">
-        <div className="container">
-          <div className="interview-cta-content">
-            <h2 className="interview-cta-title">Ready for a Real Mock Interview?</h2>
-            <p className="interview-cta-sub">
-              Practice 1-on-1 with our expert coaches and get actionable feedback to land your dream role.
-            </p>
-            <div className="interview-cta-btns">
-              <a href="/services/interview-preparation" className="cta-btn-primary">
-                <FiTarget size={16} />
-                Book a Mock Interview
-              </a>
-              <a href="/contact" className="cta-btn-secondary">
-                <FiMessageCircle size={16} />
-                Talk to a Coach
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
