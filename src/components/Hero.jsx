@@ -1,5 +1,5 @@
 import '../styles/Hero.css';
-import heroImg from '../assets/56dfb6a7-16bf-4c47-96ab-2a412ef41718.png';
+import heroVideo from '../assets/in_end_write_start_your_journe.mp4';
 
 const techChips = [
   { icon: '/images/illustrations/java_icon.png', name: 'Java' }, { icon: '/images/illustrations/python_icon.png', name: 'Python' },
@@ -63,25 +63,15 @@ export default function Hero() {
         </div>
         {/* RIGHT */}
         <div className="hero-image-area">
-          <div className="float-card float-card-1">
-            <div className="float-icon float-icon-blue">🏆</div>
-            <div>
-              <div className="float-number">100+</div>
-              <div className="float-label">Candidates Placed in USA</div>
-            </div>
-          </div>
-          <div className="float-card float-card-2">
-            <div className="float-icon float-icon-green">
-              <img src="/images/illustrations/learner_icon.png" alt="Instructor" className="hero-float-icon-img" />
-            </div>
-            <div className="float-label-only">Live Instructor<br />Led Training</div>
-          </div>
-          <div className="float-card float-card-3">
-            <div className="float-icon float-icon-orange">📄</div>
-            <div className="float-label-only">Resume &amp; Interview<br />Support</div>
-          </div>
           <div className="hero-img-card">
-            <img src={heroImg} alt="IT Professional" className="hero-img" />
+            <video
+              src={heroVideo}
+              className="hero-img"
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
           </div>
           <div className="tech-bar">
             <span className="tech-bar-label">Technologies</span>
