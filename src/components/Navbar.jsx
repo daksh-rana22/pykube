@@ -43,6 +43,7 @@ export default function Navbar() {
   const [activeMobileDropdown, setActiveMobileDropdown] = useState(null);
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
   const closeTimer = useRef(null);
+  const openTimer = useRef(null);
   const location = useLocation();
 
   const toggleMobileDropdown = (label, e) => {
@@ -52,6 +53,7 @@ export default function Navbar() {
 
   const openDropdown = (label) => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
+    if (openTimer.current) clearTimeout(openTimer.current);
     setActiveDropdown(label);
   };
 
@@ -90,12 +92,39 @@ export default function Navbar() {
   }, [location.pathname]);
 
   const scheduleClose = () => {
+    if (openTimer.current) clearTimeout(openTimer.current);
     if (closeTimer.current) clearTimeout(closeTimer.current);
     closeTimer.current = setTimeout(() => setActiveDropdown(null), 250);
   };
 
   const cancelClose = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
+  };
+
+  const handleItemMouseEnter = (link) => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+
+    if (!link.dropdown) {
+      if (openTimer.current) clearTimeout(openTimer.current);
+      setActiveDropdown(null);
+      return;
+    }
+
+    // Switch immediately if a dropdown is already active; otherwise wait 160ms for hover intent
+    if (activeDropdown) {
+      if (openTimer.current) clearTimeout(openTimer.current);
+      setActiveDropdown(link.label);
+    } else {
+      if (openTimer.current) clearTimeout(openTimer.current);
+      openTimer.current = setTimeout(() => {
+        setActiveDropdown(link.label);
+      }, 160);
+    }
+  };
+
+  const handleItemMouseLeave = () => {
+    if (openTimer.current) clearTimeout(openTimer.current);
+    scheduleClose();
   };
 
   useEffect(() => {
@@ -124,7 +153,10 @@ export default function Navbar() {
       {/* Full-page blur overlay — click anywhere on the blurred page to close */}
       <div
         className={`navbar-page-blur${activeDropdown ? ' active' : ''}`}
-        onClick={() => setActiveDropdown(null)}
+        onClick={() => {
+          if (openTimer.current) clearTimeout(openTimer.current);
+          setActiveDropdown(null);
+        }}
       />
 
       <header className={`navbar${scrolled ? ' scrolled' : ''}${activeDropdown || mobileOpen ? ' dropdown-open' : ''}`}>
@@ -137,12 +169,8 @@ export default function Navbar() {
               <div
                 key={link.label}
                 className="nav-item"
-                onMouseEnter={() => {
-                  cancelClose();
-                  if (link.dropdown) openDropdown(link.label);
-                  else setActiveDropdown(null);
-                }}
-                onMouseLeave={scheduleClose}
+                onMouseEnter={() => handleItemMouseEnter(link)}
+                onMouseLeave={handleItemMouseLeave}
               >
                 <a
                   href={link.href}
