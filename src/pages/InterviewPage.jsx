@@ -12806,7 +12806,6 @@ const TIPS = [
 /* ─── Component ─────────────────────────────────────────────── */
 export default function InterviewPage() {
   const [activeCategory, setActiveCategory] = useState('All');
-  const [searchQuery, setSearchQuery] = useState('');
   const [openId, setOpenId] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const questionsPerPage = 20;
@@ -12837,11 +12836,9 @@ export default function InterviewPage() {
 
   const filtered = useMemo(() => {
     return QUESTIONS.filter(q => {
-      const matchCat = activeCategory === 'All' || q.category === activeCategory;
-      const matchSearch = q.question.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchCat && matchSearch;
+      return activeCategory === 'All' || q.category === activeCategory;
     });
-  }, [activeCategory, searchQuery]);
+  }, [activeCategory]);
 
   const totalPages = Math.ceil(filtered.length / questionsPerPage);
 
@@ -12941,22 +12938,6 @@ export default function InterviewPage() {
       <section className="interview-filter-section">
         <div className="container">
           <div className="filter-top-row">
-            {/* Search */}
-            <div className="interview-search-wrapper">
-              <FiSearch className="interview-search-icon" size={18} />
-              <input
-                type="text"
-                className="interview-search-input"
-                placeholder="Search questions…"
-                value={searchQuery}
-                onChange={e => {
-                  setSearchQuery(e.target.value);
-                  setCurrentPage(1);
-                  setOpenId(null);
-                }}
-              />
-            </div>
-
             {/* Category Select (Mobile only - Custom Dropdown) */}
             <div className="interview-category-select-wrapper" ref={categoryDropdownRef}>
               <button

@@ -1,5 +1,6 @@
 import '../styles/Navbar.css';
 import { useState, useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import logo from '../assets/logo.png';
 import { FiTrendingUp, FiBriefcase, FiPenTool, FiGlobe, FiCalendar, FiSun, FiMoon } from 'react-icons/fi';
 
@@ -42,6 +43,7 @@ export default function Navbar() {
   const [activeMobileDropdown, setActiveMobileDropdown] = useState(null);
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
   const closeTimer = useRef(null);
+  const location = useLocation();
 
   const toggleMobileDropdown = (label, e) => {
     e.preventDefault();
@@ -52,6 +54,40 @@ export default function Navbar() {
     if (closeTimer.current) clearTimeout(closeTimer.current);
     setActiveDropdown(label);
   };
+
+  // Synchronize dropdown & navbar background to match the active page/hero header color
+  useEffect(() => {
+    const updateNavBg = () => {
+      const path = location.pathname;
+      if (path.includes('data-engineer')) {
+        document.documentElement.style.setProperty('--nav-bg', '#1a120a');
+      } else if (path.includes('data-analyst')) {
+        document.documentElement.style.setProperty('--nav-bg', '#0a1f18');
+      } else if (path.includes('data-scientist')) {
+        document.documentElement.style.setProperty('--nav-bg', '#1a0a0a');
+      } else if (path.includes('qa-automation')) {
+        document.documentElement.style.setProperty('--nav-bg', '#160f33');
+      } else if (path.includes('python-developer')) {
+        document.documentElement.style.setProperty('--nav-bg', '#0f2233');
+      } else if (path.includes('java-full-stack')) {
+        document.documentElement.style.setProperty('--nav-bg', '#0f1c3f');
+      } else {
+        const topHero = document.querySelector('.unified-intro-header, .contact-hero, .interview-hero, .hero, .page-hero');
+        if (topHero) {
+          const bg = window.getComputedStyle(topHero).backgroundColor;
+          if (bg && bg !== 'rgba(0, 0, 0, 0)' && bg !== 'transparent') {
+            document.documentElement.style.setProperty('--nav-bg', bg);
+            return;
+          }
+        }
+        document.documentElement.style.setProperty('--nav-bg', '#090e28');
+      }
+    };
+
+    updateNavBg();
+    const timer = setTimeout(updateNavBg, 60);
+    return () => clearTimeout(timer);
+  }, [location.pathname]);
 
   // Only the dropdown panel itself (not the nav-item) schedules close
   // so leaving the nav-item link area and entering the dropdown below
@@ -93,7 +129,7 @@ export default function Navbar() {
         onClick={() => setActiveDropdown(null)}
       />
 
-      <header className={`navbar${scrolled ? ' scrolled' : ''}`}>
+      <header className={`navbar${scrolled ? ' scrolled' : ''}${activeDropdown || mobileOpen ? ' dropdown-open' : ''}`}>
         <div className="container navbar-inner">
           <a href="/" className="navbar-logo">
             <img src={logo} alt="PyKube Technologies" />
