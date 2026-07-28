@@ -3,10 +3,23 @@
   padding: 70px 0;
   background: var(--bg-subtle);
 }
+.testimonials-section .container {
+  max-width: 1560px;
+}
+@media (min-width: 1600px) {
+  .testimonials-section .container {
+    max-width: 1680px;
+  }
+}
+@media (min-width: 1920px) {
+  .testimonials-section .container {
+    max-width: 1800px;
+  }
+}
 .testimonials-layout {
   display: grid;
   grid-template-columns: 1fr 1.7fr;
-  gap: 56px;
+  gap: clamp(32px, 3vw, 56px);
   align-items: start;
 }
 .achievements-panel {

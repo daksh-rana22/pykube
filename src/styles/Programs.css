@@ -6,14 +6,27 @@
 
 /* Wider container — matches WhatWeDo treatment */
 .programs .container {
-  max-width: 1440px;
-  padding: 0 clamp(16px, 4vw, 40px);
+  max-width: 1560px;
+  padding: 0 clamp(20px, 3.5vw, 56px);
+}
+
+@media (min-width: 1600px) {
+  .programs .container {
+    max-width: 1680px;
+    padding: 0 clamp(24px, 4vw, 64px);
+  }
+}
+
+@media (min-width: 1920px) {
+  .programs .container {
+    max-width: 1800px;
+  }
 }
 
 .programs-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: clamp(12px, 1.5vw, 22px);
+  gap: clamp(14px, 1.8vw, 28px);
 }
 
 /* ── Card shell ── */

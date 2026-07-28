@@ -4,17 +4,17 @@ import { FiAward, FiSmile, FiTrendingUp } from 'react-icons/fi';
 
 const testimonials = [
   {
-    name: 'Sandeep R.', role: 'Java Full Stack Developer', company: 'US Tech Firm, New Jersey', avatar: 'S', rating: 5,
+    name: 'Steven R.', role: 'Java Full Stack Developer', company: 'Cognizant, New Jersey', avatar: 'S', rating: 5,
     text: 'I came from a non-IT background and was nervous about starting over. PyKube gave me structured Java training with real projects. Within 3 months of completing the program, I was placed as a Full Stack Developer. The mock interviews were the game-changer for me.',
     color: '#3b82f6'
   },
   {
-    name: 'Priya K.', role: 'QA Automation Engineer', company: 'Healthcare IT, Texas', avatar: 'P', rating: 5,
+    name: 'Patricia K.', role: 'QA Automation Engineer', company: 'UnitedHealth Group, Texas', avatar: 'P', rating: 5,
     text: 'The QA Automation course covered everything from Manual Testing to Selenium and TestNG. The trainers had real experience and walked us through actual test cases used in enterprise projects. I got placed within 6 weeks of completing the course.',
     color: '#10b981'
   },
   {
-    name: 'Rohit M.', role: 'Data Analyst', company: 'US Finance Firm, New York', avatar: 'R', rating: 5,
+    name: 'Robert M.', role: 'Data Analyst', company: 'JPMorgan Chase, New York', avatar: 'R', rating: 5,
     text: 'PyKube\'s Data Analyst program was incredibly thorough — Python, Pandas, NumPy, Matplotlib, and Power BI all in one course. The hands-on datasets we worked with during training directly translated to what I do in my job today. Highly recommended!',
     color: '#f97316'
   },

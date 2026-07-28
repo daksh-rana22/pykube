@@ -38,28 +38,28 @@ export default function CTA() {
               <span className="cta-info-icon">📍</span>
               <div>
                 <div className="cta-info-label">Our Office</div>
-                <div className="cta-info-val">2000 Valley View Lane,<br />Irving TX 75062, USA</div>
+                <div className="cta-info-val">2332 Covey Ct,<br />Little Elm TX 75068, USA</div>
               </div>
             </div>
             <div className="cta-info-card">
               <span className="cta-info-icon">📞</span>
               <div>
                 <div className="cta-info-label">Call Us</div>
-                <a href="tel:+18782176214" className="cta-info-link">878 217 6214</a>
+                <a href="tel:+18018938818" className="cta-info-link">+1 (801) 893 8818</a>
               </div>
             </div>
             <div className="cta-info-card">
               <span className="cta-info-icon">✉️</span>
               <div>
                 <div className="cta-info-label">Email Us</div>
-                <a href="mailto:info@pykube.com" className="cta-info-link">info@pykube.com</a>
+                <a href="mailto:hr@pykube.net" className="cta-info-link">hr@pykube.net</a>
               </div>
             </div>
             <div className="cta-info-card">
               <span className="cta-info-icon">🕐</span>
               <div>
                 <div className="cta-info-label">Office Hours</div>
-                <div className="cta-info-val">Mon – Sat: 9:00 AM – 7:00 PM EST</div>
+                <div className="cta-info-val">Mon – Fri: 9:00 AM – 5:00 PM CST</div>
               </div>
             </div>
           </div>

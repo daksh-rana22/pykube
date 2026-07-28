@@ -109,18 +109,42 @@ const jobs = [
   },
   {
     id: 2,
-    title: "Python & Data Science Instructor",
-    dept: "Teaching",
-    type: "Part-time",
+    title: "Data Scientist",
+    dept: "Data & AI",
+    type: "Full-time",
     location: "Remote",
-    experience: "3-4 yrs Exp",
+    experience: "3-5 yrs Exp",
     color: "#8b5cf6",
-    tags: ["Python", "Data Analysis", "Machine Learning", "Teaching"],
-    summary: "Deliver live Python and data science classes. Guide projects, assessments, and mentor learners.",
-    icon: FiBookOpen
+    tags: ["Python", "Machine Learning", "Deep Learning", "SQL", "Pandas"],
+    summary: "Design and deploy machine learning models, predictive algorithms, and statistical analysis solutions.",
+    icon: FiTrendingUp
   },
   {
     id: 3,
+    title: "Data Engineer",
+    dept: "Engineering",
+    type: "Full-time",
+    location: "Remote",
+    experience: "3-5 yrs Exp",
+    color: "#f59e0b",
+    tags: ["Python", "SQL", "PySpark", "ETL Pipelines", "AWS / Snowflake"],
+    summary: "Build scalable ETL pipelines, data warehouses, and robust infrastructure for big data processing.",
+    icon: FiLayers
+  },
+  {
+    id: 4,
+    title: "Data Analyst",
+    dept: "Analytics",
+    type: "Full-time",
+    location: "Remote",
+    experience: "2-4 yrs Exp",
+    color: "#06b6d4",
+    tags: ["SQL", "Tableau", "Power BI", "Excel", "Python"],
+    summary: "Analyze complex datasets, create executive dashboards, and translate raw data into strategic insights.",
+    icon: FiTrendingUp
+  },
+  {
+    id: 5,
     title: "Frontend Engineer (React)",
     dept: "Engineering",
     type: "Full-time",
@@ -138,7 +162,7 @@ function ApplyModal({ job, onClose }) {
   const emailBody = encodeURIComponent(
     `Hi PyKube Team,\n\nI am interested in the ${job.title} (${job.dept}) position.\n\nPlease find my CV attached.\n\nBest regards,`
   );
-  const mailtoLink = `mailto:careers@pykube.com?subject=${emailSubject}&body=${emailBody}`;
+  const mailtoLink = `mailto:hr@pykube.net?subject=${emailSubject}&body=${emailBody}`;
 
   return (
     <div className="apply-overlay" onClick={onClose}>
@@ -174,7 +198,7 @@ function ApplyModal({ job, onClose }) {
           <div className="apply-email-label">Send your CV to:</div>
           <div className="apply-email-addr">
             <FiMail size={16} />
-            careers@pykube.com
+            hr@pykube.net
           </div>
           <div className="apply-email-subject">
             Subject: <strong>Application for {job.title}</strong>
@@ -462,7 +486,7 @@ export default function CareersPage() {
               <div className="jt-email-bar">
                 <div className="jt-email-item">
                   <FiMail size={15} />
-                  <span>Or email us directly at <a href="mailto:careers@pykube.com" className="jt-email-link">careers@pykube.com</a></span>
+                  <span>Or email us directly at <a href="mailto:hr@pykube.net" className="jt-email-link">hr@pykube.net</a></span>
                 </div>
                 <div className="jt-email-divider" />
                 <div className="jt-email-item">

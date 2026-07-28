@@ -163,9 +163,24 @@ button {
 
 /* ===== Layout ===== */
 .container {
-  max-width: 1180px;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 clamp(20px, 3.5vw, 48px);
+  width: 100%;
+}
+
+@media (min-width: 1600px) {
+  .container {
+    max-width: 1680px;
+    padding: 0 clamp(24px, 4vw, 64px);
+  }
+}
+
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1800px;
+    padding: 0 clamp(32px, 4.5vw, 80px);
+  }
 }
 
 /* ===== Section Labels ===== */

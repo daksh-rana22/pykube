@@ -49,10 +49,26 @@
   padding: 60px 0;
 }
 
+.program-details-content .container {
+  max-width: 1560px;
+}
+
+@media (min-width: 1600px) {
+  .program-details-content .container {
+    max-width: 1680px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .program-details-content .container {
+    max-width: 1800px;
+  }
+}
+
 .details-grid {
   display: grid;
   grid-template-columns: 2.3fr 1.1fr;
-  gap: 40px;
+  gap: clamp(28px, 2.5vw, 48px);
   align-items: start;
 }
 
@@ -508,7 +524,7 @@
 }
 
 .java-roadmap-section {
-  padding: 40px;
+  padding: 40px 0;
 }
 
 .roadmap-header {
@@ -859,9 +875,9 @@
 }
 
 .intro-header-inner {
-  max-width: 800px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 clamp(20px, 3.5vw, 48px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -903,9 +919,9 @@
 }
 
 .java-hero-content-wrap {
-  max-width: 800px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 clamp(20px, 3.5vw, 48px);
 }
 
 .java-hero-badge {
@@ -1022,7 +1038,22 @@
 
 .java-roadmap-timeline-section-redesign .container {
   max-width: 1560px;
-  padding: 0 clamp(16px, 4vw, 40px);
+  padding: 0 clamp(20px, 3.5vw, 48px);
+  width: 100%;
+}
+
+@media (min-width: 1600px) {
+  .java-roadmap-timeline-section-redesign .container {
+    max-width: 1680px;
+    padding: 0 clamp(24px, 4vw, 64px);
+  }
+}
+
+@media (min-width: 1920px) {
+  .java-roadmap-timeline-section-redesign .container {
+    max-width: 1800px;
+    padding: 0 clamp(32px, 4.5vw, 80px);
+  }
 }
 
 .relative-timeline-container {
@@ -1068,7 +1099,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(24px, 3.5vw, 56px);
-  align-items: start;
+  align-items: stretch;
   transition: all 0.3s ease;
 }
 
@@ -1119,7 +1150,7 @@
   border: 1px solid var(--border-light);
   border-radius: 14px;
   width: 100%;
-  max-width: 880px;
+  max-width: 100%;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   overflow: hidden;
 }
@@ -2021,9 +2052,9 @@
 }
 
 .unified-hero-content-wrap {
-  max-width: 840px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 clamp(20px, 3.5vw, 48px);
 }
 
 .unified-hero-badge {
@@ -2230,18 +2261,24 @@
   position: sticky;
   top: 120px;
   width: 100%;
-  max-width: 640px;
-  aspect-ratio: 4 / 3;
-  border-radius: var(--r-lg);
+  max-width: 100%;
+  min-height: 100%;
+  align-self: stretch;
+  border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.22);
-  border: 1.5px solid var(--border-light);
-  background: #020617;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--sec-color, var(--border-light));
+  background: #f8fafc;
   opacity: 0;
   transform: scale(0.96) translateY(8px);
   animation: oppositeImageFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  pointer-events: none;
+  pointer-events: auto;
   z-index: 4;
+}
+
+.dark-theme .timeline-opposite-image-wrap {
+  background: #0f172a;
+  border-color: var(--sec-color, var(--border-light));
 }
 
 .timeline-opposite-image {

@@ -76,7 +76,7 @@ export default function ContactUsPage() {
                 <div>
                   <div className="contact-card-label" style={{ color: isDark ? '#94a3b8' : '#64748b' }}>Our Corporate Office</div>
                   <div className="contact-card-value" style={{ color: isDark ? '#f8fafc' : '#0f172a' }}>
-                    2000 Valley View Lane,<br />Irving TX 75062, USA
+                    2332 Covey Ct,<br />Little Elm TX 75068, USA
                   </div>
                 </div>
               </div>
@@ -90,8 +90,8 @@ export default function ContactUsPage() {
                 </span>
                 <div>
                   <div className="contact-card-label" style={{ color: isDark ? '#94a3b8' : '#64748b' }}>Call Admissions</div>
-                  <a href="tel:+18782176214" className="contact-card-link" style={{ color: '#2563eb' }}>
-                    +1 (878) 217-6214
+                  <a href="tel:+18018938818" className="contact-card-link" style={{ color: '#2563eb' }}>
+                    +1 (801) 893 8818
                   </a>
                 </div>
               </div>
@@ -106,8 +106,8 @@ export default function ContactUsPage() {
                 </span>
                 <div>
                   <div className="contact-card-label" style={{ color: isDark ? '#94a3b8' : '#64748b' }}>Send Inquiry</div>
-                  <a href="mailto:info@pykube.com" className="contact-card-link" style={{ color: '#2563eb' }}>
-                    info@pykube.com
+                  <a href="mailto:hr@pykube.net" className="contact-card-link" style={{ color: '#2563eb' }}>
+                    hr@pykube.net
                   </a>
                 </div>
               </div>
@@ -123,7 +123,7 @@ export default function ContactUsPage() {
                 <div>
                   <div className="contact-card-label" style={{ color: isDark ? '#94a3b8' : '#64748b' }}>Advising Hours</div>
                   <div className="contact-card-value" style={{ color: isDark ? '#f8fafc' : '#0f172a' }}>
-                    Monday - Saturday: 9:00 AM - 7:00 PM EST
+                    Monday - Friday: 9:00 AM - 5:00 PM CST
                   </div>
                 </div>
               </div>
@@ -133,7 +133,7 @@ export default function ContactUsPage() {
             <div className="contact-map-wrapper" style={{ borderColor: isDark ? 'rgba(255, 255, 255, 0.08)' : '#e2e8f0' }}>
               <iframe
                 title="PyKube Technologies Office Map"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.3121544321287!2d-96.94002622353348!3d32.8899878794828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e815b3e648cb9%3A0xe541c888e7a69b1b!2s2000%20Valley%20View%20Ln%2C%20Irving%2C%20TX%2075062%2C%20USA!5e0!3m2!1sen!2sin!4v1782728200000!5m2!1sen!2sin"
+                src="https://maps.google.com/maps?q=2332+Covey+Ct,+Little+Elm,+TX+75068&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="280"
                 style={{ border: 0 }}

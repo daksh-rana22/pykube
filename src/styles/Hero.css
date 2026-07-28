@@ -506,8 +506,22 @@
 
 @media (min-width: 1025px) {
   .hero-container {
-    max-width: none !important;
-    margin: 0 200px !important;
+    max-width: 1560px !important;
+    margin: 0 auto !important;
+    padding: 0 clamp(20px, 3.5vw, 56px) !important;
+  }
+}
+
+@media (min-width: 1600px) {
+  .hero-container {
+    max-width: 1680px !important;
+    padding: 0 clamp(24px, 4vw, 64px) !important;
+  }
+}
+
+@media (min-width: 1920px) {
+  .hero-container {
+    max-width: 1800px !important;
   }
 }
 

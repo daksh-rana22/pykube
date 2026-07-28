@@ -143,10 +143,22 @@
 .contact-grid {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
-  gap: 56px;
+  gap: clamp(36px, 3.5vw, 64px);
   align-items: start;
-  max-width: 1100px;
+  max-width: 1440px;
   margin: 0 auto;
+}
+
+@media (min-width: 1600px) {
+  .contact-grid {
+    max-width: 1680px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .contact-grid {
+    max-width: 1800px;
+  }
 }
 
 /* Left Column: Details & Map */
@@ -541,10 +553,22 @@
 .timeline-steps {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 40px;
+  gap: clamp(24px, 2.5vw, 48px);
   position: relative;
-  max-width: 1050px;
+  max-width: 1440px;
   margin: 0 auto;
+}
+
+@media (min-width: 1600px) {
+  .timeline-steps {
+    max-width: 1680px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .timeline-steps {
+    max-width: 1800px;
+  }
 }
 
 .timeline-steps::before {

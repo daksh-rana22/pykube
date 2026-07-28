@@ -37,19 +37,6 @@ const values = [
   { icon: <FiHeart />, color: '#ef4444', title: 'Nurture Difference', desc: 'Seek to understand, notice who or what is missing, actively seek out different opinions, create space for other voices to be heard.' },
 ];
 
-const team = [
-  { initials: 'KK', name: 'Krishna Kumar', role: 'CEO & Founder', color: '#3b82f6', bg: 'linear-gradient(135deg, #3b82f6, #1d4ed8)', linkedin: null },
-  { initials: 'AY', name: 'Aman Yadav', role: 'Managing Director', color: '#10b981', bg: 'linear-gradient(135deg, #10b981, #047857)', linkedin: 'https://www.linkedin.com/in/-conecthere/' },
-  { initials: 'HT', name: 'Harsh Tomar', role: 'Technical Marketing Lead', color: '#f59e0b', bg: 'linear-gradient(135deg, #f59e0b, #d97706)', linkedin: null },
-  { initials: 'VC', name: 'Vishal Chaudhary', role: 'Data-Tech Lead', color: '#8b5cf6', bg: 'linear-gradient(135deg, #8b5cf6, #6d28d9)', linkedin: 'https://www.linkedin.com/in/vishal-chaudhary-38402a240/' },
-];
-
-const LinkedInIcon = () => (
-  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-  </svg>
-);
-
 export default function AboutUsPage() {
   return (
     <main className="about-us-page">
@@ -151,7 +138,7 @@ export default function AboutUsPage() {
               />
               <div className="mission-img-overlay">
                 <div className="mission-overlay-badge">
-                  <span>🏢</span> PyKube HQ · Irving, TX
+                  <span>🏢</span> PyKube HQ · Little Elm, TX
                 </div>
               </div>
             </div>
@@ -184,40 +171,6 @@ export default function AboutUsPage() {
                 <h3 className="value-title-v2">{v.title}</h3>
                 <p className="value-desc-v2">{v.desc}</p>
                 <div className="value-card-bar" style={{ background: v.color }} />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Team ── */}
-      <section className="about-team-v2">
-        <div className="container">
-          <div className="about-section-header">
-            <span className="accent-sub-v2">OUR LEADERSHIP</span>
-            <h2 className="about-section-title">Meet Our Team</h2>
-            <p className="about-section-sub">
-              We have dedicated teams for each of our enterprise clients and ensure to align with your strategic initiatives.
-            </p>
-          </div>
-          <div className="about-team-grid-v2">
-            {team.map((m, i) => (
-              <div className="team-card-v2" key={i} style={{ '--t-color': m.color }}>
-                <div className="team-card-top" />
-                <div className="team-avatar-v2" style={{ background: m.bg }}>
-                  {m.initials}
-                </div>
-                <h3 className="team-name-v2">{m.name}</h3>
-                <p className="team-role-v2">{m.role}</p>
-                {m.linkedin ? (
-                  <a href={m.linkedin} className="team-li-btn" target="_blank" rel="noopener noreferrer" aria-label={`${m.name} LinkedIn`}>
-                    <LinkedInIcon /> LinkedIn
-                  </a>
-                ) : (
-                  <span className="team-li-btn team-li-disabled">
-                    <LinkedInIcon /> LinkedIn
-                  </span>
-                )}
               </div>
             ))}
           </div>

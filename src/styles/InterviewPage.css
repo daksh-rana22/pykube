@@ -482,8 +482,20 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
+}
+
+@media (min-width: 1600px) {
+  .qa-grid {
+    max-width: 1440px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .qa-grid {
+    max-width: 1600px;
+  }
 }
 
 /* ── Accordion Card ── */
