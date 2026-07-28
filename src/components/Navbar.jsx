@@ -89,11 +89,9 @@ export default function Navbar() {
     return () => clearTimeout(timer);
   }, [location.pathname]);
 
-  // Only the dropdown panel itself (not the nav-item) schedules close
-  // so leaving the nav-item link area and entering the dropdown below
-  // never triggers a close — the dropdown is always below so there's no gap
   const scheduleClose = () => {
-    closeTimer.current = setTimeout(() => setActiveDropdown(null), 300);
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    closeTimer.current = setTimeout(() => setActiveDropdown(null), 250);
   };
 
   const cancelClose = () => {
@@ -131,26 +129,26 @@ export default function Navbar() {
 
       <header className={`navbar${scrolled ? ' scrolled' : ''}${activeDropdown || mobileOpen ? ' dropdown-open' : ''}`}>
         <div className="container navbar-inner">
-          <a href="/" className="navbar-logo">
+          <a href="/" className="navbar-logo" onClick={() => setActiveDropdown(null)}>
             <img src={logo} alt="PyKube Technologies" />
           </a>
           <nav className="navbar-links">
-            {navLinks.map((link) => (
+            {navLinks.map(link => (
               <div
                 key={link.label}
                 className="nav-item"
                 onMouseEnter={() => {
                   cancelClose();
                   if (link.dropdown) openDropdown(link.label);
+                  else setActiveDropdown(null);
                 }}
-                onMouseLeave={() => {
-                  // If this nav-item has no dropdown (or mouse is going to dropdown),
-                  // only close if no dropdown is open or after short delay
-                  if (!link.dropdown) scheduleClose();
-                  // If it has a dropdown, the dropdown's own onMouseLeave handles closing
-                }}
+                onMouseLeave={scheduleClose}
               >
-                <a href={link.href} className="nav-link">
+                <a
+                  href={link.href}
+                  className="nav-link"
+                  onClick={() => setActiveDropdown(null)}
+                >
                   {link.label}
                   {link.dropdown && (
                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="nav-arrow-svg">
@@ -171,7 +169,12 @@ export default function Navbar() {
                           <div className="mega-dropdown-title">Explore Bootcamps</div>
                           <div className="mega-dropdown-grid">
                             {link.dropdown.map(item => (
-                              <a key={item.label} href={item.href} className="mega-dropdown-item">
+                              <a
+                                key={item.label}
+                                href={item.href}
+                                className="mega-dropdown-item"
+                                onClick={() => setActiveDropdown(null)}
+                              >
                                 {typeof item.icon === 'string' && item.icon.startsWith('/') ? (
                                   <span className="mega-item-icon" style={{ backgroundColor: '#ffffff', padding: '4px' }}>
                                     <img src={item.icon} alt={item.label} className="mega-item-icon-img" />
@@ -194,7 +197,7 @@ export default function Navbar() {
                              </span>
                              <h4>Not sure where to start?</h4>
                              <p>Schedule a 1-on-1 career mapping call with our US tech advisors.</p>
-                             <a href="/contact" className="promo-cta-btn">Book Free Call</a>
+                             <a href="/contact" className="promo-cta-btn" onClick={() => setActiveDropdown(null)}>Book Free Call</a>
                            </div>
                         </div>
                       </div>
@@ -203,7 +206,12 @@ export default function Navbar() {
                         <div className="services-dropdown-title">What We Offer</div>
                         <div className="services-dropdown-grid">
                           {link.dropdown.map(item => (
-                            <a key={item.label} href={item.href} className="service-dropdown-item">
+                            <a
+                              key={item.label}
+                              href={item.href}
+                              className="service-dropdown-item"
+                              onClick={() => setActiveDropdown(null)}
+                            >
                               <span className="service-item-icon">
                                 {typeof item.icon === 'string' && item.icon.startsWith('/') ? (
                                   <img src={item.icon} alt={item.label} className="service-item-icon-img" />
@@ -222,7 +230,12 @@ export default function Navbar() {
                     ) : (
                       <div className="standard-dropdown-inner">
                         {link.dropdown.map(item => (
-                          <a key={item.label} href={item.href} className="standard-dropdown-item">
+                          <a
+                            key={item.label}
+                            href={item.href}
+                            className="standard-dropdown-item"
+                            onClick={() => setActiveDropdown(null)}
+                          >
                             <span className="std-item-dot" />
                             {item.label}
                           </a>
