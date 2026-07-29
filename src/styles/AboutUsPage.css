@@ -354,7 +354,7 @@
 
 /* ── Mission Section ── */
 .about-mission-v2 {
-  padding: 80px 0;
+  padding: 64px 0;
   background: var(--bg-subtle, #f8fafc);
 }
 
@@ -364,9 +364,9 @@
 
 .about-mission-grid-v2 {
   display: grid;
-  grid-template-columns: 1fr 1.05fr;
-  gap: 64px;
-  align-items: stretch;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: center;
 }
 
 .mission-text-col {
@@ -376,11 +376,11 @@
 
 .mission-heading {
   font-family: 'Poppins', sans-serif;
-  font-size: 1.8rem;
+  font-size: 1.75rem;
   font-weight: 800;
   color: var(--text-primary, #0f172a);
   line-height: 1.25;
-  margin: 0 0 28px;
+  margin: 0 0 24px;
 }
 
 .dark-theme .mission-heading {
@@ -451,22 +451,24 @@
 .mission-img-col {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
 .mission-office-card {
   position: relative;
-  border-radius: var(--r-lg);
+  border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
-  flex: 1;
+  width: 100%;
+  max-height: 380px;
+  aspect-ratio: 16 / 10;
   display: flex;
 }
 
 .mission-office-img {
   width: 100%;
   height: 100%;
-  min-height: 300px;
   object-fit: cover;
   display: block;
 }
@@ -557,7 +559,7 @@
 
 /* ── Values Section ── */
 .about-values-v2 {
-  padding: 80px 0;
+  padding: 64px 0;
   background: var(--bg-primary, #ffffff);
 }
 

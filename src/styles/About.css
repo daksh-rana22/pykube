@@ -23,6 +23,7 @@
 .about-highlight {
   background: linear-gradient(120deg, #2563eb, #1d4ed8);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -72,6 +73,7 @@
   font-weight: 900;
   background: linear-gradient(120deg, #2563eb, #1d4ed8);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   line-height: 1.1;
   margin-bottom: 6px;

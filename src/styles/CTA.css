@@ -56,6 +56,7 @@
 .cta-title span {
   background: linear-gradient(120deg, #fdba74, #f97316);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .cta-desc {
