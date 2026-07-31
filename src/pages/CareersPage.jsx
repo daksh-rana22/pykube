@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {
   FiUsers, FiTrendingUp, FiAward, FiHeart, FiBookOpen, FiMonitor,
   FiGlobe, FiClock, FiLayers, FiSmile, FiPlay, FiChevronRight,
-  FiSearch, FiX, FiCheck, FiFlag, FiStar, FiShield, FiBriefcase, FiUpload, FiMail
+  FiSearch, FiX, FiCheck, FiFlag, FiStar, FiShield, FiBriefcase, FiUpload, FiMail, FiCode
 } from "react-icons/fi";
 import "../styles/CareersPage.css";
 
@@ -154,6 +154,18 @@ const jobs = [
     tags: ["React", "JavaScript", "REST APIs", "UI/UX"],
     summary: "Build user interfaces for learning platforms and student-facing apps. Collaborate closely with design and backend teams.",
     icon: FiLayers
+  },
+  {
+    id: 6,
+    title: "Java Developer",
+    dept: "Engineering",
+    type: "Full-time",
+    location: "Remote",
+    experience: "3-5 yrs Exp",
+    color: "#ea580c",
+    tags: ["Java", "Spring Boot", "Microservices", "REST APIs", "SQL", "Hibernate"],
+    summary: "Design, develop, and maintain high-performance Java backend services, REST APIs, and enterprise microservices architecture.",
+    icon: FiCode
   },
 ];
 
