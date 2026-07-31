@@ -1469,6 +1469,14 @@
   .jt-wrapper {
     grid-template-columns: 1fr;
     gap: 30px;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+  }
+  .jt-left {
+    align-items: center;
+    text-align: center;
+    width: 100%;
   }
   .jt-badge {
     margin-bottom: 12px;
@@ -1478,18 +1486,25 @@
   .jt-heading {
     font-size: 1.6rem;
     margin-bottom: 8px;
+    text-align: center;
   }
   .jt-heading-bar {
     margin-bottom: 12px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .jt-desc {
     font-size: 0.85rem;
     line-height: 1.5;
     margin-bottom: 16px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
   }
   .jt-features {
     gap: 6px;
     margin-bottom: 16px;
+    justify-content: center;
   }
   .jt-feature-pill {
     padding: 5px 10px;
@@ -1517,6 +1532,7 @@
   }
   .jt-cta-row {
     margin-bottom: 12px;
+    justify-content: center;
   }
   .jt-btn-primary {
     padding: 10px 18px;
@@ -1524,15 +1540,22 @@
   }
   .jt-email-bar {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
   }
   .jt-email-item {
     padding: 8px 12px;
     font-size: 0.72rem;
+    justify-content: center;
+    text-align: center;
   }
   .jt-email-divider {
     width: 100%;
     height: 1.5px;
+  }
+  .jt-right {
+    align-items: center;
+    width: 100%;
   }
   .jt-team-img {
     height: 180px;
@@ -1547,12 +1570,15 @@
   .jt-testimonial-card {
     padding: 14px 16px 12px;
     border-radius: var(--r-lg);
+    text-align: center;
   }
   .jt-quote-icon {
     width: 24px;
     height: 24px;
     font-size: 0.9rem;
     margin-bottom: 8px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .jt-testimonial-title {
     font-size: 0.85rem;
@@ -1562,6 +1588,9 @@
     font-size: 0.75rem;
     line-height: 1.4;
     margin-bottom: 10px;
+  }
+  .jt-avatars {
+    justify-content: center;
   }
   .jt-avatar,
   .jt-avatar-more {
