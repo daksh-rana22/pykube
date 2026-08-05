@@ -1,5 +1,6 @@
 import '../styles/Hero.css';
 import heroVideo from '../assets/in_end_write_start_your_journe.mp4';
+import HMSHeroBackground from './HMSHeroBackground';
 
 const techChips = [
   { icon: '/images/illustrations/java_icon.png', name: 'Java' }, { icon: '/images/illustrations/python_icon.png', name: 'Python' },
@@ -11,9 +12,7 @@ export default function Hero() {
   return (
     <section className="hero" id="home">
       <div className="hero-bg">
-        <div className="hero-orb hero-orb-1" />
-        <div className="hero-orb hero-orb-2" />
-        <div className="hero-orb hero-orb-3" />
+        <HMSHeroBackground />
         <div className="hero-grid-lines" />
       </div>
       <div className="container hero-container">
@@ -56,7 +55,7 @@ export default function Hero() {
           </div>
           <div className="hero-trust">
             <div className="hero-trust-avatars">
-              {['S','P','R','A'].map(l => <div key={l} className="hero-trust-avatar">{l}</div>)}
+              {['S', 'P', 'R', 'A'].map(l => <div key={l} className="hero-trust-avatar">{l}</div>)}
             </div>
             <span>Trusted by <strong style={{ color: '#fff' }}>300+</strong> learners across the USA</span>
           </div>
