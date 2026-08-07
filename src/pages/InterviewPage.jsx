@@ -4,6 +4,8 @@ import {
   FiMessageCircle, FiClock, FiStar, FiCheckCircle, FiAward
 } from 'react-icons/fi';
 import '../styles/InterviewPage.css';
+import HMSHeroBackground from '../components/HMSHeroBackground';
+import CTA from '../components/CTA';
 import { DATA_ANALYST_QUESTIONS } from '../data/dataAnalystQuestions';
 import { DATA_SCIENCE_QUESTIONS } from '../data/dataScienceQuestions';
 import { DEEP_LEARNING_QUESTIONS } from '../data/deepLearningQuestions';
@@ -12898,10 +12900,8 @@ export default function InterviewPage() {
       {/* ── Hero ── */}
       <section className="interview-hero">
         <div className="interview-hero-bg">
-          <div className="interview-orb orb-a" />
-          <div className="interview-orb orb-b" />
-          <div className="interview-orb orb-c" />
-          <div className="interview-grid-lines" />
+          <HMSHeroBackground />
+          <div className="hero-grid-lines" />
         </div>
         <div className="container">
           <div className="interview-hero-content">
@@ -13135,6 +13135,9 @@ export default function InterviewPage() {
           </div>
         </div>
       </section>
+
+      {/* ── CTA Section ── */}
+      <CTA />
 
     </div>
   );

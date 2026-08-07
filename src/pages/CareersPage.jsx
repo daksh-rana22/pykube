@@ -5,6 +5,7 @@ import {
   FiSearch, FiX, FiCheck, FiFlag, FiStar, FiShield, FiBriefcase, FiUpload, FiMail, FiCode
 } from "react-icons/fi";
 import "../styles/CareersPage.css";
+import HMSHeroBackground from "../components/HMSHeroBackground";
 
 
 
@@ -260,9 +261,8 @@ export default function CareersPage() {
       {/* Hero Section */}
       <section className="careers-hero">
         <div className="careers-hero-bg">
-          <div className="careers-orb orb-a" />
-          <div className="careers-orb orb-b" />
-          <div className="careers-grid-lines" />
+          <HMSHeroBackground />
+          <div className="hero-grid-lines" />
         </div>
 
         <div className="container careers-hero-inner">

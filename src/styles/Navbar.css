@@ -29,18 +29,18 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background: transparent;
+  background: var(--nav-bg, rgba(15, 28, 63, 0.96));
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
   transition: all 0.3s ease;
-  padding: 16px 0;
+  padding: 12px 0;
 }
 
 .navbar.scrolled,
 .navbar.dropdown-open {
-  background: var(--nav-bg, rgba(9, 14, 40, 0.98));
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  background: var(--nav-bg, rgba(15, 28, 63, 0.96));
   padding: 10px 0;
 }
 
@@ -137,7 +137,7 @@
   width: 100vw;
   /* Push visible content below the navbar bar */
   padding-top: 16px;
-  background: var(--nav-bg, rgba(9, 14, 40, 0.98));
+  background: var(--nav-bg, rgba(15, 28, 63, 0.96));
   backdrop-filter: blur(24px) saturate(1.4);
   -webkit-backdrop-filter: blur(24px) saturate(1.4);
   border: none;
@@ -577,7 +577,30 @@
   transform: scale(1.5);
 }
 
-/* Theme Toggler */
+/* Admin & Theme Toggler */
+.navbar-admin-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.navbar-admin-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #38bdf8;
+  transform: translateY(-1px);
+}
+
 .theme-toggle-btn {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.15);

@@ -2,6 +2,7 @@ import React from 'react';
 import logo from '../assets/logo.png';
 import '../styles/AboutUsPage.css';
 import { FiTarget, FiBookOpen, FiAward, FiTrendingUp, FiSun, FiUsers, FiHeart } from 'react-icons/fi';
+import HMSHeroBackground from '../components/HMSHeroBackground';
 
 const stats = [
   { num: '10K+', label: 'Learners Trained', icon: '/images/illustrations/learner_icon.png' },
@@ -44,8 +45,7 @@ export default function AboutUsPage() {
       {/* ── Hero ── */}
       <section className="about-hero-v2">
         <div className="about-hero-bg-v2">
-          <div className="about-orb orb-a" />
-          <div className="about-orb orb-b" />
+          <HMSHeroBackground />
           <div className="hero-grid-lines" />
         </div>
         <div className="container about-hero-inner-v2">

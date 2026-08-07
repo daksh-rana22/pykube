@@ -1,12 +1,12 @@
 import '../styles/PageHero.css';
+import HMSHeroBackground from './HMSHeroBackground';
 
 export default function PageHero({ tag, title, subtitle, breadcrumb }) {
   return (
     <section className="page-hero">
       <div className="page-hero-bg">
-        <div className="page-hero-orb page-hero-orb-1" />
-        <div className="page-hero-orb page-hero-orb-2" />
-        <div className="page-hero-grid" />
+        <HMSHeroBackground />
+        <div className="hero-grid-lines" />
       </div>
       <div className="container page-hero-inner">
         {tag && <span className="page-hero-tag">{tag}</span>}

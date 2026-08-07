@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { services } from '../data/servicesData';
 import CTA from '../components/CTA';
 import '../styles/ServicesPage.css';
+import HMSHeroBackground from '../components/HMSHeroBackground';
 import * as FiIcons from 'react-icons/fi';
 import { FiUsers, FiFolder, FiMic, FiSend, FiTarget } from 'react-icons/fi';
 
@@ -23,8 +24,7 @@ export default function ServicesPage() {
       {/* ── Hero ── */}
       <section className="services-hero">
         <div className="services-hero-bg">
-          <div className="services-hero-orb orb-1" />
-          <div className="services-hero-orb orb-2" />
+          <HMSHeroBackground />
           <div className="hero-grid-lines" />
         </div>
         <div className="container services-hero-inner">

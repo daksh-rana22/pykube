@@ -253,6 +253,81 @@
 }
 .form-reset-btn:hover { background: #2563eb; color: #fff; }
 
+/* Newsletter Box in CTA Container */
+.cta-newsletter-box {
+  margin-top: 16px;
+  padding: 16px 20px;
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.cta-newsletter-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cta-newsletter-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.cta-newsletter-input {
+  flex: 1;
+  background: rgba(9, 13, 22, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 10px 14px;
+  color: #ffffff;
+  font-size: 13px;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+.cta-newsletter-input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.cta-newsletter-input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.cta-newsletter-btn {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 22px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+  transition: all 0.25s ease;
+}
+
+.cta-newsletter-btn:hover {
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.5);
+}
+
+.cta-newsletter-msg {
+  font-size: 12px;
+  color: #34d399;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .cta-inner { grid-template-columns: 1fr; gap: 40px; }

@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/ContactUsPage.css';
+import HMSHeroBackground from '../components/HMSHeroBackground';
+import { addSubscriber } from '../utils/subscriberStore';
 
 export default function ContactUsPage() {
   const [isDark, setIsDark] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [subEmail, setSubEmail] = useState('');
+  const [subMsg, setSubMsg] = useState('');
 
   useEffect(() => {
     const checkTheme = () => {
@@ -33,13 +37,21 @@ export default function ContactUsPage() {
     }
   };
 
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    if (!subEmail) return;
+    const res = addSubscriber({ email: subEmail, source: 'Contact Us Newsletter' });
+    setSubMsg(res.message);
+    if (res.success) setSubEmail('');
+    setTimeout(() => setSubMsg(''), 4000);
+  };
+
   return (
     <main className="contact-page" style={{ background: isDark ? '#0b0f17' : '#ffffff', color: isDark ? '#f8fafc' : '#0f172a' }}>
       {/* Page Hero */}
       <section className="contact-hero">
         <div className="contact-hero-bg">
-          <div className="contact-hero-orb orb-1" />
-          <div className="contact-hero-orb orb-2" />
+          <HMSHeroBackground />
           <div className="hero-grid-lines" />
         </div>
         <div className="container contact-hero-inner">
@@ -334,6 +346,82 @@ export default function ContactUsPage() {
               <p className="timeline-step-desc" style={{ color: isDark ? '#94a3b8' : '#475569' }}>
                 We host a 15-minute 1-on-1 strategy call to evaluate your background, review visa situations, and customize your study roadmap.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Newsletter Subscribe & Advantages Section ── */}
+      <section className="contact-subscribe-section">
+        <div className="container">
+          <div className="contact-subscribe-card">
+            <div className="contact-subscribe-grid">
+              
+              {/* Left Column: Form & Callout */}
+              <div className="contact-sub-left">
+                <span className="contact-sub-eyebrow">📬 STAY AHEAD IN TECH</span>
+                <h2 className="contact-sub-heading">Subscribe to PyKube Tech Newsletter</h2>
+                <p className="contact-sub-desc">
+                  Join 10,000+ tech professionals receiving exclusive weekly IT career insights, US hiring trends, and bootcamp scholarship alerts.
+                </p>
+
+                <form onSubmit={handleSubscribe} className="contact-sub-form">
+                  <div className="contact-sub-input-wrap">
+                    <input
+                      type="email"
+                      placeholder="Enter your email address..."
+                      value={subEmail}
+                      onChange={(e) => setSubEmail(e.target.value)}
+                      required
+                      className="contact-sub-input"
+                    />
+                    <button type="submit" className="contact-sub-btn">
+                      Subscribe Now 🚀
+                    </button>
+                  </div>
+                  {subMsg && <div className="contact-sub-msg">{subMsg}</div>}
+                </form>
+                <div className="contact-sub-note">🔒 No spam ever. Unsubscribe anytime with 1-click.</div>
+              </div>
+
+              {/* Right Column: Key Advantages of Subscribing */}
+              <div className="contact-sub-right">
+                <h3 className="contact-advantages-title">🌟 Key Advantages of Subscribing:</h3>
+                <div className="contact-advantages-list">
+                  <div className="advantage-item">
+                    <span className="advantage-icon">🚀</span>
+                    <div>
+                      <div className="advantage-heading">Early Access &amp; Early-Bird Discounts</div>
+                      <div className="advantage-text">Get first-look notifications for upcoming bootcamp cohorts and exclusive fee waivers up to 20% off.</div>
+                    </div>
+                  </div>
+
+                  <div className="advantage-item">
+                    <span className="advantage-icon">💼</span>
+                    <div>
+                      <div className="advantage-heading">US IT Market &amp; Salary Reports</div>
+                      <div className="advantage-text">Receive monthly data on high-demand tech stacks, US hiring trends, and salary benchmarks.</div>
+                    </div>
+                  </div>
+
+                  <div className="advantage-item">
+                    <span className="advantage-icon">🎯</span>
+                    <div>
+                      <div className="advantage-heading">Real-World Interview Solutions</div>
+                      <div className="advantage-text">Weekly curated technical interview questions, system design breakdowns, and mock client interview tips.</div>
+                    </div>
+                  </div>
+
+                  <div className="advantage-item">
+                    <span className="advantage-icon">⚡</span>
+                    <div>
+                      <div className="advantage-heading">Free Webinars &amp; Live Masterclasses</div>
+                      <div className="advantage-text">Exclusive invites to free live coding masterclasses, resume reviews, and 1-on-1 advisor Q&amp;A sessions.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>

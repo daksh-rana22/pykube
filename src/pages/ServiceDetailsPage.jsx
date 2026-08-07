@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { services } from '../data/servicesData';
 import '../styles/ServiceDetailsPage.css';
+import HMSHeroBackground from '../components/HMSHeroBackground';
 import { 
   FiTarget, FiFileText, FiSearch, FiMic, FiMessageSquare, FiZap, 
   FiGlobe, FiBarChart2, FiActivity, FiEdit3, FiPenTool, FiCompass, 
@@ -210,8 +211,7 @@ export default function ServiceDetailsPage() {
       <section className="service-details-hero">
         {/* Background orbs matching site-wide hero style */}
         <div className="sdp-hero-bg">
-          <div className="sdp-orb sdp-orb-a" />
-          <div className="sdp-orb sdp-orb-b" />
+          <HMSHeroBackground />
           <div className="hero-grid-lines" />
         </div>
         <div className="container sdp-hero-inner">

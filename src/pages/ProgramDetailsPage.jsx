@@ -8,6 +8,8 @@ import { dataAnalystRoadmap } from '../data/dataAnalystRoadmapData';
 import { dataEngineerRoadmap } from '../data/dataEngineerRoadmapData';
 import { dataScientistRoadmap } from '../data/dataScientistRoadmapData';
 import '../styles/ProgramDetailsPage.css';
+import HMSHeroBackground from '../components/HMSHeroBackground';
+import CTA from '../components/CTA';
 
 // Map program id -> roadmap data
 const roadmapMap = {
@@ -801,8 +803,6 @@ export default function ProgramDetailsPage() {
   const { id } = useParams();
   const program = programs.find(p => p.id === id);
 
-  const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
-  const [submitted, setSubmitted] = useState(false);
   const [expandedSections, setExpandedSections] = useState({ '01': true });
   const [isMobile, setIsMobile] = useState(() => window.matchMedia('(max-width: 1100px)').matches);
 
@@ -830,8 +830,6 @@ export default function ProgramDetailsPage() {
   };
 
   useEffect(() => {
-    setSubmitted(false);
-    setForm({ name: '', email: '', phone: '', message: '' });
     setExpandedSections({ '01': true });
     window.scrollTo(0, 0);
   }, [id]);
@@ -851,18 +849,6 @@ export default function ProgramDetailsPage() {
 
   const roadmap = roadmapMap[program.id] || javaRoadmap;
   const hero = heroConfig[program.id] || heroConfig['java-full-stack'];
-
-  const handleChange = e => {
-    let { name, value } = e.target;
-    if (name === 'phone') {
-      value = value.replace(/\D/g, '');
-    }
-    setForm(f => ({ ...f, [name]: value }));
-  };
-  const handleSubmit = e => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
 
   // Section icon renderer — uses section number modulo to cycle through icons
   const renderSectionIcon = (number) => {
@@ -946,17 +932,15 @@ export default function ProgramDetailsPage() {
         <section
           className="unified-intro-header"
           style={{
-            background: `${hero.gradStart}`,
+            background: '#0f1c3f',
             backgroundImage: `
-              radial-gradient(at 0% 0%, ${hero.accentColor}55 0, transparent 60%),
-              radial-gradient(at 100% 100%, ${hero.accentColor}33 0, transparent 60%),
+              radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.55) 0, transparent 60%),
+              radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.45) 0, transparent 60%),
               radial-gradient(at 50% 50%, rgba(15, 23, 42, 0.85) 0, transparent 80%)`,
           }}
         >
           <div className="hero-bg">
-            <div className="hero-orb hero-orb-1" style={{ background: `${hero.accentColor}25` }} />
-            <div className="hero-orb hero-orb-2" style={{ background: `${hero.accentColor}18` }} />
-            <div className="hero-orb hero-orb-3" style={{ background: `${hero.accentColor}12` }} />
+            <HMSHeroBackground />
             <div className="hero-grid-lines" />
           </div>
           <div className="container intro-header-inner">
@@ -1091,90 +1075,7 @@ export default function ProgramDetailsPage() {
         </section>
 
         {/* ── Consultation CTA ── */}
-        <section
-          className="java-consultation-section-redesign dark-sidebar-card"
-          style={{
-            '--accent': hero.accentColor,
-            '--accent-glow': `${hero.accentColor}25`
-          }}
-        >
-          <div className="container">
-            {submitted ? (
-              <div className="sidebar-success">
-                <div className="success-icon">✅</div>
-                <h3>Consultation Booked!</h3>
-                <p>Thanks {form.name}, we will contact you within 24 hours to schedule your session for <strong>{program.title}</strong>.</p>
-                <button className="btn-secondary-details" onClick={() => setSubmitted(false)}>Back to Form</button>
-              </div>
-            ) : (
-              <div className="consultation-layout">
-                <div className="consultation-info">
-                  <h3>Book Your Free Career Consultation</h3>
-                  <p className="form-sub-text">Speak with our career advisors to kickstart your <strong>{program.title}</strong> journey.</p>
-                  <div className="consultation-benefits">
-                    <div className="benefit-item">
-                      <span className="benefit-icon" style={{ color: hero.accentColor, background: `${hero.accentColor}15` }}>
-                        <img src="/images/illustrations/learner_icon.png" alt="Roadmap" className="benefit-icon-img" />
-                      </span>
-                      <div className="benefit-text">
-                        <h4>Personalized Career Roadmap</h4>
-                        <p>Get a custom learning path matching your experience level and career goals.</p>
-                      </div>
-                    </div>
-                    <div className="benefit-item">
-                      <span className="benefit-icon" style={{ color: hero.accentColor, background: `${hero.accentColor}15` }}>💼</span>
-                      <div className="benefit-text">
-                        <h4>US IT Job Market Guidance</h4>
-                        <p>Learn about current hiring trends, salary expectations, and placement support.</p>
-                      </div>
-                    </div>
-                    <div className="benefit-item">
-                      <span className="benefit-icon" style={{ color: hero.accentColor, background: `${hero.accentColor}15` }}>⚡</span>
-                      <div className="benefit-text">
-                        <h4>1-on-1 Advisor Session</h4>
-                        <p>Discuss schedules, curriculum deep-dives, and financial aid with our experts.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="consultation-form-wrap">
-                  <form onSubmit={handleSubmit} className="sidebar-form">
-                    <div className="sidebar-field">
-                      <label>Full Name *</label>
-                      <input type="text" name="name" placeholder="John Smith" value={form.name} onChange={handleChange} required />
-                    </div>
-                    <div className="sidebar-field">
-                      <label>Email Address *</label>
-                      <input type="email" name="email" placeholder="john@example.com" value={form.email} onChange={handleChange} required />
-                    </div>
-                    <div className="sidebar-field">
-                      <label>Phone Number *</label>
-                      <input
-                        type="tel"
-                        name="phone"
-                        placeholder="5550000000"
-                        value={form.phone}
-                        onChange={handleChange}
-                        pattern="[0-9]{10}"
-                        inputMode="numeric"
-                        maxLength={10}
-                        title="Please enter a 10-digit phone number"
-                        required
-                      />
-                    </div>
-                    <div className="sidebar-field">
-                      <label>Message (Optional)</label>
-                      <textarea name="message" placeholder="Ask about schedules, pricing, job placement support..." rows={3} value={form.message} onChange={handleChange} />
-                    </div>
-                    <button type="submit" className="sidebar-submit-btn" style={{ backgroundColor: hero.accentColor }}>
-                      📅 Reserve My Free Session
-                    </button>
-                  </form>
-                </div>
-              </div>
-            )}
-          </div>
-        </section>
+        <CTA />
       </div>
     </main>
   );

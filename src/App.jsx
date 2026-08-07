@@ -11,11 +11,15 @@ import AboutUsPage from './pages/AboutUsPage';
 import ContactUsPage from './pages/ContactUsPage';
 import CareersPage from './pages/CareersPage';
 import InterviewPage from './pages/InterviewPage';
+import AdminBroadcastPage from './pages/AdminBroadcastPage';
 import ScrollToAnchor from './components/ScrollToAnchor';
+import GlobalParticleBackground from './components/GlobalParticleBackground';
 
 function App() {
   return (
     <Router>
+      {/* Global Interactive Particle Network Canvas */}
+      <GlobalParticleBackground />
       {/* Handles smooth scrolling to hash anchors across routes */}
       <ScrollToAnchor />
       <Navbar />
@@ -30,6 +34,8 @@ function App() {
         <Route path="/contact" element={<ContactUsPage />} />
         <Route path="/careers" element={<CareersPage />} />
         <Route path="/interview" element={<InterviewPage />} />
+        <Route path="/admin" element={<AdminBroadcastPage />} />
+        <Route path="/admin/broadcast" element={<AdminBroadcastPage />} />
       </Routes>
       <Footer />
     </Router>

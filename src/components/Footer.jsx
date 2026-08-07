@@ -24,6 +24,7 @@ const support = [
   { label: 'Career Consultation', href: '/contact' },
   { label: 'FAQ', href: '/#faq' },
   { label: 'Interview Q&A', href: '/interview' },
+  { label: 'Admin Portal', href: '/admin' },
 ];
 
 const socials = [
@@ -50,6 +51,7 @@ export default function Footer() {
             <p className="footer-about">
               PyKube Technologies is a US-based IT training &amp; placement company. We help candidates build successful careers in the USA through job-oriented bootcamps, real-time projects, and dedicated placement support.
             </p>
+
             <div className="footer-contact-info">
               <div className="fc-item">
                 <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

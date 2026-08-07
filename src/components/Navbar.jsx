@@ -2,7 +2,7 @@ import '../styles/Navbar.css';
 import { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import logo from '../assets/logo.png';
-import { FiTrendingUp, FiBriefcase, FiPenTool, FiGlobe, FiCalendar, FiSun, FiMoon } from 'react-icons/fi';
+import { FiTrendingUp, FiBriefcase, FiPenTool, FiGlobe, FiCalendar, FiSun, FiMoon, FiShield } from 'react-icons/fi';
 
 const navLinks = [
   { label: 'Home', href: '/#home' },
@@ -22,6 +22,9 @@ const navLinks = [
     label: 'Services',
     href: '/services',
     dropdown: [
+      { label: 'IT Consulting', icon: '/images/illustrations/cloud_icon.png', sub: 'Cloud & enterprise infrastructure advisory', href: '/services/it-consulting' },
+      { label: 'Corporate Training', icon: '/images/illustrations/learner_icon.png', sub: 'Upskill your workforce with hands-on labs', href: '/services/corporate-training' },
+      { label: 'Staff Augmentation', icon: '/images/illustrations/skills_icon.png', sub: 'Hire pre-vetted senior software engineers', href: '/services/staff-augmentation' },
       { label: 'Interview Preparation', icon: '/images/illustrations/partners_icon.png', sub: 'Practice interviews & get the right hire guidance', href: '/services/interview-preparation' },
       { label: 'Sales & Marketing', icon: <FiTrendingUp />, sub: 'Lead generation, revenue & business growth', href: '/services/sales-marketing' },
       { label: 'Job Assistance', icon: <FiBriefcase />, sub: '100% job assistance & professional career guidance', href: '/services/job-assistance' },
@@ -57,33 +60,10 @@ export default function Navbar() {
     setActiveDropdown(label);
   };
 
-  // Synchronize dropdown & navbar background to match the active page/hero header color
+  // Synchronize dropdown & navbar background to match the active page/hero header color (#0f1c3f)
   useEffect(() => {
     const updateNavBg = () => {
-      const path = location.pathname;
-      if (path.includes('data-engineer')) {
-        document.documentElement.style.setProperty('--nav-bg', '#1a120a');
-      } else if (path.includes('data-analyst')) {
-        document.documentElement.style.setProperty('--nav-bg', '#0a1f18');
-      } else if (path.includes('data-scientist')) {
-        document.documentElement.style.setProperty('--nav-bg', '#1a0a0a');
-      } else if (path.includes('qa-automation')) {
-        document.documentElement.style.setProperty('--nav-bg', '#160f33');
-      } else if (path.includes('python-developer')) {
-        document.documentElement.style.setProperty('--nav-bg', '#0f2233');
-      } else if (path.includes('java-full-stack')) {
-        document.documentElement.style.setProperty('--nav-bg', '#0f1c3f');
-      } else {
-        const topHero = document.querySelector('.unified-intro-header, .contact-hero, .interview-hero, .hero, .page-hero');
-        if (topHero) {
-          const bg = window.getComputedStyle(topHero).backgroundColor;
-          if (bg && bg !== 'rgba(0, 0, 0, 0)' && bg !== 'transparent') {
-            document.documentElement.style.setProperty('--nav-bg', bg);
-            return;
-          }
-        }
-        document.documentElement.style.setProperty('--nav-bg', '#090e28');
-      }
+      document.documentElement.style.setProperty('--nav-bg', 'rgba(15, 28, 63, 0.96)');
     };
 
     updateNavBg();
@@ -276,6 +256,9 @@ export default function Navbar() {
             ))}
           </nav>
           <a href="/contact" className="btn-primary navbar-cta">Book Free Consultation</a>
+          <a href="/admin" className="navbar-admin-btn" title="Admin Portal">
+            <FiShield style={{ fontSize: '14px' }} /> Admin
+          </a>
           <button
             className="theme-toggle-btn"
             onClick={toggleTheme}
