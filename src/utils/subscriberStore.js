@@ -1,4 +1,13 @@
-// LocalStorage utility for managing website newsletter subscribers and email broadcast logs
+// Hybrid Client Store: Performs immediate local updates and syncs with backend API
+import {
+  subscribeNewsletterApi,
+  fetchSubscribersApi,
+  addSubscriberApi,
+  deleteSubscriberApi,
+  toggleSubscriberStatusApi,
+  sendBroadcastApi,
+  fetchBroadcastHistoryApi,
+} from '../api/client';
 
 const SUBSCRIBERS_KEY = 'pykube_subscribers';
 const BROADCAST_HISTORY_KEY = 'pykube_broadcast_history';
@@ -35,15 +44,40 @@ export const getSubscribers = () => {
     }
     return JSON.parse(data);
   } catch (err) {
-    console.error('Failed to load subscribers from localStorage', err);
     return DEFAULT_SUBSCRIBERS;
   }
 };
 
-export const addSubscriber = ({ email, name = '', source = 'Website Subscription' }) => {
+export const syncSubscribersFromApi = async () => {
+  const res = await fetchSubscribersApi('All');
+  if (res && res.success && Array.isArray(res.subscribers)) {
+    localStorage.setItem(SUBSCRIBERS_KEY, JSON.stringify(res.subscribers));
+    return res.subscribers;
+  }
+  return getSubscribers();
+};
+
+export const addSubscriber = async ({ email, name = '', source = 'Website Subscription' }) => {
   const cleanEmail = email.trim().toLowerCase();
   if (!cleanEmail) return { success: false, message: 'Email address is required.' };
 
+  // 1. Try Backend API first
+  const apiRes = await subscribeNewsletterApi({ email: cleanEmail, name, source });
+  if (apiRes) {
+    if (apiRes.success && apiRes.subscriber) {
+      const current = getSubscribers();
+      const existsIdx = current.findIndex(s => s.email.toLowerCase() === cleanEmail);
+      if (existsIdx >= 0) {
+        current[existsIdx] = apiRes.subscriber;
+      } else {
+        current.unshift(apiRes.subscriber);
+      }
+      localStorage.setItem(SUBSCRIBERS_KEY, JSON.stringify(current));
+    }
+    return apiRes;
+  }
+
+  // 2. Fallback to LocalStorage
   const current = getSubscribers();
   const exists = current.find(s => s.email.toLowerCase() === cleanEmail);
 
@@ -70,14 +104,16 @@ export const addSubscriber = ({ email, name = '', source = 'Website Subscription
   return { success: true, message: 'Thank you for subscribing to PyKube!', subscriber: newSub };
 };
 
-export const removeSubscriber = (idOrEmail) => {
+export const removeSubscriber = async (idOrEmail) => {
+  await deleteSubscriberApi(idOrEmail);
   const current = getSubscribers();
   const updated = current.filter(s => s.id !== idOrEmail && s.email.toLowerCase() !== idOrEmail.toLowerCase());
   localStorage.setItem(SUBSCRIBERS_KEY, JSON.stringify(updated));
   return updated;
 };
 
-export const toggleSubscriberStatus = (id) => {
+export const toggleSubscriberStatus = async (id) => {
+  await toggleSubscriberStatusApi(id);
   const current = getSubscribers();
   const updated = current.map(s => {
     if (s.id === id) {
@@ -102,6 +138,23 @@ export const getBroadcastHistory = () => {
   }
 };
 
+export const syncBroadcastHistoryFromApi = async () => {
+  const res = await fetchBroadcastHistoryApi();
+  if (res && res.success && Array.isArray(res.history)) {
+    try {
+      const sanitized = res.history.map(item => ({
+        ...item,
+        imageUrl: item.imageUrl && item.imageUrl.startsWith('data:image/') ? '' : item.imageUrl,
+      }));
+      localStorage.setItem(BROADCAST_HISTORY_KEY, JSON.stringify(sanitized));
+    } catch (err) {
+      console.warn('LocalStorage quota limit reached, keeping history in memory.');
+    }
+    return res.history;
+  }
+  return getBroadcastHistory();
+};
+
 export const saveBroadcastLog = (broadcastEntry) => {
   const history = getBroadcastHistory();
   const newEntry = {
@@ -109,9 +162,24 @@ export const saveBroadcastLog = (broadcastEntry) => {
     sentAt: new Date().toISOString(),
     status: 'Completed',
     ...broadcastEntry,
+    // Do not store huge base64 strings in localStorage (they exceed browser 5MB limit)
+    imageUrl: broadcastEntry.imageUrl && broadcastEntry.imageUrl.startsWith('data:image/') ? '' : (broadcastEntry.imageUrl || ''),
+    hasImage: Boolean(broadcastEntry.imageUrl || broadcastEntry.hasImage),
   };
-  const updated = [newEntry, ...history];
-  localStorage.setItem(BROADCAST_HISTORY_KEY, JSON.stringify(updated));
+  const updated = [newEntry, ...history].slice(0, 30); // Keep latest 30 logs
+
+  try {
+    localStorage.setItem(BROADCAST_HISTORY_KEY, JSON.stringify(updated));
+  } catch (err) {
+    console.warn('LocalStorage quota exceeded. Trimming older logs.');
+    try {
+      // Fallback: Keep only 5 lightweight logs
+      const trimmed = updated.slice(0, 5).map(l => ({ ...l, imageUrl: '', message: (l.message || '').substring(0, 100) }));
+      localStorage.setItem(BROADCAST_HISTORY_KEY, JSON.stringify(trimmed));
+    } catch (e) {
+      // Ignore if still fails
+    }
+  }
   return updated;
 };
 
@@ -120,5 +188,10 @@ export const getAdminPasscode = () => {
 };
 
 export const setAdminPasscode = (newCode) => {
-  localStorage.setItem(ADMIN_PASSCODE_KEY, newCode);
+  try {
+    localStorage.setItem(ADMIN_PASSCODE_KEY, newCode);
+  } catch (e) {
+    // Ignore
+  }
 };
+

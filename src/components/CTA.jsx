@@ -1,12 +1,9 @@
 import { useState } from 'react';
 import '../styles/CTA.css';
-import { addSubscriber } from '../utils/subscriberStore';
 
 export default function CTA() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
-  const [subEmail, setSubEmail] = useState('');
-  const [subMsg, setSubMsg] = useState('');
 
   const handleChange = e => {
     let { name, value } = e.target;
@@ -21,14 +18,6 @@ export default function CTA() {
     setSubmitted(true);
   };
 
-  const handleSubscribe = e => {
-    e.preventDefault();
-    if (!subEmail) return;
-    const res = addSubscriber({ email: subEmail, source: 'CTA Newsletter' });
-    setSubMsg(res.message);
-    if (res.success) setSubEmail('');
-    setTimeout(() => setSubMsg(''), 4000);
-  };
 
   return (
     <section className="cta-section" id="contact">
@@ -77,26 +66,6 @@ export default function CTA() {
             </div>
           </div>
 
-          {/* Newsletter Subscription Box */}
-          <div className="cta-newsletter-box">
-            <div className="cta-newsletter-title">
-              📬 Subscribe to Tech Newsletter
-            </div>
-            <form onSubmit={handleSubscribe} className="cta-newsletter-form">
-              <input
-                type="email"
-                placeholder="Enter your email..."
-                value={subEmail}
-                onChange={(e) => setSubEmail(e.target.value)}
-                required
-                className="cta-newsletter-input"
-              />
-              <button type="submit" className="cta-newsletter-btn">
-                Subscribe
-              </button>
-            </form>
-            {subMsg && <div className="cta-newsletter-msg">{subMsg}</div>}
-          </div>
         </div>
 
         {/* Right – Form */}

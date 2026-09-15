@@ -24,7 +24,6 @@ const support = [
   { label: 'Career Consultation', href: '/contact' },
   { label: 'FAQ', href: '/#faq' },
   { label: 'Interview Q&A', href: '/interview' },
-  { label: 'Admin Portal', href: '/admin' },
 ];
 
 const socials = [

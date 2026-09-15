@@ -2,7 +2,7 @@ import '../styles/Navbar.css';
 import { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import logo from '../assets/logo.png';
-import { FiTrendingUp, FiBriefcase, FiPenTool, FiGlobe, FiCalendar, FiSun, FiMoon, FiShield } from 'react-icons/fi';
+import { FiTrendingUp, FiBriefcase, FiPenTool, FiGlobe, FiCalendar, FiSun, FiMoon } from 'react-icons/fi';
 
 const navLinks = [
   { label: 'Home', href: '/#home' },
@@ -256,9 +256,6 @@ export default function Navbar() {
             ))}
           </nav>
           <a href="/contact" className="btn-primary navbar-cta">Book Free Consultation</a>
-          <a href="/admin" className="navbar-admin-btn" title="Admin Portal">
-            <FiShield style={{ fontSize: '14px' }} /> Admin
-          </a>
           <button
             className="theme-toggle-btn"
             onClick={toggleTheme}

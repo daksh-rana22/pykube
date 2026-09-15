@@ -1,23 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import {
   getSubscribers,
+  syncSubscribersFromApi,
   addSubscriber,
   removeSubscriber,
   toggleSubscriberStatus,
   getBroadcastHistory,
+  syncBroadcastHistoryFromApi,
   saveBroadcastLog,
-  getAdminPasscode,
-  setAdminPasscode,
 } from '../utils/subscriberStore';
-import HMSHeroBackground from '../components/HMSHeroBackground';
+import { sendBroadcastApi } from '../api/client';
 import '../styles/AdminBroadcastPage.css';
 import {
   FiMail,
   FiUsers,
   FiSend,
   FiCheckCircle,
-  FiLock,
-  FiUnlock,
   FiPlus,
   FiTrash2,
   FiDownload,
@@ -26,7 +24,6 @@ import {
   FiSearch,
   FiX,
   FiClock,
-  FiZap,
 } from 'react-icons/fi';
 
 const PRESET_TEMPLATES = [
@@ -101,12 +98,6 @@ export default function AdminBroadcastPage() {
     return () => observer.disconnect();
   }, []);
 
-  // Authentication State
-  const [isAuthenticated, setIsAuthenticated] = useState(() => {
-    return sessionStorage.getItem('pykube_admin_authed') === 'true';
-  });
-  const [passcodeInput, setPasscodeInput] = useState('');
-  const [passcodeError, setPasscodeError] = useState('');
 
   // Data States
   const [subscribers, setSubscribers] = useState([]);
@@ -172,8 +163,13 @@ export default function AdminBroadcastPage() {
   const [toastMessage, setToastMessage] = useState('');
 
   useEffect(() => {
+    // Initial local load
     setSubscribers(getSubscribers());
     setBroadcastHistory(getBroadcastHistory());
+
+    // Async sync from API if available
+    syncSubscribersFromApi().then(subs => setSubscribers(subs));
+    syncBroadcastHistoryFromApi().then(hist => setBroadcastHistory(hist));
   }, []);
 
   const triggerToast = (msg) => {
@@ -181,24 +177,6 @@ export default function AdminBroadcastPage() {
     setTimeout(() => setToastMessage(''), 4000);
   };
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    const correctCode = getAdminPasscode();
-    if (passcodeInput === correctCode) {
-      setIsAuthenticated(true);
-      sessionStorage.setItem('pykube_admin_authed', 'true');
-      setPasscodeError('');
-      triggerToast('Welcome to Admin Broadcast Portal!');
-    } else {
-      setPasscodeError('Invalid Passcode! Please try again.');
-    }
-  };
-
-  const handleLock = () => {
-    setIsAuthenticated(false);
-    sessionStorage.removeItem('pykube_admin_authed');
-    setPasscodeInput('');
-  };
 
   const handleApplyTemplate = (tpl) => {
     setSubject(tpl.subject);
@@ -246,40 +224,62 @@ export default function AdminBroadcastPage() {
     }
 
     setIsSending(true);
-    setSendProgress(0);
-    setSendLogs([]);
+    setSendProgress(40);
+    setSendLogs([`[${new Date().toLocaleTimeString()}] Dispatching email broadcast via mail server...`]);
 
-    const total = targetSubscribers.length;
-    const logs = [];
+    try {
+      // 1. Dispatch via backend API
+      const apiRes = await sendBroadcastApi({
+        subject,
+        message,
+        imageUrl: imagePreview || imageUrl || '',
+        senderName,
+        recipientFilter,
+      });
 
-    for (let i = 0; i < total; i++) {
-      const sub = targetSubscribers[i];
-      await new Promise((res) => setTimeout(res, 400)); // Smooth simulation delay
-      const pct = Math.round(((i + 1) / total) * 100);
-      setSendProgress(pct);
-      logs.push(`[${new Date().toLocaleTimeString()}] Sent email to ${sub.email}`);
-      setSendLogs([...logs]);
+      if (apiRes && !apiRes.success) {
+        alert(apiRes.error || 'Failed to dispatch email broadcast. Please verify SMTP credentials.');
+        setIsSending(false);
+        return;
+      }
+
+      const total = targetSubscribers.length;
+      const logs = targetSubscribers.map(sub => `[${new Date().toLocaleTimeString()}] Delivered to ${sub.email}`);
+      setSendLogs(logs);
+      setSendProgress(100);
+
+      // 2. Save history
+      const newLog = {
+        subject,
+        sender: senderName,
+        recipientsCount: total,
+        message,
+        imageUrl: imagePreview && imagePreview.startsWith('data:image/') ? '' : (imageUrl || ''),
+        hasImage: Boolean(imagePreview || imageUrl),
+      };
+      const updatedHistory = saveBroadcastLog(newLog);
+      setBroadcastHistory(updatedHistory);
+
+      triggerToast(`🎉 Broadcast successfully dispatched to ${total} subscriber(s)!`);
+
+      // 3. Clear composer form
+      setSubject('');
+      setMessage('');
+      handleRemoveImage();
+    } catch (err) {
+      console.error('Error during broadcast dispatch:', err);
+      alert('An error occurred while sending: ' + err.message);
+    } finally {
+      setIsSending(false);
+      setTimeout(() => {
+        setSendProgress(0);
+      }, 1500);
     }
-
-    // Save history
-    const newLog = {
-      subject,
-      sender: senderName,
-      recipientsCount: total,
-      message,
-      imageUrl: imagePreview || imageUrl || '',
-      hasImage: Boolean(imagePreview || imageUrl),
-    };
-    const updatedHistory = saveBroadcastLog(newLog);
-    setBroadcastHistory(updatedHistory);
-
-    setIsSending(false);
-    triggerToast(`🎉 Broadcast sent successfully to ${total} subscribers!`);
   };
 
-  const handleAddSubscriberSubmit = (e) => {
+  const handleAddSubscriberSubmit = async (e) => {
     e.preventDefault();
-    const res = addSubscriber({ email: newSubEmail, name: newSubName, source: 'Admin Portal' });
+    const res = await addSubscriber({ email: newSubEmail, name: newSubName, source: 'Admin Portal' });
     if (res.success) {
       setSubscribers(getSubscribers());
       setShowAddModal(false);
@@ -291,16 +291,16 @@ export default function AdminBroadcastPage() {
     }
   };
 
-  const handleRemoveSub = (id) => {
+  const handleRemoveSub = async (id) => {
     if (window.confirm('Are you sure you want to remove this subscriber?')) {
-      const updated = removeSubscriber(id);
+      const updated = await removeSubscriber(id);
       setSubscribers(updated);
       triggerToast('Subscriber removed.');
     }
   };
 
-  const handleToggleSub = (id) => {
-    const updated = toggleSubscriberStatus(id);
+  const handleToggleSub = async (id) => {
+    const updated = await toggleSubscriberStatus(id);
     setSubscribers(updated);
   };
 
@@ -328,53 +328,6 @@ export default function AdminBroadcastPage() {
   };
 
   const activeSubCount = subscribers.filter((s) => s.status === 'Active').length;
-
-  // Passcode Lock Screen when not authenticated
-  if (!isAuthenticated) {
-    return (
-      <main className="admin-page">
-        <div className="admin-modal-overlay">
-          <div className="admin-passcode-card">
-            <div className="passcode-icon">
-              <FiLock />
-            </div>
-            <h2 className="passcode-title">Admin Broadcast Portal</h2>
-            <p className="passcode-desc">
-              Enter admin passcode to access newsletter subscriber management and email broadcast control.
-            </p>
-            <div className="passcode-hint">
-              🔑 Passcode Required (Default: <strong>admin123</strong>)
-            </div>
-
-            <form onSubmit={handleLogin}>
-              <div className="admin-form-group">
-                <input
-                  type="password"
-                  className="admin-input"
-                  placeholder="Enter passcode..."
-                  value={passcodeInput}
-                  onChange={(e) => setPasscodeInput(e.target.value)}
-                  autoFocus
-                  required
-                />
-              </div>
-
-              {passcodeError && (
-                <div style={{ color: '#ef4444', fontSize: '12.5px', marginBottom: '16px', fontWeight: '600' }}>
-                  {passcodeError}
-                </div>
-              )}
-
-              <button type="submit" className="send-btn-primary">
-                Unlock Portal <FiUnlock />
-              </button>
-            </form>
-          </div>
-        </div>
-      </main>
-    );
-  }
-
   return (
     <main className="admin-page">
 
@@ -387,10 +340,6 @@ export default function AdminBroadcastPage() {
               Manage website subscribers, compose custom email announcements with photo attachments, and send broadcasts to your audience.
             </p>
           </div>
-
-          <button className="admin-lock-btn" onClick={handleLock}>
-            <FiLock /> Lock Portal
-          </button>
         </div>
       </section>
 

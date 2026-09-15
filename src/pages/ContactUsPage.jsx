@@ -37,10 +37,10 @@ export default function ContactUsPage() {
     }
   };
 
-  const handleSubscribe = (e) => {
+  const handleSubscribe = async (e) => {
     e.preventDefault();
     if (!subEmail) return;
-    const res = addSubscriber({ email: subEmail, source: 'Contact Us Newsletter' });
+    const res = await addSubscriber({ email: subEmail, source: 'Contact Us Newsletter' });
     setSubMsg(res.message);
     if (res.success) setSubEmail('');
     setTimeout(() => setSubMsg(''), 4000);
